@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: receiver
+  name: receiver
+  namespace: openshift-github-alert-receiver
+spec:
+  ports:
+    - name: alert-receiver
+      port: 9393
+      protocol: TCP
+      targetPort: 9393
+    - name: metrics
+      port: 9990
+      protocol: TCP
+      targetPort: 9990
+  selector:
+    app: receiver
+  sessionAffinity: None
+  type: ClusterIP

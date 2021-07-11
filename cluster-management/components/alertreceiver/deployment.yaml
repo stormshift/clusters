@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: receiver
+  namespace: openshift-github-alert-receiver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: receiver
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: receiver
+    spec:
+      containers:
+        - args:
+            - -org
+            - rbo
+            - -repo
+            - sandbox
+            - -authtoken-file
+            - /etc/github-token/GITHUB_TOKEN
+            - -alertlabel
+            - prometheus/alert
+            - -label-on-resolved
+            - prometheus/resolved
+            - -label
+            - cluster/ocp4
+          image: quay.io/stormshift/alertmanager-github-receiver:master
+          imagePullPolicy: IfNotPresent
+          name: container
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /etc/github-token/
+              name: github-token
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: github-token
+          secret:
+            defaultMode: 420
+            secretName: github-token

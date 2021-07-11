@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: github-token
+  namespace: openshift-github-alert-receiver
+spec:
+  encryptedData:
+    GITHUB_TOKEN: AgARV+1H1IxXmk5cga1aXPBV65gv2kaUKF3f5/4FPUevadNju+w6oHwlzzAIxffn8vIm6fMo/JvlwzEB/Jm8+y1fiwotP0l+banJQhziErmNCrQV4uLDQfHXKiaNVIK/ZCpsPHzjvqNUD+yBWgHpOOapy6RPBDsyHC+QIlyFu0p/r6S+IK2ImG88gC2TcuuzenjVAYodNhQgeFsSLD9NOLUP5v7Uc2OZTlzn7h+ZWx9dhsB7A5gGFiPGCeS8zUJ+VUAvX+rTSz+wu6mks7vK1jESg2fPBtKxRu00g9Zu66J6O+cgrSM+dXemXTdRaHGrqzG6pQo8/NKXjXRFii4dJBnpr4P1Efl6nEPb/27snISrEJjZ9sidhmD+olG2Z30lqYI1Kxeap3aTzY6JdI4AG6pN/OoLBOSfmllfnlLbh1ccvrg+xMlnrHYhdID6/DZoFQGp7o292FTpJ+KK5o3KQR1Dg8h/fU0IaWwAnmpyGEHgOdNb6Hx8NO+oUX9W+VqKkoccXPZsnilEhC/MmQOCig5Z4W2u7vud1p+d2cF9QUShZVswjn2wNTan7XeQGPZ9/6oOAK48VQgF65VgDlmijkHDfb6qte7wrBGzzG0IBsYOKKhDamstBe2Bvwgbe4bu0dIJCG7mjGVVQSND+7hRB/7jjdWg5Rg2lCOKS5ovlkEv8RAKrWO1bLRP63nD+q90OOFiExAsjEmvW3Kpf9vDnobuH/OlSutHWM7Mklf5a6W4DsCBJWqvOO7P
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: github-token
+      namespace: openshift-github-alert-receiver
+

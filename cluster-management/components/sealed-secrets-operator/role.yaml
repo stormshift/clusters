@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: sealed-secrets-controller
+  namespace: sealed-secrets
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+rules:
+- apiGroups:
+  - "bitnami.com"
+  resources:
+  - "sealedsecretcontrollers"
+  verbs:
+  - "*"
