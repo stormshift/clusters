@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-configuration
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          argocd.argoproj.io/secret-type: cluster
+  template:
+    metadata:
+      name: "{{name}}"
+    spec:
+      project: cluster-configuration
+      source:
+        repoURL: https://github.com/stormshift/clusters.git
+        targetRevision: HEAD
+        path: "configuration/overlays/{{name}}"
+      destination:
+        server: "{{server}}"
