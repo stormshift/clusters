@@ -7,6 +7,8 @@ spec:
   - clusters:
       selector:
         matchLabels:
+          # Select only remote clusters
+          # https://argocd-applicationset.readthedocs.io/en/stable/Generators/#deploying-to-the-local-cluster
           argocd.argoproj.io/secret-type: cluster
   template:
     metadata:
