@@ -1,7 +1,7 @@
 apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfig
 metadata:
-  name: 50-worker-fix-ipi-rwn
+  name: 50-remove-keepalived
   labels:
     machineconfiguration.openshift.io/role: worker
 spec:
