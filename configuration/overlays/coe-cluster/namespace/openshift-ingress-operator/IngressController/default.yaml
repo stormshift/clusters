@@ -10,6 +10,10 @@ spec:
   endpointPublishingStrategy:
     type: HostNetwork
   nodePlacement:
+    tolerations:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+      operator: Exists
     nodeSelector:
       matchLabels:
-        node-role.kubernetes.io/maste: ""
+        node-role.kubernetes.io/master: ""
