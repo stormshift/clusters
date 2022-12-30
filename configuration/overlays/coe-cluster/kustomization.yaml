@@ -5,4 +5,5 @@ kind: Kustomization
 resources:
   - ../common/
   - MachineConfig/50-remove-keepalived.yaml
+  - namespace/openshift-ingress-operator/IngressController/default.yaml
 
