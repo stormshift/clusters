@@ -4,6 +4,11 @@ kind: Kustomization
 
 resources:
   - ../common/
+  # Move keepalived and ingress on master nodes only
   - MachineConfig/50-remove-keepalived.yaml
   - namespace/openshift-ingress-operator/IngressController/default.yaml
-
+  # Rollout Red Hat Root CA
+  #  subject=C = US, ST = North Carolina, L = Raleigh, O = "Red Hat, Inc.", OU = Red Hat IT, CN = Red Hat IT Root CA, emailAddress = infosec@redhat.com
+  #  issuer=C = US, ST = North Carolina, L = Raleigh, O = "Red Hat, Inc.", OU = Red Hat IT, CN = Red Hat IT Root CA, emailAddress = infosec@redhat.com
+  - namespace/openshift-config/ConfigMap/user-ca-bundle-v1.yaml
+  - cluster-scope/Proxy/cluster.yaml
