@@ -4,4 +4,5 @@ kind: Kustomization
 
 resources:
   - ../common/
+  - MachineConfig/50-remove-keepalived.yaml
 
