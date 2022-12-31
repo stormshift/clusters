@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-configuration
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: configuration/overlays/coe-cluster
+    repoURL: https://github.com/stormshift/clusters.git
+    targetRevision: main
