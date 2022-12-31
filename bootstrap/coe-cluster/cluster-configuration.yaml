@@ -11,7 +11,3 @@ spec:
     path: configuration/overlays/coe-cluster
     repoURL: https://github.com/stormshift/clusters.git
     targetRevision: main
-  ignoreDifferences:
-  - kind: ConfigMap
-    name: openshift-user-ca
-    namespace: openshift-controller-manager

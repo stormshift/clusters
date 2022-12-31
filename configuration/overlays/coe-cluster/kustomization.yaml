@@ -12,3 +12,6 @@ resources:
   #  issuer=C = US, ST = North Carolina, L = Raleigh, O = "Red Hat, Inc.", OU = Red Hat IT, CN = Red Hat IT Root CA, emailAddress = infosec@redhat.com
   - namespace/openshift-config/ConfigMap/user-ca-bundle-v1.yaml
   - cluster-scope/Proxy/cluster.yaml
+  # This is managed by OpenShift Operator, I don't know how to solve without an
+  # out of sync error.
+  - namespace/openshift-controller-manager/openshift-user-ca.yaml
