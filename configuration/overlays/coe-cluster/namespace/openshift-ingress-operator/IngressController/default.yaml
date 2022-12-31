@@ -6,6 +6,8 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
 spec:
+  defaultCertificate:
+    name: ocp-coe-cert
   replicas: 3
   endpointPublishingStrategy:
     type: HostNetwork
