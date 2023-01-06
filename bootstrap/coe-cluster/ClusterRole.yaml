@@ -9,3 +9,11 @@ rules:
   - nodes
   verbs:
   - patch
+- apiGroups:
+  - metallb.io
+  resources:
+  - metallbs
+  - ipaddresspools
+  verbs:
+  - patch
+  - create
