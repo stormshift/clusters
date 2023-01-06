@@ -23,3 +23,6 @@ resources:
   - cluster-scope/Node/inf7.yaml
   # Scheduler
   - cluster-scope/Scheduler/cluster.yaml
+
+components:
+  - ../../components/metallb
