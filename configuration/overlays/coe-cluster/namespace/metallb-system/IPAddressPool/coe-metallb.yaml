@@ -1,0 +1,9 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: coe-metallb
+  namespace: metallb-system
+spec:
+  addresses:
+  - 10.32.98.150-10.32.98.179
+  autoAssign: true

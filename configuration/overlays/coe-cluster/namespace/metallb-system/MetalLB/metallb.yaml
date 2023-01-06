@@ -1,0 +1,14 @@
+apiVersion: metallb.io/v1beta1
+kind: MetalLB
+metadata:
+  name: metallb
+  namespace: metallb-system
+spec:
+  logLevel: info
+  nodeSelector:
+    matchLabels:
+      node-role.kubernetes.io/master: ""
+  speakerTolerations:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+      operator: Exists

@@ -24,5 +24,8 @@ resources:
   # Scheduler
   - cluster-scope/Scheduler/cluster.yaml
 
+  # MetalLB
+  - namespace/metallb-system/MetalLB/metallb.yaml
+  - namespace/metallb-system/IPAddressPool/coe-metallb.yaml
 components:
   - ../../components/metallb
