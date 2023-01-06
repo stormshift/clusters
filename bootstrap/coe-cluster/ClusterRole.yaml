@@ -17,3 +17,10 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - nmstate.io
+  resources:
+  - nodenetworkconfigurationpolicies
+  verbs:
+  - patch
+  - create
