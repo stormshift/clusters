@@ -16,3 +16,6 @@ resources:
   # This is managed by OpenShift Operator, I don't know how to solve without an
   # out of sync error.
   - namespace/openshift-controller-manager/openshift-user-ca.yaml
+  # NTP Configuration
+  - cluster-scope/MachineConfig/50-masters-chrony-configuration.yaml
+  - cluster-scope/MachineConfig/50-workers-chrony-configuration.yaml
