@@ -19,3 +19,5 @@ resources:
   # NTP Configuration
   - cluster-scope/MachineConfig/50-masters-chrony-configuration.yaml
   - cluster-scope/MachineConfig/50-workers-chrony-configuration.yaml
+  # Node configuratio / labeling
+  - cluster-scope/Node/inf7.yaml
