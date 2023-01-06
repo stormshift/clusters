@@ -21,3 +21,5 @@ resources:
   - cluster-scope/MachineConfig/50-workers-chrony-configuration.yaml
   # Node configuratio / labeling
   - cluster-scope/Node/inf7.yaml
+  # Scheduler
+  - cluster-scope/Scheduler/cluster.yaml
