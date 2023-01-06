@@ -15,8 +15,7 @@ spec:
         - name: enp4s0f1
       description: Linux Brige info COE Network via enp4s0f1
       ipv4:
-        dhcp: false
-        enabled: true
+        enabled: false
       name: coe-bridge
       state: up
       type: linux-bridge
