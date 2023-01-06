@@ -27,5 +27,10 @@ resources:
   # MetalLB
   - namespace/metallb-system/MetalLB/metallb.yaml
   - namespace/metallb-system/IPAddressPool/coe-metallb.yaml
+
+  # Networking
+  #    oc api-resources  --api-group='nmstate.io'
+  - NodeNetworkConfigurationPolicy/coe-bridge-via-enp4s0f1.yaml
+
 components:
   - ../../components/metallb
