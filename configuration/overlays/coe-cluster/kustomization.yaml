@@ -30,9 +30,10 @@ resources:
 
   # Networking
   #    oc api-resources  --api-group='nmstate.io'
+  - ../../operators/nmstate
   - cluster-scope/NMState/nmstate.yaml
   - cluster-scope/NodeNetworkConfigurationPolicy/coe-bridge-via-enp4s0f1.yaml
 
 components:
   - ../../components/metallb
-  - ../../components/nmstate
+  # - ../../components/nmstate
