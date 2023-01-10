@@ -22,6 +22,7 @@ resources:
   # Node configuratio / labeling
   - cluster-scope/Node/inf7.yaml
   - cluster-scope/Node/inf8.yaml
+  - cluster-scope/Node/ucs56.yaml
 
   # Scheduler
   - cluster-scope/Scheduler/cluster.yaml
@@ -35,6 +36,7 @@ resources:
   - ../../operators/nmstate
   - cluster-scope/NMState/nmstate.yaml
   - cluster-scope/NodeNetworkConfigurationPolicy/coe-bridge-via-enp4s0f1.yaml
+  - cluster-scope/NodeNetworkConfigurationPolicy/coe-bridge-via-enp79s0f1.yaml
 
 components:
   - ../../components/metallb
