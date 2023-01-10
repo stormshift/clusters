@@ -30,6 +30,14 @@ objects:
   - apiGroup: rbac.authorization.k8s.io
     kind: User
     name: ${PROJECT_ADMIN_USER}
+- apiVersion: k8s.cni.cncf.io/v1
+  kind: NetworkAttachmentDefinition
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/resourceName: bridge.network.kubevirt.io/coe-bridge
+    name: coe-bridge
+  spec:
+    config: '{"name":"coe-bridge","type":"cnv-bridge","cniVersion":"0.3.1","bridge":"coe-bridge","macspoofchk":true,"ipam":{}}'
 parameters:
 - name: PROJECT_NAME
 - name: PROJECT_DISPLAYNAME
