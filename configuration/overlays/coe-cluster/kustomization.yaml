@@ -38,6 +38,9 @@ resources:
   - cluster-scope/NodeNetworkConfigurationPolicy/coe-bridge-via-enp4s0f1.yaml
   - cluster-scope/NodeNetworkConfigurationPolicy/coe-bridge-via-enp79s0f1.yaml
 
+  # Extra.. should be an extra argo app
+  - namespace/rdp-service/NetworkAttachmentDefinition/coe-bridge.yaml 
+
 components:
   - ../../components/metallb
   # - ../../components/nmstate
