@@ -41,6 +41,9 @@ resources:
   # Extra.. should be an extra argo app
   - namespace/rdp-service/NetworkAttachmentDefinition/coe-bridge.yaml 
 
+  # Added project request template
+  - namespace/openshift-config/Template/project-request.yaml
+  - cluster-scope/Project/cluster.yaml
 components:
   - ../../components/metallb
   # - ../../components/nmstate
