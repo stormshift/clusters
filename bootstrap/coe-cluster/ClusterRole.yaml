@@ -21,6 +21,14 @@ rules:
   - nmstate.io
   resources:
   - nodenetworkconfigurationpolicies
+  - nmstates
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - k8s.cni.cncf.io
+  resources:
+  - network-attachment-definitions
   verbs:
   - patch
   - create
