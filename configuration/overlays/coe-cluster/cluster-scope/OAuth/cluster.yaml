@@ -1,0 +1,17 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
+  name: cluster
+spec:
+  identityProviders:
+  - google:
+      clientID: 204944917967-tqhvcbunhtk4luo50rftpf9m3v61kgos.apps.googleusercontent.com
+      clientSecret:
+        # google-client-secret-r2qbc
+        name: google-client-secret
+      hostedDomain: redhat.com
+    mappingMethod: claim
+    name: RedHatSSO
+    type: Google

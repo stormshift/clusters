@@ -47,6 +47,10 @@ resources:
   # Added project request template
   - namespace/openshift-config/Template/project-request.yaml
   - cluster-scope/Project/cluster.yaml
+
+  # Authentication
+  - namespace/openshift-config/ExternalSecret/google-client-secret.yaml
+  - cluster-scope/OAuth/cluster.yaml
 components:
   - ../../components/metallb
   # - ../../components/nmstate
