@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - ../common/
+  - namespace/openshift-ingress/
   # Move keepalived and ingress on master nodes only
   - cluster-scope/MachineConfig/50-remove-keepalived.yaml
   - namespace/openshift-ingress-operator/IngressController/default.yaml
@@ -12,6 +13,8 @@ resources:
   #  issuer=C = US, ST = North Carolina, L = Raleigh, O = "Red Hat, Inc.", OU = Red Hat IT, CN = Red Hat IT Root CA, emailAddress = infosec@redhat.com
   - namespace/openshift-config/ConfigMap/user-ca-bundle-v1.yaml
   - cluster-scope/Proxy/cluster.yaml
+
+  - namespace/openshift-config/ExternalSecret/ocp-coe-cert.yaml
   - cluster-scope/APIServer/cluster.yaml
   # This is managed by OpenShift Operator, I don't know how to solve without an
   # out of sync error.
@@ -39,7 +42,7 @@ resources:
   - cluster-scope/NodeNetworkConfigurationPolicy/coe-bridge-via-enp79s0f1.yaml
 
   # Extra.. should be an extra argo app
-  - namespace/rdp-service/NetworkAttachmentDefinition/coe-bridge.yaml 
+  - namespace/rdp-service/NetworkAttachmentDefinition/coe-bridge.yaml
 
   # Added project request template
   - namespace/openshift-config/Template/project-request.yaml
