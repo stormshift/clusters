@@ -5,4 +5,4 @@ resources:
 - gitops/cluster-configuration.yaml
 - gitops/ClusterRoleBinding.yaml
 - gitops/ClusterRole.yaml
-
+- eso/

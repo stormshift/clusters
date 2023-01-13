@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: infra-external-secrets-operator
+  name: infra-external-secrets-operator
+spec: {}
