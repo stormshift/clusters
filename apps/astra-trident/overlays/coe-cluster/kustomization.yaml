@@ -4,3 +4,8 @@ kind: Kustomization
 
 resources:
   - ../../base/22.04/
+  - namespace/netapp-trident/ExternalSecret/coe-netapp-svm-trident.yaml
+  - cluster-scope/TridentBackendConfig/coe-netapp-nas.yaml
+  - cluster-scope/TridentBackendConfig/coe-netapp-san.yaml
+  - cluster-scope/StorageClass/coe-netapp-nas.yaml
+  - cluster-scope/StorageClass/coe-netapp-san.yaml
