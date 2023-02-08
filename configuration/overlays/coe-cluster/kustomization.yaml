@@ -51,6 +51,10 @@ resources:
   # Authentication
   - namespace/openshift-config/ExternalSecret/google-client-secret.yaml
   - cluster-scope/OAuth/cluster.yaml
+
+  # App of Apps
+  - namespace/openshift-gitops/Application/app-astra-trident.yaml
+
 components:
   - ../../components/metallb
   # - ../../components/nmstate

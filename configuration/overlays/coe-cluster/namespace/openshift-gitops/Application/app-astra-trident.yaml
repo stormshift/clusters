@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-astra-trident
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: netapp-trident
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: apps/astra-trident/overlays/coe-cluster
+    repoURL: https://github.com/stormshift/clusters.git
+    targetRevision: HEAD
