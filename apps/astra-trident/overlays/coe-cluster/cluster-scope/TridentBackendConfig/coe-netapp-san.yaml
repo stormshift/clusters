@@ -5,7 +5,7 @@ metadata:
 spec:
   version: 1
   storageDriverName: ontap-san-economy
-  managementLIF: 10.32.97.xx
+  managementLIF: 10.32.97.30
   backendName: coe-netapp-san
   storagePrefix: ocp_coe_
   credentials:
