@@ -46,3 +46,31 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - ''
+  resources:
+  - serviceaccounts
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - policy
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - trident.netapp.io
+  resources:
+  - tridentbackendconfigs
+  verbs:
+  - patch
+  - create
