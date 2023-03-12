@@ -3,3 +3,6 @@ kind: Kustomization
 
 resources:
   - Proxy/cluster.yaml
+  - Console/cluster.yaml
+  - ConsoleNotification/
+  - OAuth/cluster.yaml

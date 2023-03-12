@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: isar
+spec:
+  text: Munich COE Lab - Isar Cluster -
+  location: BannerTop
+  link:
+    href: 'https://source.redhat.com/groups/public/solution-architects/coe_lab'
+    text: Details
+  color: '#fff'
+  backgroundColor: '#ce7c00'
