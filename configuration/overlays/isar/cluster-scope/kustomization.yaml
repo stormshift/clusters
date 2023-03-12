@@ -9,4 +9,5 @@ resources:
   - MachineConfig/
   - StorageClass/
   - Config/
-
+  - Group/
+  - ClusterRoleBinding/
