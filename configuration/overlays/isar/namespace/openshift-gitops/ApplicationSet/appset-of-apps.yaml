@@ -10,6 +10,7 @@ spec:
           - operator: metallb
           - operator: ocp-v
           - operator: nmstate
+          - operator: acm
   template:
     metadata:
       name: 'operator-{{ operator }}'
