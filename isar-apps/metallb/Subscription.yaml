@@ -6,5 +6,5 @@ metadata:
 spec:
   channel: stable
   name: metallb-operator
-  source: redhat-operator-index
+  source: redhat-operators
   sourceNamespace: openshift-marketplace
