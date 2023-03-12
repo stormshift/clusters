@@ -57,6 +57,7 @@ rules:
   - ''
   resources:
   - serviceaccounts
+  - secrets
   verbs:
   - patch
   - create
