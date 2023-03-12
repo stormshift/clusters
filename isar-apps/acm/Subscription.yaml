@@ -6,7 +6,7 @@ metadata:
   namespace: open-cluster-management
 spec:
   sourceNamespace: openshift-marketplace
-  source: redhat-operator-index
+  source: redhat-operators
   channel: release-2.7
   installPlanApproval: Automatic
   name: advanced-cluster-management
