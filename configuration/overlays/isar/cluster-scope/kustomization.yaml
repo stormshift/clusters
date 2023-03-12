@@ -8,3 +8,5 @@ resources:
   - OAuth/cluster.yaml
   - MachineConfig/
   - StorageClass/
+  - Config/
+

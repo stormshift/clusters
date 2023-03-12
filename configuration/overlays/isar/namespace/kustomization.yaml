@@ -5,3 +5,4 @@ resources:
   - openshift-config/
   - openshift-ingress-operator/
   - netapp-trident/
+  - openshift-image-registry/
