@@ -2,6 +2,30 @@
 apiVersion: operator.open-cluster-management.io/v1
 kind: MultiClusterHub
 metadata:
+   annotations:
+      argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
    namespace: open-cluster-management
    name: hub
-spec: {}
+spec:
+   overrides:
+   components:
+   - enabled: true
+      name: console
+   - enabled: true
+      name: insights
+   - enabled: true
+      name: grc
+   - enabled: true
+      name: cluster-lifecycle
+   - enabled: true
+      name: volsync
+   - enabled: true
+      name: multicluster-engine
+   - enabled: true
+      name: search
+   - enabled: true
+      name: app-lifecycle
+   - enabled: false
+      name: cluster-backup
+   - enabled: true
+      name: hypershift-preview
