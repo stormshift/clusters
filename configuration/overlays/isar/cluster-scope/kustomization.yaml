@@ -13,3 +13,4 @@ resources:
   - ClusterRoleBinding/
   - Scheduler/
   - Node/
+  - Project/
