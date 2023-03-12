@@ -12,7 +12,7 @@ spec:
           - operator: nmstate
           - operator: acm
           - operator: odf
-
+          - operator: aap
   template:
     metadata:
       name: 'operator-{{ operator }}'
