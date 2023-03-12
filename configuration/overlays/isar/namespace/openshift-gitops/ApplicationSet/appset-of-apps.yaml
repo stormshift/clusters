@@ -11,6 +11,8 @@ spec:
           - operator: ocp-v
           - operator: nmstate
           - operator: acm
+          - operator: odf
+
   template:
     metadata:
       name: 'operator-{{ operator }}'
