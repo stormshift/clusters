@@ -10,22 +10,22 @@ spec:
    overrides:
    components:
    - enabled: true
-      name: console
+     name: console
    - enabled: true
-      name: insights
+     name: insights
    - enabled: true
-      name: grc
+     name: grc
    - enabled: true
-      name: cluster-lifecycle
+     name: cluster-lifecycle
    - enabled: true
-      name: volsync
+     name: volsync
    - enabled: true
-      name: multicluster-engine
+     name: multicluster-engine
    - enabled: true
-      name: search
+     name: search
    - enabled: true
-      name: app-lifecycle
+     name: app-lifecycle
    - enabled: false
-      name: cluster-backup
+     name: cluster-backup
    - enabled: true
-      name: hypershift-preview
+     name: hypershift-preview
