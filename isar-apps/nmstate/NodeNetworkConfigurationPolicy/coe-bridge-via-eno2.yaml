@@ -1,0 +1,23 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: coe-bridge-via-eno2
+  annotations:
+    argocd.argoproj.io/sync-wave: '100'
+spec:
+  desiredState:
+    interfaces:
+    - bridge:
+        options:
+          stp:
+            enabled: false
+        port:
+        - name: eno2
+      description: Linux Brige info COE Network via eno2
+      ipv4:
+        enabled: false
+      name: coe-bridge
+      state: up
+      type: linux-bridge
+  nodeSelector:
+    coe.muc.redhat.com/second-nic: eno2

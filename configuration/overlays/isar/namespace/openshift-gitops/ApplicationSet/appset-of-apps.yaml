@@ -8,8 +8,8 @@ spec:
     - list:
         elements:
           - operator: metallb
-          # - operator: ocp-v
-          # - operator: metallb
+          - operator: ocp-v
+          - operator: nmstate
   template:
     metadata:
       name: 'operator-{{ operator }}'
