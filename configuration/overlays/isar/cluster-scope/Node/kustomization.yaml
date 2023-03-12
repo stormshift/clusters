@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - inf7.yaml
+  - inf8.yaml
+  - inf44.yaml
+  - ucs56.yaml
