@@ -11,3 +11,4 @@ resources:
   - Config/
   - Group/
   - ClusterRoleBinding/
+  - Scheduler/
