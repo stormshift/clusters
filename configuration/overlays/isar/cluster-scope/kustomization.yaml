@@ -6,3 +6,4 @@ resources:
   - Console/cluster.yaml
   - ConsoleNotification/
   - OAuth/cluster.yaml
+  - MachineConfig/
