@@ -5,3 +5,5 @@ metadata:
   namespace: ansible-automation-platform
 spec:
   replicas: 1
+  postgres_storage_class: coe-netapp-san
+  projects_storage_class: coe-netapp-nas
