@@ -6,3 +6,4 @@ resources:
   - openshift-ingress-operator/
   - netapp-trident/
   - openshift-image-registry/
+  - openshift-gitops/
