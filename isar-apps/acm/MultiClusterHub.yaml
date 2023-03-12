@@ -26,6 +26,6 @@ spec:
       - enabled: true
         name: app-lifecycle
       - enabled: false
-         name: cluster-backup
+        name: cluster-backup
       - enabled: true
-         name: hypershift-preview
+        name: hypershift-preview
