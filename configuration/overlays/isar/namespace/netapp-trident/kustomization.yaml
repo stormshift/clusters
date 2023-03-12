@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: netapp-trident
+
+resources:
+  - 23.01.0/
+  # Access to NetApp
+  - ExternalSecret/coe-netapp-svm-trident.yaml
+  - TridentBackendConfig/coe-netapp-nas.yaml
+  - TridentBackendConfig/coe-netapp-san.yaml

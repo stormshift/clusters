@@ -1,0 +1,12 @@
+apiVersion: trident.netapp.io/v1
+kind: TridentBackendConfig
+metadata:
+  name: coe-netapp-nas
+spec:
+  version: 1
+  storageDriverName: ontap-nas
+  managementLIF: 10.32.97.30
+  backendName: coe-netapp-nas
+  storagePrefix: isar_
+  credentials:
+    name: coe-netapp-svm-trident

@@ -1,0 +1,12 @@
+apiVersion: trident.netapp.io/v1
+kind: TridentOrchestrator
+metadata:
+  name: trident
+spec:
+  debug: false
+  namespace: netapp-trident
+  imagePullPolicy: IfNotPresent
+  autosupportImage: mirror-registry.disco.coe.muc.redhat.com:8443/netapp/trident-autosupport:23.01
+  tridentImage: mirror-registry.disco.coe.muc.redhat.com:8443/netapp/trident:23.01.0
+  imageRegistry: mirror-registry.disco.coe.muc.redhat.com:8443/sig-storage
+  windows: false

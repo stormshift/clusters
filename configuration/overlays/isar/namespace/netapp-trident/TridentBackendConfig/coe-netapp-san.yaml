@@ -1,0 +1,12 @@
+apiVersion: trident.netapp.io/v1
+kind: TridentBackendConfig
+metadata:
+  name: coe-netapp-san
+spec:
+  version: 1
+  storageDriverName: ontap-san-economy
+  managementLIF: 10.32.97.30
+  backendName: coe-netapp-san
+  storagePrefix: isar_
+  credentials:
+    name: coe-netapp-svm-trident

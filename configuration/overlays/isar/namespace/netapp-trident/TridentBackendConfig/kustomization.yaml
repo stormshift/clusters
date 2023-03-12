@@ -1,7 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: netapp-trident
+
 resources:
-  - openshift-config/
-  - openshift-ingress-operator/
-  - netapp-trident/
+  - coe-netapp-nas.yaml
+  - coe-netapp-san.yaml
