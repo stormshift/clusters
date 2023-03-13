@@ -1,7 +1,7 @@
 apiVersion: automationcontroller.ansible.com/v1beta1
 kind: AutomationController
 metadata:
-  name: coe
+  name: core
   namespace: ansible-automation-platform
 spec:
   replicas: 1
