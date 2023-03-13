@@ -1,0 +1,29 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: ocp-coe-cert
+  namespace: openshift-config
+spec:
+  data:
+  - remoteRef:
+      key: coe-lab/isar/ingress-certificate
+      property: cert-chain.crt
+    secretKey: tls.crt
+  - remoteRef:
+      key: coe-lab/isar/ingress-certificate
+      property: cert-key.pem
+    secretKey: tls.key
+  refreshInterval: 12h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: redhat-vault
+  target:
+    creationPolicy: Owner
+    deletionPolicy: Retain
+    name: ocp-coe-cert
+    template:
+      type: kubernetes.io/tls
+      engineVersion: v2
+      templateFrom:
+      - target: Annotations
+        literal: "argocd.argoproj.io/compare-options: IgnoreExtraneous"
