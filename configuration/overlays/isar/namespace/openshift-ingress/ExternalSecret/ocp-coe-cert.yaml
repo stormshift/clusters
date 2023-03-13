@@ -5,11 +5,11 @@ metadata:
 spec:
   data:
   - remoteRef:
-      key: coe-lab/disco/ingress-certificate
+      key: coe-lab/isar/ingress-certificate
       property: cert-chain.crt
     secretKey: tls.crt
   - remoteRef:
-      key: coe-lab/disco/ingress-certificate
+      key: coe-lab/isar/ingress-certificate
       property: cert-key.pem
     secretKey: tls.key
   refreshInterval: 12h
