@@ -8,8 +8,8 @@ metadata:
 spec:
   routeAdmission:
     wildcardPolicy: WildcardsAllowed
-  # defaultCertificate:
-  #   name: ocp-coe-cert
+  defaultCertificate:
+    name: ocp-coe-cert
   replicas: 3
   endpointPublishingStrategy:
     type: HostNetwork
