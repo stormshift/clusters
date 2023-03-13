@@ -14,3 +14,4 @@ resources:
   - Scheduler/
   - Node/
   - Project/
+  - APIServer/

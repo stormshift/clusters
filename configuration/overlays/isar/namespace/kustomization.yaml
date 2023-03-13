@@ -7,3 +7,4 @@ resources:
   - netapp-trident/
   - openshift-image-registry/
   - openshift-gitops/
+  - openshift-ingress/
