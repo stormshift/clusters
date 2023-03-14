@@ -15,3 +15,4 @@ resources:
   - Node/
   - Project/
   - APIServer/
+  - KubeletConfig/
