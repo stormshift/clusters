@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: cluster-monitoring-config
+  namespace: openshift-monitoring
+  annotations:
+    argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
+data:
+  config.yaml: |
+    enableUserWorkload: false
