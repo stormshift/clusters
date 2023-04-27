@@ -8,3 +8,17 @@ metadata:
 data:
   config.yaml: |
     enableUserWorkload: true
+    prometheusK8s:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: ocs-storagecluster-cephfs
+          resources:
+            requests:
+              storage: 40Gi
+    alertmanagerMain:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: ocs-storagecluster-cephfs
+          resources:
+            requests:
+              storage: 10Gi
