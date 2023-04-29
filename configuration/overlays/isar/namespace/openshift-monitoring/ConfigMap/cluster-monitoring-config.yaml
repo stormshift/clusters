@@ -7,18 +7,19 @@ metadata:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
 data:
   config.yaml: |
+    alertmanagerMain:
+      volumeClaimTemplate:
+        spec:
+          resources:
+            requests:
+              storage: 10Gi
+          storageClassName: ocs-storagecluster-cephfs
     enableUserWorkload: true
     prometheusK8s:
       volumeClaimTemplate:
         spec:
-          storageClassName: ocs-storagecluster-cephfs
           resources:
             requests:
               storage: 40Gi
-    alertmanagerMain:
-      volumeClaimTemplate:
-        spec:
           storageClassName: ocs-storagecluster-cephfs
-          resources:
-            requests:
-              storage: 10Gi
+
