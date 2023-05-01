@@ -59,7 +59,3 @@ spec:
       type: Route
   sshKey:
     name: rhods-ssh-key
-status:
-  controlPlaneEndpoint:
-    host: ""
-    port: 0
