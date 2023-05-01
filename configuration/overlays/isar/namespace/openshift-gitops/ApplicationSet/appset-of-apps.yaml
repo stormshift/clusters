@@ -13,6 +13,7 @@ spec:
           - operator: acm
           - operator: odf
           - operator: aap
+          - operator: hosted-cluster
   template:
     metadata:
       name: 'operator-{{ operator }}'

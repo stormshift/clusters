@@ -1,0 +1,21 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: rhods-etcd-encryption-key
+spec:
+  data:
+  - remoteRef:
+      key: coe-lab/isar/rbohne-hcp/rhods-etcd-encryption-key
+      property: key
+    secretKey: key
+  refreshInterval: 12h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: redhat-vault
+  target:
+    creationPolicy: Owner
+    deletionPolicy: Retain
+    name: rhods-etcd-encryption-key
+    template:
+      data:
+        key: "{{ .key }}"

@@ -1,0 +1,65 @@
+apiVersion: hypershift.openshift.io/v1beta1
+kind: HostedCluster
+metadata:
+  creationTimestamp: null
+  name: rhods
+  namespace: rbohne-hcp
+spec:
+  additionalTrustBundle:
+    name: user-ca-bundle
+  autoscaling: {}
+  controllerAvailabilityPolicy: HighlyAvailable
+  dns:
+    baseDomain: ""
+  etcd:
+    managed:
+      storage:
+        persistentVolume:
+          size: 4Gi
+          storageClassName: ocs-storagecluster-ceph-rbd
+        restoreSnapshotURL: null
+        type: PersistentVolume
+    managementType: Managed
+  fips: false
+  networking:
+    clusterNetwork:
+    - cidr: 10.132.0.0/14
+    networkType: OVNKubernetes
+    serviceNetwork:
+    - cidr: 172.31.0.0/16
+  platform:
+    kubevirt:
+      baseDomainPassthrough: true
+    type: KubeVirt
+  pullSecret:
+    name: pull-secret
+  release:
+    image: quay.io/openshift-release-dev/ocp-release:4.12.1-x86_64
+  secretEncryption:
+    aescbc:
+      activeKey:
+        # Generated via `head -c 32 /dev/urandom | base64`
+        name: rhods-etcd-encryption-key
+    type: aescbc
+  services:
+  - service: APIServer
+    servicePublishingStrategy:
+      type: LoadBalancer
+  - service: OAuthServer
+    servicePublishingStrategy:
+      type: Route
+  - service: Konnectivity
+    servicePublishingStrategy:
+      type: Route
+  - service: Ignition
+    servicePublishingStrategy:
+      type: Route
+  - service: OVNSbDb
+    servicePublishingStrategy:
+      type: Route
+  sshKey:
+    name: rhods-ssh-key
+status:
+  controlPlaneEndpoint:
+    host: ""
+    port: 0

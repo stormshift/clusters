@@ -1,0 +1,28 @@
+apiVersion: hypershift.openshift.io/v1beta1
+kind: NodePool
+metadata:
+  creationTimestamp: null
+  name: rhods
+  namespace: rbohne-hcp
+spec:
+  clusterName: rhods
+  management:
+    autoRepair: true
+    upgradeType: Replace
+  nodeDrainTimeout: 0s
+  platform:
+    kubevirt:
+      compute:
+        cores: 16
+        memory: 32Gi
+      rootVolume:
+        persistent:
+          size: 120Gi
+          storageClass: coe-netapp-nas
+        type: Persistent
+    type: KubeVirt
+  release:
+    image: quay.io/openshift-release-dev/ocp-release:4.12.1-x86_64
+  replicas: 2
+status:
+  replicas: 0
