@@ -10,7 +10,7 @@ spec:
   autoscaling: {}
   controllerAvailabilityPolicy: HighlyAvailable
   dns:
-    baseDomain: ""
+    baseDomain: apps.isar.coe.muc.redhat.com
   etcd:
     managed:
       storage:

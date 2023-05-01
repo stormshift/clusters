@@ -24,5 +24,3 @@ spec:
   release:
     image: quay.io/openshift-release-dev/ocp-release:4.12.1-x86_64
   replicas: 2
-status:
-  replicas: 0
