@@ -7,6 +7,7 @@ spec:
   - remoteRef:
       key: coe-lab/isar/rbohne-hcp/rhods-etcd-encryption-key
       property: key
+      decodingStrategy: Base64
     secretKey: key
   refreshInterval: 12h
   secretStoreRef:
