@@ -9,6 +9,17 @@ spec:
     name: user-ca-bundle
   autoscaling: {}
   controllerAvailabilityPolicy: HighlyAvailable
+  configuration:
+    oauth:
+      identityProviders:
+        - google:
+            clientID: 1079812798374-5boqg26urlclfrp0cqvsoj3ans6cua6f.apps.googleusercontent.com
+            clientSecret:
+              name: google-client-secret
+            hostedDomain: redhat.com
+          mappingMethod: claim
+          name: RedHatSSO
+          type: Google
   dns:
     baseDomain: apps.isar.coe.muc.redhat.com
   etcd:
@@ -34,7 +45,7 @@ spec:
   pullSecret:
     name: pull-secret
   release:
-    image: quay.io/openshift-release-dev/ocp-release:4.12.1-x86_64
+    image: quay.io/openshift-release-dev/ocp-release:4.12.7-x86_64
   secretEncryption:
     aescbc:
       activeKey:

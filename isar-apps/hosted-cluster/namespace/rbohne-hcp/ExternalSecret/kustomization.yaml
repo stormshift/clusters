@@ -4,3 +4,4 @@ resources:
 - pull-secret.yaml
 - rhods-etcd-encryption-key.yaml
 - ssh-key.yaml
+- google-client-secret.yaml
