@@ -45,7 +45,7 @@ spec:
   pullSecret:
     name: pull-secret
   release:
-    image: quay.io/openshift-release-dev/ocp-release:4.12.7-x86_64
+    image: quay.io/openshift-release-dev/ocp-release:4.12.9-x86_64
   secretEncryption:
     aescbc:
       activeKey:
