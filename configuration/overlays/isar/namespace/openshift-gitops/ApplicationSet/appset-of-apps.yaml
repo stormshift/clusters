@@ -12,7 +12,8 @@ spec:
           - operator: nmstate
           - operator: acm
           - operator: odf
-          - operator: aap
+          # Disabled because installed by hand
+          # - operator: aap
           - operator: hosted-cluster
   template:
     metadata:
