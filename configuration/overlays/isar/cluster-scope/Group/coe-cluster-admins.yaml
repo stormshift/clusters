@@ -15,3 +15,5 @@ users:
   - ellorent@redhat.com
   # ACM PM
   - cstark@redhat.com
+  # Sandbox container tests
+  - clichybi@redhat.com
