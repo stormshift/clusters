@@ -5,20 +5,6 @@ metadata:
     app: 'windows-rdp'
   name: 'windows-rdp'
 spec:
-  dataVolumeTemplates:
-    - apiVersion: cdi.kubevirt.io/v1beta1
-      kind: DataVolume
-      metadata:
-        name: 'windows-rdp'
-      spec:
-        sourceRef:
-          kind: DataSource
-          name: '${DATA_SOURCE_NAME}'
-          namespace: '${DATA_SOURCE_NAMESPACE}'
-        storage:
-          resources:
-            requests:
-              storage: 60Gi
   running: false
   template:
     metadata:
