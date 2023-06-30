@@ -17,3 +17,5 @@ users:
   - cstark@redhat.com
   # Sandbox container tests
   - clichybi@redhat.com
+  # StormShift Admin 
+  - dfroehli@redhat.com
