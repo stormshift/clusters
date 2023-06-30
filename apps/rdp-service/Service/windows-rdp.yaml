@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: windows-rdp
+  name: windows-rdp
+spec:
+  allocateLoadBalancerNodePorts: true
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: rdp-udp
+    nodePort: 31952
+    port: 3389
+    protocol: UDP
+    targetPort: 3389
+  - name: rdp-tcp
+    nodePort: 31952
+    port: 3389
+    protocol: TCP
+    targetPort: 3389
+  selector:
+    vm.kubevirt.io/name: windows-rdp
+  sessionAffinity: None
+  type: LoadBalancer

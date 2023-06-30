@@ -7,3 +7,5 @@ resources:
   - coe-infra-rdp-service.pv.yaml
   - coe-infra-rdp-service.pvc.yaml
   - VirtualMachine/windows-rdp.yaml
+  - Service/windows-rdp.yaml
+
