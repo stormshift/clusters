@@ -6,3 +6,4 @@ namespace: infra-rdp-service
 resources:
   - coe-infra-rdp-service.pv.yaml
   - coe-infra-rdp-service.pvc.yaml
+  - VirtualMachine/windows-rdp.yaml

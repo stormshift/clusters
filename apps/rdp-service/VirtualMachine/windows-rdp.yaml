@@ -1,0 +1,92 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  labels:
+    app: 'windows-rdp'
+  name: 'windows-rdp'
+spec:
+  dataVolumeTemplates:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      kind: DataVolume
+      metadata:
+        name: 'windows-rdp'
+      spec:
+        sourceRef:
+          kind: DataSource
+          name: '${DATA_SOURCE_NAME}'
+          namespace: '${DATA_SOURCE_NAMESPACE}'
+        storage:
+          resources:
+            requests:
+              storage: 60Gi
+  running: false
+  template:
+    metadata:
+      annotations:
+        vm.kubevirt.io/flavor: large
+        vm.kubevirt.io/os: windows10
+        vm.kubevirt.io/workload: desktop
+      labels:
+        kubevirt.io/domain: 'windows-rdp'
+        kubevirt.io/size: large
+    spec:
+      domain:
+        clock:
+          timer:
+            hpet:
+              present: false
+            hyperv: {}
+            pit:
+              tickPolicy: delay
+            rtc:
+              tickPolicy: catchup
+          utc: {}
+        cpu:
+          cores: 1
+          sockets: 2
+          threads: 1
+        devices:
+          disks:
+            - disk:
+                bus: sata
+              name: rootdisk
+          inputs:
+            - bus: usb
+              name: tablet
+              type: tablet
+          interfaces:
+            - masquerade: {}
+              model: e1000e
+              name: default
+        features:
+          acpi: {}
+          apic: {}
+          hyperv:
+            reenlightenment: {}
+            ipi: {}
+            synic: {}
+            synictimer:
+              direct: {}
+            spinlocks:
+              spinlocks: 8191
+            reset: {}
+            relaxed: {}
+            vpindex: {}
+            runtime: {}
+            tlbflush: {}
+            frequencies: {}
+            vapic: {}
+        machine:
+          type: pc-q35-rhel8.6.0
+        resources:
+          requests:
+            memory: 8Gi
+      evictionStrategy: LiveMigrate
+      networks:
+        - name: default
+          pod: {}
+      terminationGracePeriodSeconds: 3600
+      volumes:
+        - persistentVolumeClaim:
+            claimName: 'coe-infra-rdp-service'
+          name: rootdisk
