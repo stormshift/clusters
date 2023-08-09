@@ -6,7 +6,7 @@ metadata:
   name: cluster
 spec:
   rolloutStrategy: Recreate
-  managementState: Unmanaged
+  managementState: Managed
   storage:
     pvc:
       claim: image-registry
