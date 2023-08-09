@@ -44,24 +44,6 @@ spec:
             - masquerade: {}
               model: e1000e
               name: default
-        features:
-          acpi: {}
-          apic: {}
-          hyperv:
-            reenlightenment: {}
-            ipi: {}
-            synic: {}
-            synictimer:
-              direct: {}
-            spinlocks:
-              spinlocks: 8191
-            reset: {}
-            relaxed: {}
-            vpindex: {}
-            runtime: {}
-            tlbflush: {}
-            frequencies: {}
-            vapic: {}
         machine:
           type: pc-q35-rhel8.6.0
         resources:
