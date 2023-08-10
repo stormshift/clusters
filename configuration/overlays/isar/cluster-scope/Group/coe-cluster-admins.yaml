@@ -19,3 +19,5 @@ users:
   - clichybi@redhat.com
   # StormShift Admin 
   - dfroehli@redhat.com
+  # HCP/HyperShift development
+  - cewong@redhat.com
