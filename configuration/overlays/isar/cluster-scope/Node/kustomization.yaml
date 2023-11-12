@@ -5,4 +5,5 @@ resources:
   - inf8.yaml
   - inf44.yaml
   - ucs56.yaml
-  - ucs57.yaml
+# Node temp. gone
+#  - ucs57.yaml
