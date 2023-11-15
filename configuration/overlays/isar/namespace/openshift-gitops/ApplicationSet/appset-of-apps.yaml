@@ -11,7 +11,8 @@ spec:
           - operator: ocp-v
           - operator: nmstate
           - operator: acm
-          - operator: odf
+          # Disabled
+          # - operator: odf
           # Disabled because installed by hand
           # - operator: aap
           - operator: hosted-cluster
