@@ -7,21 +7,13 @@ spec:
   generators:
     - list:
         elements:
-          # Disable because of https://github.com/stormshift/support/issues/148
-          #- operator: metallb
-          # Disable because of https://github.com/stormshift/support/issues/148
-          #- operator: ocp-v
-          # Disable because of https://github.com/stormshift/support/issues/148
-          # Disable because of https://github.com/stormshift/support/issues/148
-          # - operator: nmstate
-          # Disable because of https://github.com/stormshift/support/issues/148
-          # - operator: acm
-          # Disable because of https://github.com/stormshift/support/issues/148
-
-          # - operator: odf
+          - operator: metallb
+          - operator: ocp-v
+          - operator: nmstate
+          - operator: acm
+          - operator: odf
           # Disabled because installed by hand
           # - operator: aap
-
           - operator: hosted-cluster
   template:
     metadata:
