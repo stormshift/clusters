@@ -4,6 +4,6 @@ metadata:
   annotations:
   labels:
     kubernetes.io/metadata.name: open-cluster-management
-    openshift.io/cluster-monitoring: true
+    openshift.io/cluster-monitoring: "true"
   name: open-cluster-management
 spec: {}
