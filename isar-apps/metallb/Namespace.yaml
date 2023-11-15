@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: metallb-system
   labels:
-    openshift.io/cluster-monitoring: true
+    openshift.io/cluster-monitoring: "true"
