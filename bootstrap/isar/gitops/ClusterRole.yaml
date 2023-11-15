@@ -127,7 +127,6 @@ rules:
   verbs:
   - patch
   - create
-
 - apiGroups:
   - ''
   resources:
