@@ -7,15 +7,15 @@ spec:
   generators:
     - list:
         elements:
-          - operator: metallb
-          - operator: ocp-v
-          - operator: nmstate
-          - operator: acm
+          #- operator: metallb
+          #- operator: ocp-v
+          #- operator: nmstate
+          #- operator: acm
           # Disabled
           # - operator: odf
           # Disabled because installed by hand
           # - operator: aap
-          - operator: hosted-cluster
+          #- operator: hosted-cluster
   template:
     metadata:
       name: 'operator-{{ operator }}'
