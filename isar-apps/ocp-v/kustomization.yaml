@@ -2,6 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - HyperConverged.yaml
-- Namespace.yaml
-- OperatorGroup.yaml
-- Subscription.yaml
+# Disabled, installed by hand
+#- Namespace.yaml
+#- OperatorGroup.yaml
+#- Subscription.yaml
