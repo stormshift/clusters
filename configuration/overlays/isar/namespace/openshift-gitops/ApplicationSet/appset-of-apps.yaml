@@ -8,7 +8,7 @@ spec:
     - list:
         elements:
           - operator: metallb
-          #- operator: ocp-v
+          - operator: ocp-v
           - operator: nmstate
           #- operator: acm
           # Disabled
