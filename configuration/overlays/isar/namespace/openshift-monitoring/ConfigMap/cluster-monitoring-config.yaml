@@ -13,7 +13,7 @@ data:
          resources:
            requests:
              storage: 10Gi
-         storageClassName: coe-netapp-san
+         storageClassName: ocs-storagecluster-ceph-rbd
    enableUserWorkload: true
    prometheusK8s:
      volumeClaimTemplate:
@@ -21,5 +21,5 @@ data:
          resources:
            requests:
              storage: 40Gi
-         storageClassName: coe-netapp-san
+         storageClassName: ocs-storagecluster-ceph-rbd
 #
