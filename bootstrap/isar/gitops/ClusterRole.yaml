@@ -134,3 +134,11 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - 'lvm.topolvm.io'
+  resources:
+  - LVMCluster
+  verbs:
+  - patch
+  - create
+
