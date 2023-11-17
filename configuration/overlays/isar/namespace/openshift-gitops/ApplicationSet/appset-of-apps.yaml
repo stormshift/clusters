@@ -14,7 +14,7 @@ spec:
           - operator: acm
           # Disabled because installed by hand
           # - operator: aap
-          #- operator: hosted-cluster
+          - operator: hosted-cluster
   template:
     metadata:
       name: 'operator-{{ operator }}'
