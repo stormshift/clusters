@@ -4,6 +4,8 @@ kind: OperatorGroup
 metadata:
   name: local-operator-group
   namespace: open-cluster-management
+  annotations:
+    argocd.argoproj.io/sync-wave: '-7'
 spec:
   targetNamespaces:
     - open-cluster-management

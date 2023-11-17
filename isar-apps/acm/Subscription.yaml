@@ -4,6 +4,8 @@ kind: Subscription
 metadata:
   name: acm-operator-subscription
   namespace: open-cluster-management
+  annotations:
+    argocd.argoproj.io/sync-wave: '-5'
 spec:
   sourceNamespace: openshift-marketplace
   source: redhat-operators
