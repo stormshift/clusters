@@ -5,6 +5,7 @@ metadata:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
   labels:
     coe.muc.redhat.com/second-nic: enp4s0f1
+    topology.kubernetes.io/zone: muc-b
     node-role.kubernetes.io/storage-node: ""
     cluster.ocs.openshift.io/openshift-storage: ""
   name: inf8

@@ -4,7 +4,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
   labels:
-    coe.muc.redhat.com/second-nic: enp79s0f1
     topology.kubernetes.io/zone: muc-b
-  name: ucs56
+  name: inf5
 spec: {}

@@ -4,9 +4,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
   labels:
-    coe.muc.redhat.com/second-nic: enp4s0f1
     topology.kubernetes.io/zone: muc-a
-    node-role.kubernetes.io/storage-node: ""
-    cluster.ocs.openshift.io/openshift-storage: ""
-  name: inf7
+  name: inf4
 spec: {}

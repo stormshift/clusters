@@ -1,5 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
+commonLabels:
+  topology.kubernetes.io/region: muc
+
+
 resources:
   - inf7.yaml
   - inf8.yaml
@@ -7,3 +12,8 @@ resources:
   - ucs56.yaml
 # Node temp. gone
 #  - ucs57.yaml
+  - ucs-blade-server-1.yaml
+  - ucs-blade-server-3.yaml
+  - inf4.yaml
+  - inf5.yaml
+  - inf6.yaml
