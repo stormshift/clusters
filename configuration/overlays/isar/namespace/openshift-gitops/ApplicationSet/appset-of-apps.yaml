@@ -10,9 +10,8 @@ spec:
           - operator: metallb
           - operator: ocp-v
           - operator: nmstate
+          - operator: openshift-storage
           #- operator: acm
-          # Disabled
-          # - operator: odf
           # Disabled because installed by hand
           # - operator: aap
           #- operator: hosted-cluster
