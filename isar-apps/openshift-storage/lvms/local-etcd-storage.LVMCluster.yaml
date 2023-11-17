@@ -6,7 +6,8 @@ metadata:
 spec:
  storage:
    deviceClasses:
-   - name: vg1
+   - name: for-etcd
+     default: false
      deviceSelector:
        optionalPaths:
        - /dev/disk/by-id/wwn-0x6001e67568ced0002b8750fa92a99f10 # inf7
