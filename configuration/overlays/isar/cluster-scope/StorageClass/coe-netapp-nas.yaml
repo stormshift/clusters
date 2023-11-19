@@ -9,3 +9,13 @@ parameters:
   backendType: "ontap-nas"
   provisioningType: "thin"
   snapshots: "true"
+allowedTopologies:
+- matchLabelExpressions:
+  - key: topology.kubernetes.io/zone
+    values:
+    - muc-a
+    - muc-b
+    - muc-c
+  - key: topology.kubernetes.io/region
+    values:
+    - muc
