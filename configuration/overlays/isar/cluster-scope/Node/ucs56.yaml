@@ -6,5 +6,6 @@ metadata:
   labels:
     coe.muc.redhat.com/second-nic: enp80s0f1
     topology.kubernetes.io/zone: muc-b
+    failure-domain.beta.kubernetes.io/zone: muc-b
   name: ucs56
 spec: {}

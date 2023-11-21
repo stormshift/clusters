@@ -3,6 +3,7 @@ kind: Kustomization
 
 commonLabels:
   topology.kubernetes.io/region: muc
+  failure-domain.beta.kubernetes.io/region: muc
 
 
 resources:

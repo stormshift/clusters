@@ -4,6 +4,8 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
   labels:
-    coe.muc.redhat.com/second-nic: enp79s0f1
+    coe.muc.redhat.com/second-nic: enp80s0f1
+    topology.kubernetes.io/zone: muc-a
+    failure-domain.beta.kubernetes.io/zone: muc-a
   name: ucs57
 spec: {}

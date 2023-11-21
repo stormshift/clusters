@@ -6,6 +6,7 @@ metadata:
   labels:
     coe.muc.redhat.com/second-nic: eno2
     topology.kubernetes.io/zone: muc-c
+    failure-domain.beta.kubernetes.io/zone: muc-c
     node-role.kubernetes.io/storage-node: ""
     cluster.ocs.openshift.io/openshift-storage: ""
   name: inf44
