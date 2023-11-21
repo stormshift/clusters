@@ -8,6 +8,7 @@ metadata:
     topology.kubernetes.io/zone: muc-c
     failure-domain.beta.kubernetes.io/zone: muc-c
     node.kubernetes.io/instance-type: "HP-DL-Gen-8"
+    beta.kubernetes.io/instance-type: "HP-DL-Gen-8"
     node-role.kubernetes.io/storage-node: ""
     cluster.ocs.openshift.io/openshift-storage: ""
   name: inf44

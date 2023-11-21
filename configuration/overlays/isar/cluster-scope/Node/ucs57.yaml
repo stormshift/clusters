@@ -8,5 +8,6 @@ metadata:
     topology.kubernetes.io/zone: muc-a
     failure-domain.beta.kubernetes.io/zone: muc-a
     node.kubernetes.io/instance-type: "Cisco-UCS-C460-M4"
+    beta.kubernetes.io/instance-type: "Cisco-UCS-C460-M4"
   name: ucs57
 spec: {}
