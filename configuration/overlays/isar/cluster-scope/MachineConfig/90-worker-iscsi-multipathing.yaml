@@ -13,7 +13,7 @@
       storage:
         files:
         - contents:
-           source: data:text/plain;charset=utf-8;base64,ZGVmYXVsdHMgewogIGZpbmRfbXVsdGlwYXRocyBubwp9Cgo=
+           source: data:text/plain;charset=utf-8;base64,ZGVmYXVsdHMgewogICB1c2VyX2ZyaWVuZGx5X25hbWVzIG5vCiAgIGZpbmRfbXVsdGlwYXRocyBubwogICBlbmFibGVfZm9yZWlnbiAiXiQiCn0KCmJsYWNrbGlzdF9leGNlcHRpb25zIHsKICAgIHByb3BlcnR5ICIoU0NTSV9JREVOVF98SURfV1dOKSIKfQoKYmxhY2tsaXN0IHsKfQo=
           filesystem: root
           mode: 420
           path: /etc/multipath.conf
