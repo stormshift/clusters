@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - coe-bridge-via-eno2.yaml
 - coe-bridge-via-enp4s0f1.yaml
-- coe-bridge-via-enp79s0f1.yaml
+- coe-bridge-via-enp80s0f1.yaml

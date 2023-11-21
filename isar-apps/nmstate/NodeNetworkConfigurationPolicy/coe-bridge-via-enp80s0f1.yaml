@@ -1,7 +1,7 @@
 apiVersion: nmstate.io/v1
 kind: NodeNetworkConfigurationPolicy
 metadata:
-  name: coe-bridge-via-enp79s0f1
+  name: coe-bridge-via-enp80s0f1
   annotations:
     argocd.argoproj.io/sync-wave: '100'
 spec:
@@ -12,12 +12,12 @@ spec:
           stp:
             enabled: false
         port:
-        - name: enp79s0f1
-      description: Linux Brige info COE Network via enp79s0f1
+        - name: enp80s0f1
+      description: Linux Brige info COE Network via enp80s0f1
       ipv4:
         enabled: false
       name: coe-bridge
       state: up
       type: linux-bridge
   nodeSelector:
-    coe.muc.redhat.com/second-nic: enp79s0f1
+    coe.muc.redhat.com/second-nic: enp80s0f1
