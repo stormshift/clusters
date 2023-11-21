@@ -4,3 +4,4 @@ resources:
 - 50-masters-chrony-configuration.yaml
 - 50-remove-keepalived.yaml
 - 50-workers-chrony-configuration.yaml
+- 90-worker-iscsi-multipathing.yaml
