@@ -13,7 +13,7 @@
       storage:
         files:
         - contents:
-           source: data:text/plain;charset=utf-8;base64,ZGVmYXVsdHMgewogICB1c2VyX2ZyaWVuZGx5X25hbWVzIG5vCiAgIGZpbmRfbXVsdGlwYXRocyBubwogICBlbmFibGVfZm9yZWlnbiAiXiQiCn0KCmJsYWNrbGlzdF9leGNlcHRpb25zIHsKICAgIHByb3BlcnR5ICIoU0NTSV9JREVOVF98SURfV1dOKSIKfQoKYmxhY2tsaXN0IHsKICAgIGRldm5vZGUgIl4ocmFtfHJhd3xsb29wfGZkfG1kfGRtLXxzcnxzY2R8c3QpWzAtOV0qIgogICAgZGV2bm9kZSAiXih0ZHxoYSlkW2Etel0iCn0K
+            source: data:text/plain;charset=utf-8;base64,ZGVmYXVsdHMgewogICB1c2VyX2ZyaWVuZGx5X25hbWVzIG5vCiAgIGZpbmRfbXVsdGlwYXRocyBubwogICBlbmFibGVfZm9yZWlnbiAiXiQiCn0KCmJsYWNrbGlzdF9leGNlcHRpb25zIHsKICAgIHByb3BlcnR5ICIoU0NTSV9JREVOVF98SURfV1dOKSIKfQoKYmxhY2tsaXN0IHsKICAgIGRldm5vZGUgIl4ocmFtfHJhd3xsb29wfGZkfG1kfGRtLXxzcnxzY2R8c3QpWzAtOV0qIgogICAgZGV2bm9kZSAiXih0ZHxoYSlkW2Etel0iCiAgICBkZXZpY2UgewogICAgICAgIHZlbmRvciAgIkhQIgogICAgfQogICAgZGV2aWNlIHsKICAgICAgICB2ZW5kb3IgICJJbnRlbCIKICAgIH0KICAgIGRldmljZSB7CiAgICAgICAgdmVuZG9yICAiSEdTVCIKICAgIH0KfQo=
           filesystem: root
           mode: 420
           path: /etc/multipath.conf
