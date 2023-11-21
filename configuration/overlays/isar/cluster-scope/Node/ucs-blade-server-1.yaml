@@ -6,5 +6,6 @@ metadata:
   labels:
     topology.kubernetes.io/zone: muc-a
     failure-domain.beta.kubernetes.io/zone: muc-a
+    node.kubernetes.io/instance-type: "Cisco-UCS-EX-M4"
   name: ucs-blade-server-1
 spec: {}

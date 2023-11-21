@@ -7,6 +7,7 @@ metadata:
     coe.muc.redhat.com/second-nic: enp4s0f1
     topology.kubernetes.io/zone: muc-b
     failure-domain.beta.kubernetes.io/zone: muc-b
+    node.kubernetes.io/instance-type: "Intel-Whitebox"
     node-role.kubernetes.io/storage-node: ""
     cluster.ocs.openshift.io/openshift-storage: ""
   name: inf8

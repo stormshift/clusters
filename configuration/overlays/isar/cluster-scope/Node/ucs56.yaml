@@ -6,6 +6,7 @@ metadata:
   labels:
     coe.muc.redhat.com/second-nic: enp80s0f1
     topology.kubernetes.io/zone: muc-b
+    node.kubernetes.io/instance-type: "Cisco-UCS-C460-M4"
     failure-domain.beta.kubernetes.io/zone: muc-b
   name: ucs56
 spec: {}

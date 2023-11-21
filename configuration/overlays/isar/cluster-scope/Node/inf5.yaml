@@ -6,5 +6,6 @@ metadata:
   labels:
     topology.kubernetes.io/zone: muc-b
     failure-domain.beta.kubernetes.io/zone: muc-b
+    node.kubernetes.io/instance-type: "Dell-Power-Edge-RS740"
   name: inf5
 spec: {}
