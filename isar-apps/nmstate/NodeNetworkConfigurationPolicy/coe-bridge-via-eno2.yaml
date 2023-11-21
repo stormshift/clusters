@@ -19,5 +19,29 @@ spec:
       name: coe-bridge
       state: up
       type: linux-bridge
+
+    - name: eno2.69
+      description: coe-air-gapped-vlan
+      type: vlan
+      state: up
+      ipv4:
+        enabled: false
+      vlan:
+        base-iface: eno2
+        id: 69
+
+    - bridge:
+        options:
+          stp:
+            enabled: false
+        port:
+        - name: eno2.69
+      description: Linux Brige info COE Network via eno2
+      ipv4:
+        enabled: false
+      name: coe-br-vlan-69
+      state: up
+      type: linux-bridge
+
   nodeSelector:
     coe.muc.redhat.com/second-nic: eno2
