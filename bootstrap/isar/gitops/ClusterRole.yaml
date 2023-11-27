@@ -137,7 +137,14 @@ rules:
 - apiGroups:
   - 'lvm.topolvm.io'
   resources:
-  - LVMCluster
+  - lvmclusters
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - cdi.kubevirt.io
+  resources:
+  - storageprofiles
   verbs:
   - patch
   - create
