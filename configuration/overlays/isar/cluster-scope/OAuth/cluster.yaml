@@ -22,3 +22,15 @@ spec:
     mappingMethod: claim
     name: RedHatSSO
     type: Google
+  - github:	
+      clientID: a3a2ea7218658b513226	
+      clientSecret:	
+        name: github-client-secret-tmq7d	
+      hostname: ''	
+      organizations:	
+        - stormshift	
+      teams: []	
+    mappingMethod: claim	
+    name: GitHub	
+    type: GitHub
+
