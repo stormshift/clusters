@@ -10,8 +10,8 @@ resources:
   - inf7.yaml
   - inf8.yaml
   - inf44.yaml
-  - ucs56.yaml
 # Node temp. gone
+#  - ucs56.yaml
 #  - ucs57.yaml
   - ucs-blade-server-1.yaml
   - ucs-blade-server-3.yaml
