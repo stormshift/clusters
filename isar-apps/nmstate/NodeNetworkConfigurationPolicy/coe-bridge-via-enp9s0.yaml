@@ -1,0 +1,47 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: coe-bridge-via-enp9s0
+  annotations:
+    argocd.argoproj.io/sync-wave: '100'
+spec:
+  desiredState:
+    interfaces:
+    - bridge:
+        options:
+          stp:
+            enabled: false
+        port:
+        - name: enp9s0
+      description: Linux Brige info COE Network via enp9s0
+      ipv4:
+        enabled: false
+      name: coe-bridge
+      state: up
+      type: linux-bridge
+
+    - name: enp9s0.69
+      description: coe-air-gapped-vlan
+      type: vlan
+      state: up
+      ipv4:
+        enabled: false
+      vlan:
+        base-iface: enp9s0
+        id: 69
+
+    - bridge:
+        options:
+          stp:
+            enabled: false
+        port:
+        - name: enp9s0.69
+      description: Linux Brige info COE Network via enp9s0
+      ipv4:
+        enabled: false
+      name: coe-br-vlan-69
+      state: up
+      type: linux-bridge
+
+  nodeSelector:
+    coe.muc.redhat.com/second-nic: enp9s0

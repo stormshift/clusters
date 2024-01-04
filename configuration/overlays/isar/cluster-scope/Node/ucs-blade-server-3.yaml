@@ -4,6 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
   labels:
+    coe.muc.redhat.com/second-nic: enp9s0
     topology.kubernetes.io/zone: muc-c
     failure-domain.beta.kubernetes.io/zone: muc-c
     node.kubernetes.io/instance-type: "Cisco-UCS-EX-M4"
