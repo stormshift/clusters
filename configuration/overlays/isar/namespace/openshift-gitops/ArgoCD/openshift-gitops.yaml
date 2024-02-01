@@ -5,6 +5,11 @@ metadata:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
   name: openshift-gitops
 spec:
+  server:
+    route:
+      tls:
+        insecureEdgeTerminationPolicy: Redirect
+        termination: reencrypt
   rbac:
     defaultPolicy: ''
     policy: |
