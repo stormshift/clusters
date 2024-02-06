@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: isar-apps
+  namespace: openshift-gitops
+spec:
+  generators:
+    - list:
+        elements:
+          - name: infra-external-dns
+  template:
+    metadata:
+      name: '{{ name }}'
+      namespace: openshift-gitops
+    spec:
+      destination:
+        server: https://kubernetes.default.svc
+      project: default
+      source:
+        path: 'isar-apps/{{ name }}/'
+        repoURL: https://github.com/stormshift/clusters.git
+        targetRevision: main

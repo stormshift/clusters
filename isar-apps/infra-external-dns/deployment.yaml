@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: external-dns
+spec:
+  selector:
+    matchLabels:
+      app: external-dns
+  template:
+    metadata:
+      labels:
+        app: external-dns
+    spec:
+      serviceAccountName: external-dns
+      nodeSelector:
+        node-role.kubernetes.io/master: ""
+      tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/master
+          operator: Exists
+      containers:
+      - name: external-dns
+        env:
+          - name: EXTERNAL_DNS_RFC2136_TSIG_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: openshift-external-dns-key
+                key: tgis_key
+        image: registry.k8s.io/external-dns/external-dns:v0.14.0
+        args:
+        - --registry=txt
+        - --txt-suffix=-%{record_type}-external-dns
+        - --txt-owner-id=isar.coe.muc.redhat.com
+        - --provider=rfc2136
+        - --rfc2136-host=inf1.coe.muc.redhat.com
+        - --rfc2136-port=53
+        - --rfc2136-zone=coe.muc.redhat.com
+        - --rfc2136-tsig-secret-alg=hmac-sha512
+        - --rfc2136-tsig-keyname=openshift-external-dns
+        - --rfc2136-tsig-axfr
+        - --source=service
+        - --domain-filter=coe.muc.redhat.com
