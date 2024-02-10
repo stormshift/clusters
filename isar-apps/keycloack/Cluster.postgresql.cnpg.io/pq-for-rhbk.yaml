@@ -1,0 +1,23 @@
+kind: Cluster
+apiVersion: postgresql.cnpg.io/v1
+metadata:
+  name: pq-for-rhbk
+  namespace: rhbk-operator
+spec:
+  affinity:
+    nodeSelector:
+      node-role.kubernetes.io/master: "" 
+    tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+  instances: 3
+  logLevel: info
+  primaryUpdateStrategy: unsupervised
+  storage:
+    size: 3Gi
+    storageClass: coe-netapp-san
+  walStorage:
+    size: 3Gi
+    storageClass: coe-netapp-san
+

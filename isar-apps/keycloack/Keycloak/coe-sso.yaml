@@ -1,0 +1,21 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  name: coe-sso
+  namespace: rhbk-operator
+spec:
+  instances: 2
+  db:
+    vendor: postgres
+    host: pq-for-rhbk-rw
+    database: app
+    usernameSecret:
+      name: pq-for-rhbk-app
+      key: username
+    passwordSecret:
+      name: pq-for-rhbk-app
+      key: password
+  http:
+    tlsSecret: cert-wildcard-coe
+  hostname:
+    hostname: sso.coe.muc.redhat.com

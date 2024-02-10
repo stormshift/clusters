@@ -1,0 +1,25 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: cert-wildcard-coe
+  namespace: rhbk-operator
+spec:
+  data:
+  - remoteRef:
+      key: coe-lab/wildcard-cert-coe
+      property: wildcard-coe.chain.cert
+    secretKey: tls.crt
+  - remoteRef:
+      key: coe-lab/wildcard-cert-coe
+      property: wildcard-coe.key
+    secretKey: tls.key
+  refreshInterval: 12h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: redhat-vault
+  target:
+    creationPolicy: Owner
+    deletionPolicy: Retain
+    name: cert-wildcard-coe
+    template:
+      type: kubernetes.io/tls

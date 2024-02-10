@@ -8,6 +8,7 @@ spec:
     - list:
         elements:
           - name: infra-external-dns
+          - name: keycloak
   template:
     metadata:
       name: '{{ name }}'

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: "Red Hat Build of Keycloak for COE Lab"
+    openshift.io/display-name: "Keycloak for COE Lab"
+    openshift.io/requester: rbohne@redhat.com
+  labels:
+    kubernetes.io/metadata.name: rhbk-operator
+  name: rhbk-operator
+spec:

@@ -1,0 +1,14 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+  annotations:
+    argocd.argoproj.io/sync-wave: '-5'
+  name: rhbk-operator
+  namespace: rhbk-operator
+spec:
+  channel: stable-v22
+  installPlanApproval: Automatic
+  name: rhbk-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
