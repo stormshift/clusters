@@ -1,9 +1,13 @@
 apiVersion: automationcontroller.ansible.com/v1beta1
 kind: AutomationController
 metadata:
-  name: core
+  name: coe-aap
   namespace: ansible-automation-platform
 spec:
-  replicas: 1
-  postgres_storage_class: coe-netapp-nas
+  replicas: 2
+  hostname: aap.coe.muc.redhat.com
+  route_host: aap.coe.muc.redhat.com
+  route_tls_secret: cert-wildcard-coe
+  # ca_trust_bundle: kube-root-ca.crt
+  postgres_storage_class: coe-netapp-san
   projects_storage_class: coe-netapp-nas
