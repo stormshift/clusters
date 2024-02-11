@@ -1,8 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- MultiClusterHub.yaml
-- Namespace.yaml
-- OperatorGroup.yaml
-- Subscription.yaml
+- MultiClusterHub/
+- Namespace/
+- OperatorGroup/
+- Subscription/
 - AgentServiceConfig/
+- Provisioning/
