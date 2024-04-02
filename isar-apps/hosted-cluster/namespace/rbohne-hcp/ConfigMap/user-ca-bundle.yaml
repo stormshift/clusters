@@ -129,3 +129,5 @@ metadata:
   creationTimestamp: null
   name: user-ca-bundle
   namespace: rbohne-hcp
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
