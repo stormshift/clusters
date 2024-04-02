@@ -28,8 +28,6 @@ spec:
       - enabled: false
         name: cluster-backup
       - enabled: true
-        name: hypershift-preview
-      - enabled: true
         name: cluster-permission
       - enabled: true
         name: multicluster-observability
