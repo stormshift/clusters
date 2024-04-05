@@ -13,24 +13,55 @@ spec:
     providerSelection:
         name: providers-template
   identityProviders:
+  - mappingMethod: add
+    name: COE-SSO
+    openID:
+      ca:
+        name: openid-ca-gnmjm
+      claims:
+        email:
+        - email
+        groups:
+        - groups
+        name:
+        - name
+        preferredUsername:
+        - preferred_username
+      clientID: isar.coe.muc.redhat.com
+      clientSecret:
+        name: openid-client-secret-9sdwg
+      issuer: https://sso.coe.muc.redhat.com/realms/coe-sso
+    type: OpenID
+  - mappingMethod: add
+    name: COE-SSO-Admin
+    openID:
+      ca:
+        name: openid-ca-gnmjm
+      claims:
+        email:
+        - email
+        groups:
+        - groups
+        name:
+        - name
+        preferredUsername:
+        - preferred_username
+      clientID: isar.coe.muc.redhat.com
+      clientSecret:
+        name: openid-client-secrot-coe-sso-admin
+      issuer: https://sso.coe.muc.redhat.com/realms/coe-sso-admin
+    type: OpenID
+  - htpasswd:
+      fileData:
+        name: htpasswd-sbh7j
+    mappingMethod: claim
+    name: Local
+    type: HTPasswd
   - google:
       clientID: 1079812798374-5boqg26urlclfrp0cqvsoj3ans6cua6f.apps.googleusercontent.com
       clientSecret:
-        # google-client-secret-r2qbc
         name: google-client-secret
       hostedDomain: redhat.com
-    mappingMethod: claim
+    mappingMethod: add
     name: RedHatSSO
     type: Google
-  - github:	
-      clientID: a3a2ea7218658b513226	
-      clientSecret:	
-        name: github-client-secret-tmq7d	
-      hostname: ''	
-      organizations:	
-        - stormshift	
-      teams: []	
-    mappingMethod: claim	
-    name: GitHub	
-    type: GitHub
-
