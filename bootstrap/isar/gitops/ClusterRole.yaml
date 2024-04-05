@@ -148,4 +148,58 @@ rules:
   verbs:
   - patch
   - create
-
+- apiGroups:
+  - agent-install.openshift.io
+  resources:
+  - agentserviceconfigs
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - argoproj.io
+  resources:
+  - argocds
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - argoproj.io
+  resources:
+  - applicationsets
+  verbs:
+  - '*'
+- apiGroups:
+  - k8s.keycloak.org
+  resources:
+  - keycloaks
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - postgresql.cnpg.io
+  resources:
+  - clusters
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - metal3.io
+  resources:
+  - provisionings
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - policy.open-cluster-management.io
+  resources:
+  - '*'
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - forklift.konveyor.io
+  resources:
+  - forkliftcontrollers
+  verbs:
+  - patch
+  - create
