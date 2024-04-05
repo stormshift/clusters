@@ -56,4 +56,5 @@ spec:
       g, system:cluster-admins, role:admin
       g, cluster-admins, role:admin
       g, coe-cluster-admins, role:admin
+      g, coe-sso-admin, role:admin
     scopes: '[groups]'
