@@ -1,0 +1,12 @@
+kind: Subscription
+apiVersion: operators.coreos.com/v1alpha1
+metadata:
+  name: mtv-operator
+  namespace: openshift-mtv
+spec:
+# Let's try without to get "latest" hopefully:
+#  channel: release-v2.2.0
+  installPlanApproval: Automatic
+  name: mtv-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace

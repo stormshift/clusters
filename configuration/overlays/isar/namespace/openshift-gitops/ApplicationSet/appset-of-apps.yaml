@@ -15,6 +15,7 @@ spec:
           # Disabled because installed by hand
           # - operator: aap
           - operator: hosted-cluster
+          - operator: mtv
   template:
     metadata:
       name: 'operator-{{ operator }}'
