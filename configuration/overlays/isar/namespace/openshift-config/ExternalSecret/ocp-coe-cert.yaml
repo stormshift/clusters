@@ -23,6 +23,6 @@ spec:
     template:
       type: kubernetes.io/tls
       engineVersion: v2
-      templateFrom:
-      - target: Annotations
-        literal: "argocd.argoproj.io/compare-options: IgnoreExtraneous"
+      metadata:
+        annotations:
+          argocd.argoproj.io/compare-options: IgnoreExtraneous
