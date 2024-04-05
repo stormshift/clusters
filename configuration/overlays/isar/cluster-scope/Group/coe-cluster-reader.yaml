@@ -4,4 +4,5 @@ metadata:
   name: coe-cluster-reader
 users:
   - mjaekel@redhat.com
+  - dfroehli@redhat.com
 
