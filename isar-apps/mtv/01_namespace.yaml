@@ -1,0 +1,11 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/description: "Tool to migrate VMs from RHEV, RHOSP, vSphere to OCP Virtualization"
+    openshift.io/display-name: "Migration Toolkit for Virtualization"
+    openshift.io/requester: dfroehli@redhat.com
+  labels:
+    kubernetes.io/metadata.name: mtv-operator
+  name: openshift-mtv
+spec:
