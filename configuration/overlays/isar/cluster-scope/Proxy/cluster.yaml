@@ -6,4 +6,4 @@ metadata:
   name: cluster
 spec:
   trustedCA:
-    name: redhat-ca-bundle-v1
+    name: redhat-current-it-root-cas

@@ -5,3 +5,4 @@ namespace: openshift-config
 
 resources:
   - ConfigMap/redhat-ca-bundle-v1.yaml
+  - ConfigMap/redhat-current-it-root-cas.yaml
