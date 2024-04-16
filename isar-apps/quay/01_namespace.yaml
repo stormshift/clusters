@@ -1,0 +1,11 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/description: "Quay Enterprise Container Registry"
+    openshift.io/display-name: "Quay Enterprise Container Registry"
+    openshift.io/requester: dfroehli@redhat.com
+  labels:
+    kubernetes.io/metadata.name: quay-enterprise
+  name: quay-enterprise
+spec:

@@ -1,0 +1,12 @@
+kind: Subscription
+apiVersion: operators.coreos.com/v1alpha1
+metadata:
+  name: quay-operator
+  namespace: openshift-operators
+spec:
+# Let's try without to get "latest" hopefully:
+#  channel: stable-3.11
+  installPlanApproval: Automatic
+  name: quay-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
