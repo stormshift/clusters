@@ -16,6 +16,7 @@ spec:
           # - operator: aap
           - operator: hosted-cluster
           - operator: mtv
+          - operator: quay
   template:
     metadata:
       name: 'operator-{{ operator }}'

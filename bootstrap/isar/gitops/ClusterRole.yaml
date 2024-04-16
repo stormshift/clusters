@@ -203,3 +203,10 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - quay.redhat.com
+  resources:
+  - quayregistries
+  verbs:
+  - patch
+  - create
