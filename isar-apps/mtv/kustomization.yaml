@@ -5,3 +5,5 @@ resources:
  - 02_operatorgroup.yaml
  - 03_subscription.yaml
  - 04_forklift.yaml
+ - 05_externalsecret-rhv.yaml
+ - 06_provider-stormshift-rhv.yaml
