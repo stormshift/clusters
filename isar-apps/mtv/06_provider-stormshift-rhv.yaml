@@ -1,0 +1,11 @@
+kind: Provider
+apiVersion: forklift.konveyor.io/v1beta1
+metadata:
+  name: stormshift-rhv
+  namespace: openshift-mtv
+spec:
+  secret:
+    name: stormshift-rhv
+    namespace: openshift-mtv
+  type: ovirt
+  url: 'https://rhev.stormshift.coe.muc.redhat.com/ovirt-engine/api'
