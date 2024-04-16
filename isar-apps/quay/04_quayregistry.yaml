@@ -3,9 +3,7 @@ kind: QuayRegistry
 metadata:
   name: registry
   namespace: quay-enterprise
-  annotations:
-    argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
-  spec:
+spec:
     configBundleSecret: config-bundle-secret
     components:
     - kind: quay

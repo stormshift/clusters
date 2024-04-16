@@ -206,7 +206,7 @@ rules:
 - apiGroups:
   - quay.redhat.com
   resources:
-  - QuayRegistry
+  - quayregistries
   verbs:
   - patch
   - create
