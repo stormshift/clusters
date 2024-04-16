@@ -200,6 +200,7 @@ rules:
   - forklift.konveyor.io
   resources:
   - forkliftcontrollers
+  - providers
   verbs:
   - patch
   - create
