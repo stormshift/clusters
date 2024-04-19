@@ -4,6 +4,8 @@ metadata:
   name: coe-sso
   namespace: rhbk-operator
 spec:
+  ingress:
+    claseName: openshift-default
   instances: 2
   db:
     vendor: postgres
