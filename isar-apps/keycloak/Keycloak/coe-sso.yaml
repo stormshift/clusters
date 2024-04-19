@@ -5,7 +5,7 @@ metadata:
   namespace: rhbk-operator
 spec:
   ingress:
-    claseName: openshift-default
+    className: openshift-default
   instances: 2
   db:
     vendor: postgres
