@@ -1,17 +1,17 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: cert-wildcard-coe
+  name: aap-coe-cert
   namespace: ansible-automation-platform
 spec:
   data:
   - remoteRef:
-      key: coe-lab/wildcard-cert-coe
-      property: wildcard-coe.chain.cert
+      key: coe-lab/aap-coe-cert
+      property: tls.crt
     secretKey: tls.crt
   - remoteRef:
-      key: coe-lab/wildcard-cert-coe
-      property: wildcard-coe.key
+      key: coe-lab/aap-coe-cert
+      property: tls.key
     secretKey: tls.key
   refreshInterval: 12h
   secretStoreRef:
@@ -20,6 +20,6 @@ spec:
   target:
     creationPolicy: Owner
     deletionPolicy: Retain
-    name: cert-wildcard-coe
+    name: aap-coe-cert
     template:
       type: kubernetes.io/tls
