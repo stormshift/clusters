@@ -18,6 +18,6 @@ spec:
       name: pq-for-rhbk-app
       key: password
   http:
-    tlsSecret: cert-wildcard-coe
+    tlsSecret: sso-coe-cert
   hostname:
     hostname: sso.coe.muc.redhat.com
