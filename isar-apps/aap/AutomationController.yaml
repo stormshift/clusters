@@ -7,7 +7,7 @@ spec:
   replicas: 2
   hostname: aap.coe.muc.redhat.com
   route_host: aap.coe.muc.redhat.com
-  route_tls_secret: cert-wildcard-coe
+  route_tls_secret: aap-coe-cert
   # ca_trust_bundle: kube-root-ca.crt
   postgres_storage_class: coe-netapp-san
   projects_storage_class: coe-netapp-nas
