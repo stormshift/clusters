@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
 - appset-of-apps.yaml
 - isar-apps.yaml
-- isar-stormshift.yaml
