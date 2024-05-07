@@ -16,3 +16,4 @@ resources:
   - Project/
   - APIServer/
   - KubeletConfig/
+  - VolumeSnapshotClass/
