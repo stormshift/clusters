@@ -11,3 +11,7 @@ spec:
     path: 'isar-baselayer-config/'
     repoURL: https://github.com/stormshift/automation.git
     targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
