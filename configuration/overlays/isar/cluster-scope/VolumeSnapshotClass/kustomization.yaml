@@ -1,6 +1,4 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- appset-of-apps.yaml
-- isar-apps.yaml
-- isar-stormshift.yaml
+- coe-netapp.yaml

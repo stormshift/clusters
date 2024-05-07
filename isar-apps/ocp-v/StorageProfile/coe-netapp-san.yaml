@@ -1,12 +1,12 @@
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: StorageProfile
 metadata:
+  name: coe-netapp-san
   annotations:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
-  name: coe-netapp-nas
 spec:
   snapshotClass: coe-netapp
   claimPropertySets:
   - accessModes:
     - ReadWriteMany
-    volumeMode: Filesystem
+    volumeMode: Block
