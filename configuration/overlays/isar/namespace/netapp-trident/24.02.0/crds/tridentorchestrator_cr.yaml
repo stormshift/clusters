@@ -3,7 +3,7 @@ kind: TridentOrchestrator
 metadata:
   name: trident
 spec:
-  debug: true
+  debug: false
   namespace: netapp-trident
   imagePullPolicy: IfNotPresent
   windows: false
