@@ -16,8 +16,7 @@ spec:
           # - operator: aap
           - operator: hosted-cluster
           - operator: mtv
-          # Temp disable to add oidc
-          #- operator: quay
+          - operator: quay
   template:
     metadata:
       name: 'operator-{{ operator }}'
