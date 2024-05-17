@@ -21,3 +21,12 @@ spec:
     tlsSecret: sso-coe-cert
   hostname:
     hostname: sso.coe.muc.redhat.com
+  unsupported:
+    podTemplate:
+      spec:
+        containers:
+          - env:
+            - name: QUARKUS_HTTP_HTTP2
+              value: "false"
+            - name: QUARKUS_HTTP_LIMITS_MAX_HEADER_SIZE
+              value: "40k"
