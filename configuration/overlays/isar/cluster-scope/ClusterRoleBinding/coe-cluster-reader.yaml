@@ -11,3 +11,6 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
   name: coe-cluster-reader
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: idp-coe-sso-admin
