@@ -1,0 +1,19 @@
+##
+# TODO: Turn into External secret
+# vault path: coe-lab/isar/acm/observability-thanos-object-storage
+# keys: bucket, access_key, secret_key
+apiVersion: v1
+kind: Secret
+metadata:
+  name: thanos-object-storage
+  namespace: open-cluster-management-observability  
+type: Opaque
+stringData:
+  thanos.yaml: |
+    type: s3
+    config:
+      endpoint: ocs-storagecluster-cephobjectstore-openshift-storage.apps.isar.coe.muc.redhat.com
+      insecure: true
+      bucket: acm-observability-thanos-b-e0918dea-5f96-4cf0-9ba1-ebb69bbe3b9f
+      access_key: 8H409VII4IGJL1AYNRTR
+      secret_key: BnS0q4MLnDdAzguHgODSryEuSrpQ4Tz0c7U5bAAA
