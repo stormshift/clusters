@@ -15,3 +15,11 @@ spec:
     automated:
       prune: true
       selfHeal: true
+  ignoreDifferences:
+# Ignore run state differences so we can start/stop VM outside gitops:
+  - group: kubevirt.io
+    kind: VirtualMachine
+    namespace: stormshift-vm-templates
+    jsonPointers:
+    - /spec/runStrategy
+    - /spec/running
