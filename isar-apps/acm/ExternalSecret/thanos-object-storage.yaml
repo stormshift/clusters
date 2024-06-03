@@ -28,10 +28,11 @@ spec:
     template:
       engineVersion: v2
       type: Opaque
-      data:
-        type: s3
-        endpoint: ocs-storagecluster-cephobjectstore-openshift-storage.apps.isar.coe.muc.redhat.com
-        insecure: "true"
-        bucket: "{{ bucket }}"
-        access_key: "{{ access_key }}"
-        secret_key: "{{ secret_key }}"
+      stringData:
+        thanos.yaml: |
+          type: s3
+          endpoint: ocs-storagecluster-cephobjectstore-openshift-storage.apps.isar.coe.muc.redhat.com
+          insecure: "true"
+          bucket: "{{ bucket }}"
+          access_key: "{{ access_key }}"
+          secret_key: "{{ secret_key }}"
