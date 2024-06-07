@@ -20,7 +20,7 @@ spec:
     receive:
       resources:
         limits:
-          memory: 1024Gi
+          memory: 2Gi
       replicas: 3
   storageConfig: # Specifies the storage to be used by Observability
     metricObjectStorage:
