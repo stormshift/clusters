@@ -26,5 +26,9 @@ spec:
     metricObjectStorage:
       name: thanos-object-storage
       key: thanos.yaml
-    statefulSetSize: 10Gi # The amount of storage applied to the Observability stateful sets, i.e. Amazon S3 store, Rule, compact and receiver.
-    statefulSetStorageClass: coe-netapp-san
+    compactStorageSize: 10Gi
+    receiveStorageSize: 10Gi
+    ruleStorageSize: 1Gi
+    statefulSetSize: 10Gi
+    storeStorageSize: 10 Gi
+    storageClass: coe-netapp-san
