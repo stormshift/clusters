@@ -218,3 +218,17 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - objectbucket.io
+  resources:
+  - objectbucketclaims
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - observability.open-cluster-management.io
+  resources:
+  - multiclusterobservabilities
+  verbs:
+  - patch
+  - create
