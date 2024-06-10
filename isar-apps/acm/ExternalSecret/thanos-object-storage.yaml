@@ -22,7 +22,6 @@ spec:
     kind: ClusterSecretStore
     name: redhat-vault
   target:
-    mergePolicy: Merge
     deletionPolicy: Retain
     name: thanos-object-storage
     template:
