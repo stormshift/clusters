@@ -28,6 +28,5 @@ spec:
     compactStorageSize: 10Gi
     receiveStorageSize: 10Gi
     ruleStorageSize: 1Gi
-    statefulSetSize: 10Gi
     storeStorageSize: 10 Gi
     storageClass: coe-netapp-san
