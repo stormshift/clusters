@@ -4,7 +4,6 @@ metadata:
   name: observability
   namespace: open-cluster-management-observability
 spec:
-  availabilityConfig: Basic # Available values are High or Basic
   imagePullPolicy: IfNotPresent
   imagePullSecret: multiclusterhub-operator-pull-secret
   observabilityAddonSpec: # The ObservabilityAddonSpec defines the global settings for all managed clusters which have observability add-on enabled
