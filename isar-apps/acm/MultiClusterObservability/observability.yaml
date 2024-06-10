@@ -9,7 +9,7 @@ spec:
   observabilityAddonSpec: # The ObservabilityAddonSpec defines the global settings for all managed clusters which have observability add-on enabled
     enableMetrics: true # EnableMetrics indicates the observability addon push metrics to hub server
     interval: 60 # Interval for the observability addon push metrics to hub server
-  enableDownSampling: true
+#  enableDownSampling: true
   advanced:
     retentionConfig:
       retentionInLocal: 48h
