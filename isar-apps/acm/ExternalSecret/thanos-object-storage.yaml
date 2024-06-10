@@ -25,12 +25,13 @@ spec:
     deletionPolicy: Retain
     name: thanos-object-storage
     template:
-      engineVersion: v2
+      engineVersion: v1
       data:
         thanos.yaml: |
           type: s3
-          endpoint: ocs-storagecluster-cephobjectstore-openshift-storage.apps.isar.coe.muc.redhat.com
-          insecure: "true"
-          bucket: "{{ .bucket }}"
-          access_key: "{{ .access_key }}"
-          secret_key: "{{ .secret_key }}"
+          config:
+            endpoint: ocs-storagecluster-cephobjectstore-openshift-storage.apps.isar.coe.muc.redhat.com
+            insecure: true
+            bucket: "{{ .bucket | base64encode | toString  }}"
+            access_key: "{{ .access_key | base64encode | toString }}"
+            secret_key: "{{ .secret_key | base64encode | toString }}"
