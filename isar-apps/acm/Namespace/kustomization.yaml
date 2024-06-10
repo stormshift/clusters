@@ -2,3 +2,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - open-cluster-management.yaml
+- open-cluster-management-observability.yaml

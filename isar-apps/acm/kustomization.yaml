@@ -7,3 +7,6 @@ resources:
 - Subscription/
 - AgentServiceConfig/
 - Provisioning/
+- ObjectBucketClaim/
+- ExternalSecret/
+- MultiClusterObservability/

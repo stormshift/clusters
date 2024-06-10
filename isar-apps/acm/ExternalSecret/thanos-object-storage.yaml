@@ -1,0 +1,38 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: thanos-object-storage
+  namespace: open-cluster-management-observability
+spec:
+  data:
+  - remoteRef:
+      key: coe-lab/isar/acm/observability-thanos-object-storage
+      property: secret_key
+    secretKey: secret_key
+  - remoteRef:
+      key: coe-lab/isar/acm/observability-thanos-object-storage
+      property: access_key
+    secretKey: access_key
+  - remoteRef:
+      key: coe-lab/isar/acm/observability-thanos-object-storage
+      property: bucket
+    secretKey: bucket
+  refreshInterval: 12h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: redhat-vault
+  target:
+    creationPolicy: Merge
+    deletionPolicy: Retain
+    name: thanos-object-storage
+    template:
+      engineVersion: v2
+      type: Opaque
+      stringData:
+        thanos.yaml: |
+          type: s3
+          endpoint: ocs-storagecluster-cephobjectstore-openshift-storage.apps.isar.coe.muc.redhat.com
+          insecure: "true"
+          bucket: "{{ bucket }}"
+          access_key: "{{ access_key }}"
+          secret_key: "{{ secret_key }}"

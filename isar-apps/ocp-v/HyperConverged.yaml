@@ -10,3 +10,6 @@ spec:
   featureGates:
     enableCommonBootImageImport: true
     deployTektonTaskResources: true
+    VMPersistentState: true
+# For vmStateStorage, we need to use cephfs because netapp cant do 12MB PVCs:
+  vmStateStorageClass: ocs-storagecluster-cephfs

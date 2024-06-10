@@ -1,0 +1,8 @@
+kind: ObjectBucketClaim
+apiVersion: objectbucket.io/v1alpha1
+metadata:
+  name: acm-observability-thanos-bucket
+  namespace: open-cluster-management-observability
+spec:
+  generateBucketName: acm-observability-thanos-bucket
+  storageClassName: ocs-storagecluster-ceph-rgw
