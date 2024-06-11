@@ -1,8 +1,8 @@
 kind: ObjectBucketClaim
 apiVersion: objectbucket.io/v1alpha1
 metadata:
-  name: acm-observability-thanos-bucket
+  name: acm-obsv-thanos
   namespace: open-cluster-management-observability
 spec:
-  generateBucketName: acm-observability-thanos-bucket
+  generateBucketName: acm-obsv-thanos
   storageClassName: ocs-storagecluster-ceph-rgw
