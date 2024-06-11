@@ -22,16 +22,14 @@ spec:
     kind: ClusterSecretStore
     name: redhat-vault
   target:
-    deletionPolicy: Retain
     name: thanos-object-storage
     template:
-      engineVersion: v1
       data:
         thanos.yaml: |
           type: s3
           config:
             endpoint: ocs-storagecluster-cephobjectstore-openshift-storage.apps.isar.coe.muc.redhat.com
             insecure: true
-            bucket: "{{ .bucket | base64encode | toString  }}"
-            access_key: "{{ .access_key | base64encode | toString }}"
-            secret_key: "{{ .secret_key | base64encode | toString }}"
+            bucket: "{{ .bucket }}"
+            access_key: "{{ .access_key }}"
+            secret_key: "{{ .secret_key }}"
