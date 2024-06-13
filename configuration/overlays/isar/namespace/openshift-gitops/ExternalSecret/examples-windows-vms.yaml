@@ -1,0 +1,29 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: examples-windows-vms
+spec:
+  data:
+  - remoteRef:
+      key: coe-lab/coe-windows-vm-deploykey
+      property: private
+    secretKey: private
+  refreshInterval: 12h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: redhat-vault
+  target:
+    name: examples-windows-vms
+    template:
+      type: Opaque
+      engineVersion: v2
+      metadata:
+        labels:
+          argocd.argoproj.io/secret-type: repository
+      data:
+        project: default
+        insecure: "true"
+        name: examples-windows-vms
+        sshPrivateKey: "{{ .private }}"
+        type: git
+        url: ssh://git@gitlab.consulting.redhat.com:2222/coe-lab/examples-windows-vms.git
