@@ -5,3 +5,4 @@ resources:
   - ApplicationSet
   - ArgoCD
   - Application
+  - ExternalSecret

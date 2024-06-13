@@ -232,3 +232,11 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - cdi.kubevirt.io
+  resources:
+  - '*'
+  verbs:
+  - patch
+  - create
+
