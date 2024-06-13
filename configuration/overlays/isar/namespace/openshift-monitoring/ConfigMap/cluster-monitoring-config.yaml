@@ -7,19 +7,60 @@ metadata:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
 data:
   config.yaml: |
-   alertmanagerMain:
-     volumeClaimTemplate:
-       spec:
-         resources:
-           requests:
-             storage: 10Gi
-         storageClassName: ocs-storagecluster-ceph-rbd
-   enableUserWorkload: true
-   prometheusK8s:
-     volumeClaimTemplate:
-       spec:
-         resources:
-           requests:
-             storage: 120Gi
-         storageClassName: ocs-storagecluster-ceph-rbd
-#
+    alertmanagerMain:
+      enableUserAlertmanagerConfig: false
+      enabled: null
+      logLevel: ""
+      nodeSelector: null
+      resources: null
+      tolerations: null
+      volumeClaimTemplate:
+        metadata: {}
+        spec:
+          resources:
+            requests:
+              storage: 10Gi
+          storageClassName: ocs-storagecluster-ceph-rbd
+        status: {}
+    enableUserWorkload: true
+    grafana: null
+    http: null
+    k8sPrometheusAdapter: null
+    kubeStateMetrics: null
+    openshiftStateMetrics: null
+    prometheusK8s:
+      additionalAlertmanagerConfigs:
+      - apiVersion: v2
+        bearerToken:
+          key: token
+          name: observability-alertmanager-accessor
+        pathPrefix: /
+        scheme: https
+        staticConfigs:
+        - alertmanager-open-cluster-management-observability.apps.isar.coe.muc.redhat.com
+        tlsConfig:
+          ca:
+            key: service-ca.crt
+            name: hub-alertmanager-router-ca
+          insecureSkipVerify: false
+      externalLabels:
+        managed_cluster: 2997ae23-5631-49ad-8f0b-1dcf4e528e00
+      logLevel: ""
+      nodeSelector: null
+      queryLogFile: ""
+      remoteWrite: null
+      resources: null
+      retention: ""
+      tolerations: null
+      volumeClaimTemplate:
+        metadata: {}
+        spec:
+          resources:
+            requests:
+              storage: 120Gi
+          storageClassName: ocs-storagecluster-ceph-rbd
+        status: {}
+    prometheusOperator: null
+    telemeterClient: null
+    thanosQuerier: null
+
