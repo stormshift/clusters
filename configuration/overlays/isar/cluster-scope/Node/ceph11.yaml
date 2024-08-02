@@ -7,8 +7,8 @@ metadata:
     coe.muc.redhat.com/second-nic: enp65s0f1
     topology.kubernetes.io/zone: muc-b
     failure-domain.beta.kubernetes.io/zone: muc-b
-    node.kubernetes.io/instance-type: "Dell PowerEdge R520"
-    beta.kubernetes.io/instance-type: "Dell PowerEdge R520"
+    node.kubernetes.io/instance-type: "Dell-PowerEdge-R520"
+    beta.kubernetes.io/instance-type: "Dell-PowerEdge-R520"
     node-role.kubernetes.io/storage-node: ""
     cluster.ocs.openshift.io/openshift-storage: ""
   name: ceph11
