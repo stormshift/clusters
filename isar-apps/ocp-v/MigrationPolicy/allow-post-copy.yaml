@@ -1,0 +1,11 @@
+apiVersion: migrations.kubevirt.io/v1alpha1
+kind: MigrationPolicy
+metadata:
+  annotations:
+    description: Migration Policy to allow post-copy
+  name: allow-post-copy
+spec:
+  allowPostCopy: true
+  selectors:
+    namespaceSelector:
+      coe.muc.redhat.com/mig-pol-allow-post-copy: "true"
