@@ -11,5 +11,5 @@ metadata:
     beta.kubernetes.io/instance-type: "Dell PowerEdge R520"
     node-role.kubernetes.io/storage-node: ""
     cluster.ocs.openshift.io/openshift-storage: ""
-  name: inf44
+  name: ceph11
 spec: {}
