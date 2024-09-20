@@ -17,6 +17,17 @@ data:
           storageClassName: ocs-storagecluster-ceph-rbd
         status: {}
     enableUserWorkload: true
+    nodeExporter:	
+      collectors:	
+        buddyinfo: {}	
+        cpufreq: {}	
+        ksmd: {}	
+        mountstats: {}	
+        netclass: {}	
+        netdev: {}	
+        processes: {}	
+        systemd: {}	
+        tcpstat: {}
     prometheusK8s:
       additionalAlertmanagerConfigs:
       - apiVersion: v2
@@ -34,13 +45,6 @@ data:
           insecureSkipVerify: false
       externalLabels:
         managed_cluster: 2997ae23-5631-49ad-8f0b-1dcf4e528e00
-      logLevel: ""
-      nodeSelector: null
-      queryLogFile: ""
-      remoteWrite: null
-      resources: null
-      retention: ""
-      tolerations: null
       volumeClaimTemplate:
         metadata: {}
         spec:
