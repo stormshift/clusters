@@ -239,4 +239,11 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - migrations.kubevirt.io
+  resources:
+  - '*'
+  verbs:
+  - patch
+  - create
 
