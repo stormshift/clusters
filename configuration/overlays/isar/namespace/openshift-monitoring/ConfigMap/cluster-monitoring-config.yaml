@@ -8,12 +8,6 @@ metadata:
 data:
   config.yaml: |
     alertmanagerMain:
-      enableUserAlertmanagerConfig: false
-      enabled: null
-      logLevel: ""
-      nodeSelector: null
-      resources: null
-      tolerations: null
       volumeClaimTemplate:
         metadata: {}
         spec:
@@ -23,11 +17,6 @@ data:
           storageClassName: ocs-storagecluster-ceph-rbd
         status: {}
     enableUserWorkload: true
-    grafana: null
-    http: null
-    k8sPrometheusAdapter: null
-    kubeStateMetrics: null
-    openshiftStateMetrics: null
     prometheusK8s:
       additionalAlertmanagerConfigs:
       - apiVersion: v2
@@ -60,7 +49,4 @@ data:
               storage: 120Gi
           storageClassName: ocs-storagecluster-ceph-rbd
         status: {}
-    prometheusOperator: null
-    telemeterClient: null
-    thanosQuerier: null
 
