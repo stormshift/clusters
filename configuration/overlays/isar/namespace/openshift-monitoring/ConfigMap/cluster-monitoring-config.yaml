@@ -17,16 +17,16 @@ data:
           storageClassName: ocs-storagecluster-ceph-rbd
         status: {}
     enableUserWorkload: true
-    nodeExporter:	
-      collectors:	
-        buddyinfo: {}	
-        cpufreq: {}	
-        ksmd: {}	
-        mountstats: {}	
-        netclass: {}	
-        netdev: {}	
-        processes: {}	
-        systemd: {}	
+    nodeExporter:
+      collectors:
+        buddyinfo: {}
+        cpufreq: {}
+        ksmd: {}
+        mountstats: {}
+        netclass: {}
+        netdev: {}
+        processes: {}
+        systemd: {}
         tcpstat: {}
     prometheusK8s:
       additionalAlertmanagerConfigs:
@@ -53,4 +53,3 @@ data:
               storage: 120Gi
           storageClassName: ocs-storagecluster-ceph-rbd
         status: {}
-
