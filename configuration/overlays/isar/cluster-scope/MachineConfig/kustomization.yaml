@@ -8,3 +8,5 @@ resources:
 - 56-virt-node-disable-hyperthreading.yaml
 - 90-worker-iscsi-multipathing.yaml
 - 90-master-iscsi-multipathing.yaml
+- 99-workers-core-password.yaml
+- 99-masters-core-password.yaml
