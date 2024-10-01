@@ -9,7 +9,6 @@ metadata:
     failure-domain.beta.kubernetes.io/zone: muc-a
     node.kubernetes.io/instance-type: "Intel-Whitebox"
     beta.kubernetes.io/instance-type: "Intel-Whitebox"
-    node-role.kubernetes.io/storage-node: ""
-    cluster.ocs.openshift.io/openshift-storage: ""
+    node-role.kubernetes.io/virt-node: ""
   name: inf7
 spec: {}
