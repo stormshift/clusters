@@ -4,5 +4,7 @@ resources:
 - 50-masters-chrony-configuration.yaml
 - 50-remove-keepalived.yaml
 - 50-workers-chrony-configuration.yaml
+- 55-virt-node-kvm-intel-enable-nested.yaml
+- 56-virt-node-disable-hyperthreading.yaml
 - 90-worker-iscsi-multipathing.yaml
 - 90-master-iscsi-multipathing.yaml

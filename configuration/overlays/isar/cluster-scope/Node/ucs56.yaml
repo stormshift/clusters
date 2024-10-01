@@ -9,5 +9,6 @@ metadata:
     node.kubernetes.io/instance-type: "Cisco-UCS-C460-M4"
     beta.kubernetes.io/instance-type: "Cisco-UCS-C460-M4"
     failure-domain.beta.kubernetes.io/zone: muc-b
+    node-role.kubernetes.io/virt-node: ""
   name: ucs56
 spec: {}
