@@ -8,7 +8,7 @@ metadata:
   namespace: rhbk-operator
 spec:
   channel: stable-v22
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: rhbk-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace

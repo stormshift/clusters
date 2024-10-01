@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-20"
 spec:
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: lvms-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace

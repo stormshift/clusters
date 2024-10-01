@@ -10,5 +10,5 @@ spec:
   sourceNamespace: openshift-marketplace
   source: redhat-operators
   channel: release-2.11
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: advanced-cluster-management

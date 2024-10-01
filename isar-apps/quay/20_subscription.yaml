@@ -6,7 +6,7 @@ metadata:
 spec:
 # Let's try without to get "latest" hopefully:
 #  channel: stable-3.11
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: quay-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
