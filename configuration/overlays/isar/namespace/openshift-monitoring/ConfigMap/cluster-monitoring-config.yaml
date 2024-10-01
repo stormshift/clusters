@@ -14,7 +14,7 @@ data:
           resources:
             requests:
               storage: 10Gi
-          storageClassName: ocs-storagecluster-ceph-rbd
+          storageClassName: coe-netapp-san
         status: {}
     enableUserWorkload: true
     nodeExporter:
@@ -51,5 +51,5 @@ data:
           resources:
             requests:
               storage: 120Gi
-          storageClassName: ocs-storagecluster-ceph-rbd
+          storageClassName: coe-netapp-san
         status: {}
