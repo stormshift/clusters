@@ -19,6 +19,7 @@ spec:
     receive:
       resources:
         limits:
+          cpu: 1
           memory: 2Gi
       replicas: 3
   storageConfig: # Specifies the storage to be used by Observability
