@@ -9,5 +9,6 @@ metadata:
     failure-domain.beta.kubernetes.io/zone: muc-c
     node.kubernetes.io/instance-type: "Cisco-UCS-EX-M4"
     beta.kubernetes.io/instance-type: "Cisco-UCS-EX-M4"
+    node-role.kubernetes.io/virt-node: ""
   name: ucs-blade-server-3
 spec: {}
