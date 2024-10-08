@@ -7,5 +7,5 @@ resources:
   - Namespace/
   - ExternalSecret/
   - ConfigMap/
-  - HostedCluster/
-  - NodePool/
+#  - HostedCluster/
+#  - NodePool/
