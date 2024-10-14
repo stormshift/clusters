@@ -6,6 +6,6 @@ namespace: rbohne-hcp
 resources:
   - Namespace/
   - ExternalSecret/
-  - ConfigMap/
+#  - ConfigMap/
 #  - HostedCluster/
 #  - NodePool/
