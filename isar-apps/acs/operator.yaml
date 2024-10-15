@@ -1,0 +1,117 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rhacs
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rhacs-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: rhacs-operator-group
+  namespace: rhacs-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec: {}
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: rhacs-operator
+  namespace: rhacs-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: rhacs-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: central-default-tls-cert
+  namespace: rhacs
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  commonName: "rhacs.coe.muc.redhat.com"
+  secretName: central-default-tls-cert
+  dnsNames:
+  - "rhacs.coe.muc.redhat.com"
+  issuerRef:
+    name: acme-letsencrypt
+    kind: ClusterIssuer
+---
+apiVersion: platform.stackrox.io/v1alpha1
+kind: Central
+metadata:
+  name: rhacs-central-services
+  namespace: rhacs
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  monitoring:
+    openshift:
+      enabled: true
+  central:
+    notifierSecretsEncryption:
+      enabled: false
+    exposure:
+      loadBalancer:
+        enabled: false
+        port: 443
+      nodePort:
+        enabled: false
+      route:
+        enabled: true
+        host: rhacs.coe.muc.redhat.com
+    telemetry:
+      enabled: true
+    db:
+      isEnabled: Default
+      persistence:
+        persistentVolumeClaim:
+          claimName: central-db
+    persistence:
+      persistentVolumeClaim:
+        claimName: rhacs-db
+    declarativeConfiguration:
+      configMaps:
+        - name: declarative-oauth
+  egress:
+    connectivityPolicy: Online
+  scannerV4:
+    db:
+      persistence:
+        persistentVolumeClaim:
+          claimName: scanner-v4-db
+    indexer:
+      scaling:
+        autoScaling: Enabled
+        maxReplicas: 5
+        minReplicas: 2
+        replicas: 3
+    matcher:
+      scaling:
+        autoScaling: Enabled
+        maxReplicas: 5
+        minReplicas: 2
+        replicas: 3
+    scannerComponent: Enabled
+  scanner:
+    analyzer:
+      scaling:
+        autoScaling: Enabled
+        maxReplicas: 5
+        minReplicas: 2
+        replicas: 3
+    scannerComponent: Enabled
