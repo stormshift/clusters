@@ -1,0 +1,14 @@
+apiVersion: platform.stackrox.io/v1alpha1
+kind: SecuredCluster
+metadata:
+  name: rhacs-secured-cluster-services
+  namespace: rhacs
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  clusterName: 'local-cluster'
+  centralEndpoint: 'central.rhacs.svc:443'
+  admissionControl:
+    listenOnCreates: true
+    listenOnEvents: true
+    listenOnUpdates: true
