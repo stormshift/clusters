@@ -23,7 +23,7 @@ spec:
     - name: enp80s0f1.69
       description: coe-air-gapped-vlan
       type: vlan
-      state: up
+      state: absent
       ipv4:
         enabled: false
       vlan:
@@ -40,7 +40,7 @@ spec:
       ipv4:
         enabled: false
       name: coe-br-vlan-69
-      state: up
+      state: absent
       type: linux-bridge
 
   nodeSelector:
