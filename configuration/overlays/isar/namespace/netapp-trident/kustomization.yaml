@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: netapp-trident
 
 resources:
-  - 24.02.0/
+  - 24.10.0/
   # Access to NetApp
   - ExternalSecret/coe-netapp-svm-trident.yaml
   - TridentBackendConfig/coe-netapp-nas.yaml
