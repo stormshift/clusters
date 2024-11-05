@@ -5,6 +5,7 @@ namespace: netapp-trident
 
 resources:
   - 24.10.0/
+  - tridentorchestrator.yaml
   # Access to NetApp
   - ExternalSecret/coe-netapp-svm-trident.yaml
   - TridentBackendConfig/coe-netapp-nas.yaml

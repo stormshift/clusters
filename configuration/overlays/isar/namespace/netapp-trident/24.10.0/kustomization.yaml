@@ -12,4 +12,3 @@ resources:
   - namespace.yaml
   - crds/trident.netapp.io_tridentorchestrators_crd_post1.16.yaml
   - bundle_post_1_25.yaml
-  - crds/tridentorchestrator_cr.yaml
