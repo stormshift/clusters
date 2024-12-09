@@ -10,3 +10,4 @@ resources:
   - console-operator-config.yaml
 
   - ../../../apps/astra-trident/overlays/stormshift-ocp5/
+  - cluster-cope/
