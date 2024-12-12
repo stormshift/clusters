@@ -246,4 +246,12 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - patch
+  - create
+
 
