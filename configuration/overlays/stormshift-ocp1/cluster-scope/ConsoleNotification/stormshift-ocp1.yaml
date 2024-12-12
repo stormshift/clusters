@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: stormshift-ocp1
+spec:
+  backgroundColor: '#d4c5f9'
+  color: '#000'
+  link:
+    href: https://source.redhat.com/groups/public/solution-architects/stormshift/stormshift_wiki/current_status_of_stormshift_clusters
+    text: Details
+  location: BannerTop
+  text: "🌪️ StormShift OCP1 - Managed by Robert Bohne"
