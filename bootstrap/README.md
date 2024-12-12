@@ -1,23 +1,54 @@
 # Bootstrap coe-cluster
 
-
 ## Install following Operators
 
  * External Secrets Operator
  * OpenShift GitOps
 
-## Apply reousrces
+## Configure gitops
+
+Note: Auto-sync disabled by default! 
+
+```bash
+export CLUSTER_NAME=stormshift-ocpX
+
+oc apply -f - <<EOF
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-configuration
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: configuration/overlays/${CLUSTER_NAME}
+    repoURL: https://github.com/stormshift/clusters.git
+    targetRevision: HEAD
+EOF
 
 ```
-oc apply -k .
+
+### Optional, add idp-coe-sso-admin to argo role:admin
+
 ```
+oc edit argocds.argoproj.io  -n openshift-gitops   openshift-gitops
+```
+
+and add `g, idp-coe-sso-admin, role:admin` to rbac.policy
+
 
 ## Configure External Secrets Operator
 
-```
+```bash
+export CLUSTER_NAME=stormshift-ocpX
+# Stored in Red Hat Bitwarden, Coe Lab Mgmt collection
 export VAULT=....
 export APP_ROLE=....
 export APP_PW=....
+
+oc apply -k external-secrets-operator/
 
 oc create secret generic redhat-vault \
     -n infra-external-secrets-operator \
@@ -41,8 +72,8 @@ spec:
             namespace: infra-external-secrets-operator
       caProvider:
         key: ca.crt
-        name: kube-root-ca.crt
-        namespace: infra-external-secrets-operator
+        name: redhat-current-it-root-cas
+        namespace: openshift-config
         type: ConfigMap
       path: apps
       server: ${VAULT}
@@ -51,13 +82,10 @@ EOF
 
 ```
 
-
 #### Check ClusterSecretStore
 
-ToDO: Approle should not have ReadWrite access. Ticket is created.
-
-```
-oc get clustersecretstore.external-secrets.io/redhat-vault
+```bash
+$ oc get clustersecretstore.external-secrets.io/redhat-vault
 NAME           AGE   STATUS   CAPABILITIES   READY
 redhat-vault   16s   Valid    ReadWrite      True
 ```
