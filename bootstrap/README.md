@@ -12,6 +12,8 @@ Note: Auto-sync disabled by default!
 ```bash
 export CLUSTER_NAME=stormshift-ocpX
 
+oc apply -k ../apps/gitops-privileges/
+
 oc apply -f - <<EOF
 apiVersion: argoproj.io/v1alpha1
 kind: Application
