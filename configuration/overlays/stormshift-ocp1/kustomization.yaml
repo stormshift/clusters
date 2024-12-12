@@ -11,3 +11,4 @@ resources:
   - ../../../apps/astra-trident/overlays/stormshift-ocp1/
   - cluster-scope/
   - ../../../apps/gitops-privileges/
+  - ../../../apps/image-registry-netapp-nas/
