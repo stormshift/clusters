@@ -4,5 +4,6 @@ kind: Kustomization
 
 resources:
   - ../../base/24.10.0/
+  - ../../base/VolumeSnapshotClass/
   - namespace/
   - cluster-scope/
