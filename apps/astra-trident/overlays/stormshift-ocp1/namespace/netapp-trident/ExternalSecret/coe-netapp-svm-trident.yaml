@@ -1,0 +1,22 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: coe-netapp-svm-trident
+spec:
+  data:
+  - remoteRef:
+      key: coe-lab/coe-cluster/coe-netapp-svm-trident
+      property: password
+    secretKey: password
+  - remoteRef:
+      key: coe-lab/coe-cluster/coe-netapp-svm-trident
+      property: username
+    secretKey: username
+  refreshInterval: 12h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: redhat-vault
+  target:
+    creationPolicy: Owner
+    deletionPolicy: Retain
+    name: coe-netapp-svm-trident

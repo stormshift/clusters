@@ -8,3 +8,5 @@ resources:
   # Custom logo
   - console-custom-logo.configmap.yaml
   - console-operator-config.yaml
+  - ../../../apps/astra-trident/overlays/stormshift-ocp1/
+  - cluster-scope/
