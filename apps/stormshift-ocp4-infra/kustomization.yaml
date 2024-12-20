@@ -6,3 +6,4 @@ resources:
   - admin-rolebinding.yaml
   - coe-bridge-vlan-1004.yaml
   - coe-bridge.yaml
+  - sshkey-coe-muc-pub.yaml

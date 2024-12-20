@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sshkey-coe-muc-pub
+data:
+  key: c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVRTTgybzJpbXdwSHlHVk83RHhDTmJkRTBaV25rcDZveGRhd2I3L01PQ1QgY29lLW11Yw==
+type: Opaque
