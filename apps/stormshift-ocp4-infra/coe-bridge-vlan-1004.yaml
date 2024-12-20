@@ -1,0 +1,17 @@
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/resourceName: bridge.network.kubevirt.io/coe-bridge
+  name: coe-bridge-1004
+spec:
+  config: |
+    {
+      "name": "coe-bridge",
+      "type": "bridge",
+      "cniVersion": "0.3.1",
+      "bridge": "coe-bridge",
+      "macspoofchk": true,
+      "ipam": {},
+      "vlan": 1004
+    }

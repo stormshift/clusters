@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: Contains VMs running StormShift ocp4 Cluster
+    openshift.io/display-name: StormShift Cluster ocp4
+    openshift.io/requester: bschmeli@redhat.com
+  name: stormshift-ocp4-infra
+spec: {}
