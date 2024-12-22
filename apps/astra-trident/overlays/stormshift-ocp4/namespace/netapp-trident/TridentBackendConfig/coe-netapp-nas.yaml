@@ -5,8 +5,8 @@ metadata:
 spec:
   version: 1
   storageDriverName: ontap-nas
-  managementLIF: 10.32.97.30
+  managementLIF: 172.16.10.30
   backendName: coe-netapp-nas
-  storagePrefix: stormshift_ocp5_
+  storagePrefix: stormshift_ocp4_
   credentials:
     name: coe-netapp-svm-trident
