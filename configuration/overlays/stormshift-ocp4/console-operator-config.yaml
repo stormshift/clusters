@@ -7,5 +7,4 @@ spec:
     customLogoFile:
       key: console-custom-logo.png
       name: console-custom-logo
-    customProductName: StormShift Cluster ocp4
-
+    customProductName: "🌪️ OCP4 - StormShift"
