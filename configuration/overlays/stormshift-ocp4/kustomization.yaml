@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - ../common/
+  - cluster-scope/
 
   # Custom logo
   - console-custom-logo.configmap.yaml
