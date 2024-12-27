@@ -11,3 +11,4 @@ resources:
 
   - ../../../apps/astra-trident/overlays/stormshift-ocp5/
   - cluster-scope/
+  - namespace/

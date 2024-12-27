@@ -1,0 +1,24 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: ocp-coe-cert
+spec:
+  data:
+  - remoteRef:
+      key: coe-lab/certificate/api.ocp5.stormshift.coe.muc.redhat.com
+      property: cert_and_intermediate_pem
+    secretKey: tls.crt
+  - remoteRef:
+      key: coe-lab/certificate/api.ocp5.stormshift.coe.muc.redhat.com
+      property: key
+    secretKey: tls.key
+  refreshInterval: 12h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: redhat-vault
+  target:
+    creationPolicy: Owner
+    deletionPolicy: Retain
+    name: ocp-coe-cert
+    template:
+      type: kubernetes.io/tls
