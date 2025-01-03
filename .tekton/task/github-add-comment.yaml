@@ -178,8 +178,9 @@ spec:
             method = "POST"
             target_url = api_url + "/comments"
 
-        print("Sending this data to GitHub with {}: ".format(method))
-        print(data)
+        print("Sending data to GitHub with {} ".format(method))
+        # Don't print anymore...
+        # print(data)
         r = conn.request(
             method,
             target_url,
