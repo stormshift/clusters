@@ -23,13 +23,6 @@ spec:
       optional: true
       description: The optional workspace containing comment file to be posted.
 
-  results:
-    - name: OLD_COMMENT
-      description: The old text of the comment, if any.
-
-    - name: NEW_COMMENT
-      description: The new text of the comment, if any.
-
   params:
     - name: GITHUB_HOST_URL
       description: |
@@ -167,8 +160,6 @@ spec:
           # If more than one comment is found take the last one
           matching_comment = [x for x in comments if '$(params.COMMENT_TAG)' in x['body']][-1:]
           if matching_comment:
-              with open("$(results.OLD_COMMENT.path)", "w") as result_old:
-                result_old.write(str(matching_comment[0]))
               matching_comment = matching_comment[0]['url']
 
         if matching_comment:
@@ -195,7 +186,5 @@ spec:
             print(resp.read())
             sys.exit(1)
         else:
-            with open("$(results.NEW_COMMENT.path)", "wb") as result_new:
-              result_new.write(resp.read())
             print("a GitHub comment has been {} to $(params.REQUEST_URL)".format(
               "updated" if matching_comment else "added"))
