@@ -27,19 +27,15 @@ Rollout via OpenShift GitOps / ArgoCD and Red Hat Advances Cluster Manager.
 
 
 
-## Seal secrets
+# Build differ image
 
 ```bash
-kubeseal  \
-  --controller-name sealed-secret-controller-sealed-secrets \
-  --controller-namespace sealed-secrets \
-  --fetch-cert
+export VERSION=$(date +%Y%m%d%H%M)
+export IMAGE="quay.io/stormshift/gitops-differ:${VERSION}"
 
-
-kubeseal \
-  --controller-name sealed-secret-controller-sealed-secrets \
-  --controller-namespace sealed-secrets \
-  --format yaml \
-  < <(oc create secret generic test --from-literal=key1=supersecret --dry-run=client -o yaml)
+podman build --platform linux/amd64,linux/arm64 \
+  -f gitops-differ.Containerfile \
+  --manifest ${IMAGE}  .
+podman manifest push ${IMAGE}
 
 ```
