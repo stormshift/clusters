@@ -1,0 +1,168 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: check-and-test-deployment
+  annotations:
+    # The event we are targeting as seen from the webhook payload
+    # this can be an array too, i.e: [pull_request, push]
+    pipelinesascode.tekton.dev/on-event: "[pull_request]"
+
+    # The branch or tag we are targeting (ie: main, refs/tags/*)
+    pipelinesascode.tekton.dev/on-target-branch: "[main,devel]"
+
+    # Fetch the git-clone task from hub, we are able to reference later on it
+    # with taskRef and it will automatically be embedded into our pipeline.
+    pipelinesascode.tekton.dev/task: "git-clone"
+
+    # Use maven task from hub
+    # pipelinesascode.tekton.dev/task-1: "[pre-commit]"
+
+    # You can add more tasks in here to reuse, browse the one you like from here
+    # https://hub.tekton.dev/
+    # example:
+    # pipelinesascode.tekton.dev/task-2: "[github-add-labels]"
+
+    # How many runs we want to keep attached to this event
+    pipelinesascode.tekton.dev/max-keep-runs: "2"
+spec:
+  params:
+    # The variable with brackets are special to Pipelines as Code
+    # They will automatically be expanded with the events from Github.
+    - name: repo_url
+      value: "{{ repo_url }}"
+    - name: revision
+      value: "{{ revision }}"
+    - name: pull_request_number
+      value: "{{ pull_request_number }}"
+    - name: git_auth_secret
+      value: "{{ git_auth_secret }}"
+    - name: source_branch
+      value: "{{source_branch}}"
+    - name: target_branch
+      value: "{{target_branch}}"
+
+  podTemplate:
+    nodeSelector:
+      kubernetes.io/arch: amd64
+  pipelineSpec:
+    params:
+      - name: repo_url
+      - name: revision
+      - name: pull_request_number
+      - name: git_auth_secret
+    workspaces:
+      - name: source
+      - name: basic-auth
+    tasks:
+      - name: fetch-repository-pr
+        taskRef:
+          resolver: cluster
+          params:
+            - name: kind
+              value: task
+            - name: name
+              value: git-clone
+            - name: namespace
+              value: openshift-pipelines
+        workspaces:
+          - name: output
+            workspace: source
+          - name: basic-auth
+            workspace: basic-auth
+        params:
+          - name: URL
+            value: $(params.repo_url)
+          - name: REVISION
+            value: $(params.revision)
+          - name: DEPTH
+            value: 0
+          - name: SUBDIRECTORY
+            value: pr
+
+      - name: fetch-repository-main
+        runAfter:
+          - fetch-repository-pr
+        taskRef:
+          resolver: cluster
+          params:
+            - name: kind
+              value: task
+            - name: name
+              value: git-clone
+            - name: namespace
+              value: openshift-pipelines
+        workspaces:
+          - name: output
+            workspace: source
+          - name: basic-auth
+            workspace: basic-auth
+        params:
+          - name: URL
+            value: $(params.repo_url)
+          - name: REVISION
+            value: 'main'
+          - name: DEPTH
+            value: 0
+          - name: SUBDIRECTORY
+            value: main
+
+      - name: differ
+        runAfter:
+          - fetch-repository-main
+        workspaces:
+          - name: source
+            workspace: source
+        taskSpec:
+          workspaces:
+            - name: source
+          steps:
+            - name: differ
+              image: quay.io/stormshift/gitops-differ:202501031515
+              imagePullPolicy: Always
+              workingDir: $(workspaces.source.path)
+              securityContext:
+                runAsNonRoot: true
+                runAsUser: 65532
+              env:
+                - name: WORKSPACE
+                  value: $(workspaces.source.path)
+              script: |
+                set -euxo pipefail
+
+                ./helper/differ.sh ${WORKSPACE}/pr ${WORKSPACE}/main
+
+
+    # finally:
+    #   - name: notify-linter-on-failure
+    #     workspaces:
+    #       - name: comment-file
+    #         workspace: source
+    #     when:
+    #       - input: $(tasks.pre-commit.status)
+    #         operator: in
+    #         values: ["Failed"]
+    #     params:
+    #       - name: REQUEST_URL
+    #         value: "$(params.repo_url)/pull/$(params.pull_request_number)"
+    #       - name: PAC_GITHUB_SECRET
+    #         value: "$(params.git_auth_secret)"
+    #       - name: COMMENT_OR_FILE
+    #         value: "notify-linter-on-failure.txt"
+    #     taskRef:
+    #       name: github-add-comment
+
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
+    # This workspace will inject secret to help the git-clone task to be able to
+    # checkout the private repositories
+    # - name: basic-auth
+    #   secret:
+    #     secretName: "{{ git_auth_secret }}"
