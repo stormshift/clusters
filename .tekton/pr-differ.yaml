@@ -79,8 +79,6 @@ spec:
             value: pr
 
       - name: fetch-repository-main
-        runAfter:
-          - fetch-repository-pr
         taskRef:
           resolver: cluster
           params:
@@ -106,6 +104,7 @@ spec:
       - name: differ
         runAfter:
           - fetch-repository-main
+          - fetch-repository-pr
         workspaces:
           - name: source
             workspace: source
@@ -169,7 +168,7 @@ spec:
       volumeClaimTemplate:
         spec:
           accessModes:
-            - ReadWriteOnce
+            - ReadWriteMany
           resources:
             requests:
               storage: 1Gi
