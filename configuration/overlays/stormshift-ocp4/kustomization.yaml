@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../common/
   - cluster-scope/
+  - namespace/
   - ../../../apps/astra-trident/overlays/stormshift-ocp4/
 
   # Custom logo
