@@ -125,9 +125,25 @@ spec:
               script: |
                 set -euxo pipefail
 
-                ./helper/differ.sh ${WORKSPACE}/pr ${WORKSPACE}/main
+                ${WORKSPACE}/pr/helper/differ.sh ${WORKSPACE}/pr ${WORKSPACE}/main
 
+                cp -v /tmp/diff-overview.md ${WORKSPACE}/diff-overview.md
 
+      - name: notify-deployment
+        runAfter:
+          - differ
+        workspaces:
+          - name: comment-file
+            workspace: source
+        params:
+          - name: REQUEST_URL
+            value: "$(params.repo_url)/pull/$(params.pull_request_number)"
+          - name: PAC_GITHUB_SECRET
+            value: "$(params.git_auth_secret)"
+          - name: COMMENT_OR_FILE
+            value: "diff-overview.md"
+        taskRef:
+          name: github-add-comment
     # finally:
     #   - name: notify-linter-on-failure
     #     workspaces:
