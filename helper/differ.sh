@@ -7,16 +7,16 @@ MAIN_FOLDER=$2
 
 kustomize_folders=(
   "configuration/overlays/isar"
-  "configuration/overlays/coe-cluster"
+#  "configuration/overlays/coe-cluster"
   "configuration/overlays/stormshift-ocp1"
-  "configuration/overlays/stormshift-ocp2"
-  "configuration/overlays/stormshift-ocp3"
+#  "configuration/overlays/stormshift-ocp2"
+#  "configuration/overlays/stormshift-ocp3"
   "configuration/overlays/stormshift-ocp4"
   "configuration/overlays/stormshift-ocp5"
-  "configuration/overlays/stormshift-ocp6"
-  "configuration/overlays/stormshift-ocp7"
-  "configuration/overlays/stormshift-ocp8"
-  "configuration/overlays/stormshift-rhacm"
+#  "configuration/overlays/stormshift-ocp6"
+#  "configuration/overlays/stormshift-ocp7"
+#  "configuration/overlays/stormshift-ocp8"
+#  "configuration/overlays/stormshift-rhacm"
 )
 
 declare -a kustomize_folders_with_changes
