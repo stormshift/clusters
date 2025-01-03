@@ -53,7 +53,7 @@ spec:
       - name: git_auth_secret
     workspaces:
       - name: source
-      - name: basic-auth
+      # - name: basic-auth
     tasks:
       - name: fetch-repository-pr
         taskRef:
@@ -68,8 +68,8 @@ spec:
         workspaces:
           - name: output
             workspace: source
-          - name: basic-auth
-            workspace: basic-auth
+          # - name: basic-auth
+          #   workspace: basic-auth
         params:
           - name: URL
             value: $(params.repo_url)
@@ -95,8 +95,8 @@ spec:
         workspaces:
           - name: output
             workspace: source
-          - name: basic-auth
-            workspace: basic-auth
+          # - name: basic-auth
+          #   workspace: basic-auth
         params:
           - name: URL
             value: $(params.repo_url)
