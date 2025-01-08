@@ -37,7 +37,7 @@ objects:
       k8s.v1.cni.cncf.io/resourceName: bridge.network.kubevirt.io/coe-bridge
     name: coe-bridge
   spec:
-    config: '{"name":"coe-bridge","type":"cnv-bridge","cniVersion":"0.3.1","bridge":"coe-bridge","macspoofchk":true,"ipam":{}}'
+    config: '{"name":"coe-bridge","type":"cnv-bridge","cniVersion":"0.3.1","bridge":"coe-bridge","macspoofchk":false,"ipam":{}}'
 parameters:
 - name: PROJECT_NAME
 - name: PROJECT_DISPLAYNAME
