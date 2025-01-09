@@ -35,22 +35,6 @@ spec:
   source: redhat-operators
   sourceNamespace: openshift-marketplace
 ---
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: central-default-tls-cert
-  namespace: rhacs
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
-spec:
-  commonName: "rhacs.coe.muc.redhat.com"
-  secretName: central-default-tls-cert
-  dnsNames:
-  - "rhacs.coe.muc.redhat.com"
-  issuerRef:
-    name: acme-letsencrypt
-    kind: ClusterIssuer
----
 apiVersion: platform.stackrox.io/v1alpha1
 kind: Central
 metadata:
