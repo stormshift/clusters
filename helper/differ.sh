@@ -7,6 +7,18 @@ MAIN_FOLDER=$2
 
 kustomize_folders=(
   "configuration/overlays/isar"
+  "isar-apps/metallb"
+  "isar-apps/ocp-v"
+  "isar-apps/nmstate"
+  "isar-apps/openshift-storage"
+  "isar-apps/acm"
+  #"isar-apps/aap"
+  #"isar-apps/infra-external-dns"
+  #"isar-apps/keycloak"
+  "isar-apps/hosted-cluster"  
+  "isar-apps/mtv"
+  "isar-apps/quay"
+  "isar-apps/acs"
 #  "configuration/overlays/coe-cluster"
   "configuration/overlays/stormshift-ocp1"
 #  "configuration/overlays/stormshift-ocp2"
