@@ -1,0 +1,25 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: central-default-tls-cert
+  namespace: rhacs
+spec:
+  data:
+  - remoteRef:
+      key: coe-lab/certificate/rhacs.coe.muc.redhat.com
+      property: cert_and_intermediate_pem
+    secretKey: tls.crt
+  - remoteRef:
+      key: coe-lab/certificate/rhacs.coe.muc.redhat.com
+      property: key
+    secretKey: tls.key
+  refreshInterval: 12h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: redhat-vault
+  target:
+    creationPolicy: Owner
+    deletionPolicy: Retain
+    name: central-default-tls-cert
+    template:
+      type: kubernetes.io/tls
