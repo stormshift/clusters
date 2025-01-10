@@ -13,5 +13,6 @@ spec:
       "bridge": "coe-bridge",
       "macspoofchk": false,
       "ipam": {},
-      "vlan": 1004
+      "vlan": 1004,
+      "preserveDefaultVlan": false
     }
