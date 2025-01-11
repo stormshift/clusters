@@ -6,7 +6,13 @@ data:
     uiEndpoint: rhacs.coe.muc.redhat.com:443
     groups:
         - key: groups
-          value: cluster-admins
+          value: idp-coe-sso-admin
+          role: Analyst
+        - key: groups
+          value: idp-coe-sso
+          role: Analyst
+        - key: groups
+          value: coe-sso-admin
           role: Admin
     openshift:
         enable: true
