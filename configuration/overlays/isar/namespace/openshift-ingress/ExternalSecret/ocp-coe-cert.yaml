@@ -5,12 +5,12 @@ metadata:
 spec:
   data:
   - remoteRef:
-      key: coe-lab/isar/ingress-certificate
-      property: cert-chain.crt
+      key: coe-lab/certificate/api.isar.coe.muc.redhat.com
+      property: cert_and_intermediate_pem
     secretKey: tls.crt
   - remoteRef:
-      key: coe-lab/isar/ingress-certificate
-      property: cert-key.pem
+      key: coe-lab/certificate/api.isar.coe.muc.redhat.com
+      property: key
     secretKey: tls.key
   refreshInterval: 12h
   secretStoreRef:
