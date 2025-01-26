@@ -26,7 +26,7 @@ spec:
               secretKeyRef:
                 name: openshift-external-dns-key
                 key: tgis_key
-        image: registry.k8s.io/external-dns/external-dns:v0.14.0
+        image: registry.k8s.io/external-dns/external-dns:v0.15.1
         args:
         - --registry=txt
         - --txt-suffix=-%{record_type}-external-dns
@@ -35,6 +35,7 @@ spec:
         - --rfc2136-host=inf1.coe.muc.redhat.com
         - --rfc2136-port=53
         - --rfc2136-zone=coe.muc.redhat.com
+        - --rfc2136-zone=stormshift.coe.muc.redhat.com
         - --rfc2136-tsig-secret-alg=hmac-sha512
         - --rfc2136-tsig-keyname=openshift-external-dns
         - --rfc2136-tsig-axfr
