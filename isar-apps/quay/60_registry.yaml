@@ -17,7 +17,7 @@ spec:
     - kind: horizontalpodautoscaler
       managed: true
     - kind: objectstorage
-      managed: true
+      managed: false
     - kind: mirror
       managed: true
     - kind: monitoring
