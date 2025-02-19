@@ -10,4 +10,4 @@ resources:
 - 90-master-iscsi-multipathing.yaml
 - 99-workers-core-password.yaml
 - 99-masters-core-password.yaml
-- 100-virt-node-iommu.yaml
+- 100-virt-node-pci-passthrough.yaml

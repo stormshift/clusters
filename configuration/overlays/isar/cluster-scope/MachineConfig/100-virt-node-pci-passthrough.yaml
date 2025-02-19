@@ -1,0 +1,26 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: virt-node
+  name: 100-virt-node-pci-passthrough
+spec:
+  config:
+    ignition:
+      version: 3.4.0
+    storage:
+      files:
+        - contents:
+            compression: ""
+            source: data:,options%20vfio-pci%20ids%3D1137%3A0085%0A
+          mode: 420
+          overwrite: true
+          path: /etc/modprobe.d/vfio.conf
+        - contents:
+            compression: ""
+            source: data:,vfio-pci
+          mode: 420
+          overwrite: true
+          path: /etc/modules-load.d/vfio-pci.conf
+  kernelArguments:
+    - intel_iommu=on
