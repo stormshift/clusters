@@ -12,7 +12,7 @@ spec:
       files:
         - contents:
             compression: ""
-            source: data:,options%20vfio-pci%20ids%3D1137%3A0085%0A
+            source: data:,options%20vfio-pci%20ids%3D1137%3A0043%0A
           mode: 420
           overwrite: true
           path: /etc/modprobe.d/vfio.conf
