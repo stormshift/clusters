@@ -2,7 +2,7 @@ apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfig
 metadata:
   labels:
-    machineconfiguration.openshift.io/role: virt-node
+    machineconfiguration.openshift.io/role: cisco-ucs-c460-m4
   name: 100-virt-node-pci-passthrough
 spec:
   config:

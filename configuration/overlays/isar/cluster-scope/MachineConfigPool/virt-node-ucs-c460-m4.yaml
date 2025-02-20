@@ -1,18 +1,23 @@
 apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfigPool
 metadata:
-  name: virt-node
+  name: virt-node-ucs-c460-m4
 spec:
   machineConfigSelector:
     matchExpressions:
-      - {key: machineconfiguration.openshift.io/role, operator: In, values: [worker,virt-node]}
+      - key: "machineconfiguration.openshift.io/role"
+        operator: "In"
+        values: 
+          - worker
+          - virt-node
+          - cisco-ucs-c460-m4
   maxUnavailable: 2
   nodeSelector:
     matchExpressions:
       - key: node-role.kubernetes.io/virt-node
         operator: Exists
       - key: node.kubernetes.io/instance-type
-        operator: NotIn
+        operator: In
         values:
           - Cisco-UCS-C460-M4
   paused: false
