@@ -22,5 +22,13 @@ spec:
           mode: 420
           overwrite: true
           path: /etc/modules-load.d/vfio-pci.conf
+        - contents:
+            compression: ""
+            source: data:,blacklist%20enic%0A
+          mode: 420
+          overwrite: true
+          path: /etc/modprobe.d/blacklist-enic.conf
   kernelArguments:
     - intel_iommu=on
+    - enic.blacklist=1
+    - rd.driver.blacklist=enic
