@@ -1,7 +1,7 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: coe-cluster-reader
+  name: local-cluster-reader
 users:
   - mjaekel@redhat.com
   - dfroehli@redhat.com
