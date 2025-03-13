@@ -55,6 +55,6 @@ spec:
     policy: |
       g, system:cluster-admins, role:admin
       g, cluster-admins, role:admin
-      g, coe-cluster-admins, role:admin
-      g, coe-sso-admin, role:admin
+      g, global-cluster-admins, role:admin
+      g, global-cluster-reader, role:readonly
     scopes: '[groups]'
