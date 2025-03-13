@@ -1,7 +1,7 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: coe-cluster-admins
+  name: local-cluster-admins
 users:
   - astolzen@redhat.com
   - dmoessne@redhat.com

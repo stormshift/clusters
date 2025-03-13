@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - storage-node.yaml
 - virt-node.yaml
+- virt-node-ucs-c460-m4.yaml

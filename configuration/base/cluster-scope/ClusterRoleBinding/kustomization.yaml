@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
 - coe-cluster-admins.yaml
 - coe-cluster-reader.yaml
-- coe-sso-admin.yaml
