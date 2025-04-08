@@ -11,7 +11,7 @@ spec:
           - worker
           - virt-node
           - cisco-ucs-c460-m4
-  maxUnavailable: 2
+  maxUnavailable: 1
   nodeSelector:
     matchExpressions:
       - key: node-role.kubernetes.io/virt-node
