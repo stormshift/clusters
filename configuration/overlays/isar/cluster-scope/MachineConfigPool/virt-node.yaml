@@ -6,7 +6,7 @@ spec:
   machineConfigSelector:
     matchExpressions:
       - {key: machineconfiguration.openshift.io/role, operator: In, values: [worker,virt-node]}
-  maxUnavailable: 2
+  maxUnavailable: 1
   nodeSelector:
     matchExpressions:
       - key: node-role.kubernetes.io/virt-node
