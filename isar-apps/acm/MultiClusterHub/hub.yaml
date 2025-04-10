@@ -48,4 +48,6 @@ spec:
       - configOverrides: {}
         enabled: false
         name: siteconfig
-
+      - configOverrides: {}
+        enabled: false
+        name: edge-manager-preview
