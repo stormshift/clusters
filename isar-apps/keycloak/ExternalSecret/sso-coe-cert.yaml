@@ -6,12 +6,12 @@ metadata:
 spec:
   data:
   - remoteRef:
-      key: coe-lab/sso-coe-cert
-      property: tls.crt
+      key: coe-lab/certificate/sso.coe.muc.redhat.com
+      property: cert_and_intermediate_pem
     secretKey: tls.crt
   - remoteRef:
-      key: coe-lab/sso-coe-cert
-      property: tls.key
+      key: coe-lab/certificate/sso.coe.muc.redhat.com
+      property: key
     secretKey: tls.key
   refreshInterval: 12h
   secretStoreRef:
