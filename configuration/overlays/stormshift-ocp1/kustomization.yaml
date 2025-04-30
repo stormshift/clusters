@@ -9,3 +9,4 @@ resources:
   - console-custom-logo.configmap.yaml
   - console-operator-config.yaml
   - cluster-scope/
+  - namespace/
