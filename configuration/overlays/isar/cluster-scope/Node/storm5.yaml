@@ -6,8 +6,8 @@ metadata:
   labels:
     coe.muc.redhat.com/second-nic: enp132s0f1
     topology.kubernetes.io/zone: muc-c
-    node.kubernetes.io/instance-type: "Dell PowerEdge R730"
-    beta.kubernetes.io/instance-type: "Dell PowerEdge R730"
+    node.kubernetes.io/instance-type: "Dell-PowerEdge-R730"
+    beta.kubernetes.io/instance-type: "Dell-PowerEdge-R730"
     failure-domain.beta.kubernetes.io/zone: muc-c
     node-role.kubernetes.io/virt-node: ""
   name: storm5
