@@ -7,3 +7,4 @@ resources:
 - coe-bridge-via-enp9s0.yaml
 - coe-bridge-via-enp135s0.yaml
 - coe-bridge-via-enp79s0f1.yaml
+- coe-bridge-via-enp132s0f1.yaml
