@@ -20,3 +20,7 @@ resources:
   - ceph10.yaml
   - ceph11.yaml
   - ceph12.yaml
+  - storm2.yaml
+  - storm3.yaml
+  - storm5.yaml
+  - storm6.yaml
