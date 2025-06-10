@@ -3,8 +3,6 @@ kind: StorageClass
 metadata:
   name: coe-netapp-san
   annotations:
-    storageclass.kubevirt.io/is-default-virt-class: "true"
-    storageclass.kubernetes.io/is-default-class: "true"
 provisioner: csi.trident.netapp.io
 parameters:
   backendType: "ontap-san-economy"

@@ -25,6 +25,32 @@ Rollout via OpenShift GitOps / ArgoCD and Red Hat Advances Cluster Manager.
         └── rhacm                         # rhacm cluster configuration
 ```
 
+# Add to an cluster
+
+* Install OpenShift GitOps from OperatorHub
+* Create ArgoCD Application
+
+```bash
+export CLUSTER_NAME=stormshift-ocpX
+oc apply -f - <<EOF
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-configuration
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: configuration/overlays/$CLUSTER_NAME
+    repoURL: 'https://github.com/stormshift/clusters.git'
+    targetRevision: main
+
+
+EOF
+
+```
 
 
 # Build differ image
@@ -37,5 +63,4 @@ podman build --platform linux/amd64,linux/arm64 \
   -f gitops-differ.Containerfile \
   --manifest ${IMAGE}  .
 podman manifest push ${IMAGE}
-
 ```
