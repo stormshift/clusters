@@ -4,10 +4,11 @@ kind: Kustomization
 
 resources:
   - ../common/
-  - ../../../apps/gitops-privileges
 
   # Custom logo
   - console-custom-logo.configmap.yaml
   - console-operator-config.yaml
+
+  - ../../../apps/astra-trident/overlays/stormshift-ocp5/
   - cluster-scope/
   - namespace/
