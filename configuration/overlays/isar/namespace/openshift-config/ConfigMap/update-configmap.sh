@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
     oc create configmap console-custom-logo \
-        --from-file=console-custom-logo.png=isar-console-logo.png \
+        --from-file=isar-logo-dark.png=isar-logo-dark.png \
+        --from-file=isar-logo-light.png=isar-logo-light.png \
         -n openshift-config \
         --dry-run=client \
         -o yaml > console-custom-logo.yaml

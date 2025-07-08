@@ -6,7 +6,19 @@ metadata:
     argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
 spec:
   customization:
-    customLogoFile:
-      key: console-custom-logo.png
-      name: console-custom-logo
+    logos:
+      - themes:
+          - mode: Light
+            source:
+              configMap:
+                key: isar-logo-dark.png
+                name: console-custom-logo
+              from: ConfigMap
+          - mode: Dark
+            source:
+              configMap:
+                key: isar-logo-light.png
+                name: console-custom-logo
+              from: ConfigMap
+        type: Masthead
     customProductName: COE Muc Isar Cluster
