@@ -7,8 +7,8 @@ commonLabels:
 
 
 resources:
-  - inf44.yaml
 # Node temp. gone
+#  - inf44.yaml
 #  - ucs55.yaml
 #  - ucs56.yaml
 #  - ucs57.yaml
