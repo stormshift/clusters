@@ -9,9 +9,9 @@ commonLabels:
 resources:
 # Node temp. gone
 #  - inf44.yaml
-#  - ucs55.yaml
-#  - ucs56.yaml
-#  - ucs57.yaml
+  - ucs55.yaml
+  - ucs56.yaml
+  - ucs57.yaml
 #  - ucs-blade-server-1.yaml
 #  - ucs-blade-server-3.yaml
   - inf4.yaml
