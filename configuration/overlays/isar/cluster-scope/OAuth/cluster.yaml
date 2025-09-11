@@ -27,7 +27,7 @@ spec:
         - name
         preferredUsername:
         - preferred_username
-      clientID: isar.coe.muc.redhat.com
+      clientID: oauth-openshift.apps.isar.coe.muc.redhat.com
       clientSecret:
         name: openid-client-secret-9sdwg
       issuer: https://sso.coe.muc.redhat.com/realms/coe-sso
@@ -46,7 +46,7 @@ spec:
         - name
         preferredUsername:
         - preferred_username
-      clientID: isar.coe.muc.redhat.com
+      clientID: oauth-openshift.apps.isar.coe.muc.redhat.com
       clientSecret:
         name: openid-client-secrot-coe-sso-admin
       issuer: https://sso.coe.muc.redhat.com/realms/coe-sso-admin
