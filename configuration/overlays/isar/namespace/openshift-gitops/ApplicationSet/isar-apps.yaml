@@ -9,6 +9,7 @@ spec:
         elements:
           - name: infra-external-dns
           - name: keycloak
+          - name: descheduler
   template:
     metadata:
       name: '{{ name }}'

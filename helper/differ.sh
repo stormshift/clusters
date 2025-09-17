@@ -19,6 +19,7 @@ kustomize_folders=(
   "isar-apps/mtv"
   "isar-apps/quay"
   "isar-apps/acs"
+  "isar-apps/descheduler"
 #  "configuration/overlays/coe-cluster"
   "configuration/overlays/stormshift-ocp1"
 #  "configuration/overlays/stormshift-ocp2"
