@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
 # - OperatorGroup.yaml
 - Subscription.yaml
-- local-etcd-storage.LVMCluster.yaml
