@@ -4,6 +4,8 @@ metadata:
   labels:
     machineconfiguration.openshift.io/role: worker
   name: 99-openshift-machineconfig-worker-psi
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   kernelArguments:
     - psi=1

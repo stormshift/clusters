@@ -3,6 +3,8 @@ kind: KubeDescheduler
 metadata:
   name: cluster
   namespace: openshift-kube-descheduler-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   mode: Automatic
   managementState: Managed

@@ -4,3 +4,5 @@ metadata:
   name: openshift-kube-descheduler-operator
   labels:
     openshift.io/cluster-monitoring: "true"
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
