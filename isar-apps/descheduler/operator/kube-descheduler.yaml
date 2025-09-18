@@ -8,9 +8,9 @@ metadata:
 spec:
   mode: Automatic
   managementState: Managed
-  deschedulingIntervalSeconds: 30
+  deschedulingIntervalSeconds: 3600
   evictionLimits:
-    total: 20
+    total: 3
   profiles:
   - DevKubeVirtRelieveAndMigrate
   profileCustomizations:
