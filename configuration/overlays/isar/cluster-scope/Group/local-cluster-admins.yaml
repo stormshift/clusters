@@ -3,21 +3,8 @@ kind: Group
 metadata:
   name: local-cluster-admins
 users:
-  - astolzen@redhat.com
-  - dmoessne@redhat.com
-  - jvonthad@redhat.com
-  # Software Endgineer, help to debug hypershift pvc/pv problem
-  - lguoqing@redhat.com
-  - ocohen@redhat.com
-  - fsadeghi@redhat.com
-  - dvossel@redhat.com
-  - ellorent@redhat.com
-  # ACM PM
-  - cstark@redhat.com
-  # Sandbox container tests
-  - clichybi@redhat.com
-  # HCP/HyperShift development
-  - cewong@redhat.com
+  - dmoessne@redhat.com-admin
+  - jvonthad@redhat.com-admin
   - mmuench@redhat.com-admin
   - ddomingu@redhat.com-admin
   - jaeichle@redhat.com-admin
