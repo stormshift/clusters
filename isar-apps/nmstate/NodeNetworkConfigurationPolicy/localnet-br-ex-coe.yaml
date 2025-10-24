@@ -1,0 +1,13 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: localnet-br-ex-coe
+spec:
+  nodeSelector:
+    node-role.kubernetes.io/virt-node: ''
+  desiredState:
+    ovn:
+      bridge-mappings:
+        - localnet: localnet-br-ex-coe
+          bridge: br-ex
+          state: present

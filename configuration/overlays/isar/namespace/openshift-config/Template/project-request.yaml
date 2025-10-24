@@ -38,6 +38,22 @@ objects:
     name: coe-bridge
   spec:
     config: '{"name":"coe-bridge","type":"cnv-bridge","cniVersion":"0.3.1","bridge":"coe-bridge","macspoofchk":false,"ipam":{}}'
+- apiVersion: k8s.cni.cncf.io/v1
+  kind: NetworkAttachmentDefinition
+  metadata:
+    annotations:
+      k8s.ovn.org/network-name: localnet-br-ex-coe
+    name: localnet-br-ex-coe
+  spec:
+    config: |-
+      {
+          "cniVersion": "0.4.0",
+          "name": "localnet-br-ex-coe",
+          "type": "ovn-k8s-cni-overlay",
+          "netAttachDefName": "${PROJECT_NAME}/localnet-br-ex-coe",
+          "topology": "localnet"
+      }
+
 parameters:
 - name: PROJECT_NAME
 - name: PROJECT_DISPLAYNAME
