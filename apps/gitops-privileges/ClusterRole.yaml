@@ -258,5 +258,5 @@ rules:
   resources:
   - virtualmachinepools
   verbs:
-  - create
   - patch
+  - create
