@@ -253,5 +253,10 @@ rules:
   verbs:
   - patch
   - create
-
-
+- apiGroups:
+  - pool.kubevirt.io
+  resources:
+  - virtualmachinepools
+  verbs:
+  - create
+  - patch
