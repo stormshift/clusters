@@ -29,6 +29,8 @@ data:
         systemd: {}
         tcpstat: {}
     prometheusK8s:
+      retention: 7d
+      retentionSize: 110GB
       additionalAlertmanagerConfigs:
       - apiVersion: v2
         bearerToken:
