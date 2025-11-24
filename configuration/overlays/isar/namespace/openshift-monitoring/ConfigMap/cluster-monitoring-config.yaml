@@ -29,8 +29,6 @@ data:
         systemd: {}
         tcpstat: {}
     prometheusK8s:
-      retention: 7d
-      retentionSize: 110GB
       additionalAlertmanagerConfigs:
       - apiVersion: v2
         bearerToken:
@@ -46,6 +44,8 @@ data:
           insecureSkipVerify: false
       externalLabels:
         managed_cluster: 2997ae23-5631-49ad-8f0b-1dcf4e528e00
+      retention: 7d
+      retentionSize: 110GB
       volumeClaimTemplate:
         metadata: {}
         spec:
