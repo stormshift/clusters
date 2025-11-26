@@ -44,7 +44,7 @@ data:
           insecureSkipVerify: false
       externalLabels:
         managed_cluster: 2997ae23-5631-49ad-8f0b-1dcf4e528e00
-      retention: 7d
+      retention: 12d
       retentionSize: 110GB
       volumeClaimTemplate:
         metadata: {}
