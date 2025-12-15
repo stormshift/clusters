@@ -1,0 +1,16 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: cisco-ucs-c460-m4
+  name: 60-virt-node-enable-hugepages
+spec:
+  config:
+    ignition:
+      version: 3.2.0
+  kernelArguments:
+# 128G of 2M pages:
+    - hugepagesz=2M
+    - hugepages=65536
+# Disable Transparent Huge pages
+    - transparent_hugepage=never
