@@ -6,6 +6,8 @@ metadata:
   namespace: open-cluster-management
   annotations:
     argocd.argoproj.io/sync-wave: '-5'
+  labels:
+    operators.coreos.com/advanced-cluster-management.open-cluster-management: ''
 spec:
   sourceNamespace: openshift-marketplace
   source: redhat-operators

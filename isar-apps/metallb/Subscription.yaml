@@ -3,6 +3,8 @@ kind: Subscription
 metadata:
   name: metallb-operator-sub
   namespace: metallb-system
+  labels:
+    operators.coreos.com/metallb-operator.metallb-system: ''
 spec:
   channel: stable
   name: metallb-operator

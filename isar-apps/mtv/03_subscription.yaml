@@ -3,6 +3,8 @@ apiVersion: operators.coreos.com/v1alpha1
 metadata:
   name: mtv-operator
   namespace: openshift-mtv
+  labels:
+    operators.coreos.com/mtv-operator.openshift-mtv: ''
 spec:
 # Let's try without to get "latest" hopefully:
 #  channel: release-v2.2.0

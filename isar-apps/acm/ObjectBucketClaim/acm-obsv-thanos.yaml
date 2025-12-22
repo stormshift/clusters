@@ -3,6 +3,8 @@ apiVersion: objectbucket.io/v1alpha1
 metadata:
   name: acm-obsv-thanos
   namespace: open-cluster-management-observability
+  labels:
+    bucket-provisioner: openshift-storage.ceph.rook.io-bucket
 spec:
   generateBucketName: acm-obsv-thanos
   storageClassName: ocs-storagecluster-ceph-rgw
