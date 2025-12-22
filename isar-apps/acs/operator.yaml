@@ -4,6 +4,13 @@ metadata:
   name: rhacs
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+  labels:
+    openshift-pipelines.tekton.dev/namespace-reconcile-version: 1.20.0	
+    openshift-pipelines.tekton.dev/namespace-trusted-configmaps-version: 1.20.0	
+    pod-security.kubernetes.io/audit: privileged	
+    pod-security.kubernetes.io/audit-version: latest	
+    pod-security.kubernetes.io/warn: privileged	
+    pod-security.kubernetes.io/warn-version: latest
 ---
 apiVersion: v1
 kind: Namespace
@@ -11,6 +18,13 @@ metadata:
   name: rhacs-operator
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+  labels:
+    openshift-pipelines.tekton.dev/namespace-reconcile-version: 1.20.0	
+    openshift-pipelines.tekton.dev/namespace-trusted-configmaps-version: 1.20.0	
+    pod-security.kubernetes.io/audit: privileged	
+    pod-security.kubernetes.io/audit-version: latest	
+    pod-security.kubernetes.io/warn: privileged	
+    pod-security.kubernetes.io/warn-version: latest
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
