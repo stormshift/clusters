@@ -5,8 +5,6 @@ metadata:
   namespace: rhacs
   annotations:
     argocd.argoproj.io/sync-wave: "3"
-  labels:
-    operators.coreos.com/rhacs-operator.rhacs-operator: ''
 spec:
   clusterName: 'local-cluster'
   centralEndpoint: 'central.rhacs.svc:443'
