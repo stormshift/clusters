@@ -4,4 +4,3 @@ metadata:
   name: forklift-controller
   namespace: openshift-mtv
 spec:
-  olm_managed: true
