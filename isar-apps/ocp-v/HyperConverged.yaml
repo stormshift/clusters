@@ -20,7 +20,7 @@ spec:
 # For vmStateStorage, we need to use cephfs because netapp cant do 12MB PVCs:
   vmStateStorageClass: ocs-storagecluster-cephfs
   workloadUpdateStrategy:
-    batchEvictionInterval: "30m"
+    batchEvictionInterval: "30m0s"
     batchEvictionSize: 1
     workloadUpdateMethods:
     - LiveMigrate
