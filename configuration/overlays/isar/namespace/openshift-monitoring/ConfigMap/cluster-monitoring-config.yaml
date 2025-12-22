@@ -33,14 +33,14 @@ data:
       - apiVersion: v2
         bearerToken:
           key: token
-          name: observability-alertmanager-accessor
+          name: observability-alertmanager-accessor-isar
         scheme: https
         staticConfigs:
         - alertmanager-open-cluster-management-observability.apps.isar.coe.muc.redhat.com
         tlsConfig:
           ca:
             key: service-ca.crt
-            name: hub-alertmanager-router-ca
+            name: hub-alertmanager-router-ca-isar
           insecureSkipVerify: false
       externalLabels:
         managed_cluster: 2997ae23-5631-49ad-8f0b-1dcf4e528e00
