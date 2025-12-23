@@ -8,7 +8,7 @@ metadata:
 spec:
 # Let's try without to get "latest" hopefully:
 #  channel: release-v2.2.0
-  installPlanApproval: Manual
+  installPlanApproval: Automatic
   name: mtv-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
