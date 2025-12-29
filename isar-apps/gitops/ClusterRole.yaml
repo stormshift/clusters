@@ -87,4 +87,10 @@ rules:
   - addontemplates
   verbs:
   - patch
+- apiGroups:
+  - ''
+  resources:
+  - secrets
+  verbs:
+  - patch
 
