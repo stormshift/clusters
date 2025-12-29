@@ -1,0 +1,77 @@
+apiVersion: addon.open-cluster-management.io/v1alpha1
+kind: AddOnTemplate
+metadata:
+  annotations:
+    installer.open-cluster-management.io/release-version: 2.15.0
+  labels:
+    installer.name: hub
+    installer.namespace: open-cluster-management
+  name: kubevirt-hyperconverged
+spec:
+  addonName: kubevirt-hyperconverged
+  agentSpec:
+    workload:
+      manifests:
+      - apiVersion: hco.kubevirt.io/v1beta1
+        kind: HyperConverged
+        metadata:
+          annotations:
+            deployOVS: "false"
+          name: kubevirt-hyperconverged
+          namespace: openshift-cnv
+        spec:
+          # For vmStateStorage, we need to use cephfs because netapp cant do 12MB PVCs:
+          vmStateStorageClass: ocs-storagecluster-cephfs
+          # https://github.com/stormshift/support/issues/248
+          permittedHostDevices:
+            pciHostDevices:
+            - pciDeviceSelector: "1137:0043"
+              resourceName: "cisco.com/VIC_1225"        
+          applicationAwareConfig:
+            allowApplicationAwareClusterResourceQuota: false
+            vmiCalcConfigName: DedicatedVirtualResources
+          certConfig:
+            ca:
+              duration: 48h0m0s
+              renewBefore: 24h0m0s
+            server:
+              duration: 24h0m0s
+              renewBefore: 12h0m0s
+          featureGates:
+            alignCPUs: false
+            autoResourceLimits: false
+            decentralizedLiveMigration: true
+            deployKubeSecondaryDNS: false
+            deployKubevirtIpamController: false
+            deployTektonTaskResources: true
+            deployVmConsoleProxy: false
+            disableMDevConfiguration: false
+            downwardMetrics: false
+            enableApplicationAwareQuota: false
+            enableCommonBootImageImport: true
+            enableManagedTenantQuota: false
+            nonRoot: true
+            persistentReservation: false
+            primaryUserDefinedNetworkBinding: false
+            withHostPassthroughCPU: false
+          higherWorkloadDensity:
+            memoryOvercommitPercentage: 100
+          liveMigrationConfig:
+            '{{LIVE_NETWORK_KEY}}': '{{LIVE_NETWORK_VALUE}}'
+            allowAutoConverge: true
+            allowPostCopy: false
+            completionTimeoutPerGiB: 800
+            parallelMigrationsPerCluster: 5
+            parallelOutboundMigrationsPerNode: 2
+            progressTimeout: 150
+          resourceRequirements:
+            vmiCPUAllocationRatio: 10
+          uninstallStrategy: BlockUninstallIfWorkloadsExist
+          virtualMachineOptions:
+            disableFreePageReporting: false
+            disableSerialConsoleLog: true
+          workloadUpdateStrategy:
+            batchEvictionInterval: "30m0s"
+            batchEvictionSize: 1
+            workloadUpdateMethods:
+            - LiveMigrate
