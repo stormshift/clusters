@@ -1,0 +1,26 @@
+---
+apiVersion: hco.kubevirt.io/v1beta1
+kind: HyperConverged
+metadata:
+  name: kubevirt-hyperconverged
+  namespace: openshift-cnv
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
+spec:
+  # https://github.com/stormshift/support/issues/248
+  permittedHostDevices:
+    pciHostDevices:
+    - pciDeviceSelector: "1137:0043"
+      resourceName: "cisco.com/VIC_1225"
+  featureGates:
+    enableCommonBootImageImport: true
+    deployTektonTaskResources: true
+  liveMigrationConfig:
+    allowAutoConverge: true
+# For vmStateStorage, we need to use cephfs because netapp cant do 12MB PVCs:
+  vmStateStorageClass: ocs-storagecluster-cephfs
+  workloadUpdateStrategy:
+    batchEvictionInterval: "30m0s"
+    batchEvictionSize: 1
+    workloadUpdateMethods:
+    - LiveMigrate

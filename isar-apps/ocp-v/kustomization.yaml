@@ -1,10 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-#- HyperConverged.yaml
-# Replaced by 
-- AddOnTemplate/
-# because of https://github.com/stormshift/support/issues/351
+- HyperConverged.yaml
 - StorageProfile/
 # Disabled, installed by hand
 #- Namespace.yaml
