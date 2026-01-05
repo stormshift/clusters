@@ -267,3 +267,9 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - addon.open-cluster-management.io
+  resources:
+  - addontemplates
+  verbs:
+  - patch
