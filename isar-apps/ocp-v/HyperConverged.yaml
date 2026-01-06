@@ -18,6 +18,8 @@ spec:
     deployTektonTaskResources: true
   liveMigrationConfig:
     allowAutoConverge: true
+  virtualMachineOptions:
+    defaultCPUModel: IvyBridge-v2
 # For vmStateStorage, we need to use cephfs because netapp cant do 12MB PVCs:
   vmStateStorageClass: ocs-storagecluster-cephfs
   workloadUpdateStrategy:
