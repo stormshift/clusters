@@ -10,5 +10,6 @@ metadata:
     node.kubernetes.io/instance-type: "Dell-PowerEdge-R730"
     beta.kubernetes.io/instance-type: "Dell-PowerEdge-R730"
     node-role.kubernetes.io/virt-node: ""
+    cluster.ocs.openshift.io/openshift-storage: ""
   name: storm5
 spec: {}

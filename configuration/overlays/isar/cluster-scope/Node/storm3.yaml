@@ -10,5 +10,6 @@ metadata:
     beta.kubernetes.io/instance-type: "Dell-PowerEdge-R730"
     failure-domain.beta.kubernetes.io/zone: muc-a
     node-role.kubernetes.io/virt-node: ""
+    cluster.ocs.openshift.io/openshift-storage: ""
   name: storm3
 spec: {}
