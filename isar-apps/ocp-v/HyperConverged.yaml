@@ -7,6 +7,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "100"
 spec:
+  defaultCPUModel: IvyBridge-v2
   # https://github.com/stormshift/support/issues/248
   permittedHostDevices: 
     pciHostDevices:
