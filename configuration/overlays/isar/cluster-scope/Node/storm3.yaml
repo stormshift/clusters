@@ -11,5 +11,6 @@ metadata:
     failure-domain.beta.kubernetes.io/zone: muc-a
     node-role.kubernetes.io/virt-node: ""
     cluster.ocs.openshift.io/openshift-storage: ""
+    node-role.kubernetes.io/storage-node: ""
   name: storm3
 spec: {}
