@@ -1,0 +1,17 @@
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: rhel9-clean-base
+  namespace: openshift-virtualization-os-images
+spec:
+  source:
+    registry:
+      url: "docker://registry.redhat.io/rhel9/rhel-guest-image:latest"
+      secretRef: redhat-registry-credentials
+  storage:
+    storageClassName: coe-netapp-san 
+    accessModes:
+      - ReadWriteMany
+    resources:
+      requests:
+        storage: 30Gi
