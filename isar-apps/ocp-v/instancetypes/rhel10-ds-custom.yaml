@@ -8,7 +8,7 @@ metadata:
   labels:
     app.kubernetes.io/component: storage
     kubevirt.io/dynamic-credentials-support: "true"
-    os.template.kubevirt.io/rhel9: "true"
+    os.template.kubevirt.io/rhel10: "true"
     instancetype.kubevirt.io/default-instancetype: rhel-haswell-instancetype
     instancetype.kubevirt.io/default-instancetype-kind: VirtualMachineClusterInstancetype
 spec:
