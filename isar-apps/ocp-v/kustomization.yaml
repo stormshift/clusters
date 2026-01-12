@@ -8,3 +8,5 @@ resources:
 #- OperatorGroup.yaml
 #- Subscription.yaml
 - MigrationPolicy/
+- instancetypes/
+- templates/
