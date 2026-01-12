@@ -1,1 +1,12 @@
-
+apiVersion: instancetype.kubevirt.io/v1beta1
+kind: VirtualMachineClusterInstancetype
+metadata:
+  name: rhel-hassel-instancetype
+spec:
+  cpu:
+    guest: 2
+    model: "Haswell-v4"
+  memory:
+    guest: "4Gi"
+  nodeSelector:
+    usage: "rhel9-hassel"
