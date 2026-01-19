@@ -9,4 +9,4 @@ spec:
   memory:
     guest: "4Gi"
   nodeSelector:
-    usage: "rhel9-broadwell"
+    usage: "rhel-broadwell"
