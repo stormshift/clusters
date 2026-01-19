@@ -2,7 +2,7 @@ apiVersion: cdi.kubevirt.io/v1beta1
 kind: DataVolume
 metadata:
   name: rhel9-clean-base
-  namespace: openshift-virtualization-os-images
+  namespace: custom-os-images
 spec:
   source:
     registry:
