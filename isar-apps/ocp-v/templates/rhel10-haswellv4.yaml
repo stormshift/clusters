@@ -1,7 +1,7 @@
 kind: Template
 apiVersion: template.openshift.io/v1
 metadata:
-  name: rhel10-haswell
+  name: custom-rhel10-haswell
   namespace: openshift
   labels:
     template.kubevirt.io/architecture: amd64
@@ -26,7 +26,7 @@ objects:
     metadata:
       labels:
         app: '${NAME}'
-        vm.kubevirt.io/template: rhel10-haswell
+        vm.kubevirt.io/template: custom-rhel10-haswell
         vm.kubevirt.io/template.namespace: openshift
       name: '${NAME}'
     spec:
