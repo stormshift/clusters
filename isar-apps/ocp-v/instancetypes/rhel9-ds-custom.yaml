@@ -1,7 +1,7 @@
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: DataSource
 metadata:
-  name: rhel9-haswell
+  name: custom-rhel9-haswell
   namespace: openshift-virtualization-os-images
   annotations:
     virt.kubevirt.io/os-display-name: "RHEL 9 Custom (Haswell)"
