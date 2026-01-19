@@ -1,7 +1,7 @@
 kind: Template
 apiVersion: template.openshift.io/v1
 metadata:
-  name: rhel9-haswellv4
+  name: custom-rhel9-haswell
   namespace: openshift
   labels:
     app.kubernetes.io/part-of: hyperconverged-cluster
@@ -9,7 +9,7 @@ metadata:
     template.kubevirt.io/version: v0.34.1
     app.kubernetes.io/version: 4.20.3
     template.kubevirt.io/type: vm
-    vm.kubevirt.io/template: rhel9-haswell
+    vm.kubevirt.io/template: custom-rhel9-haswell
     app.kubernetes.io/component: templating
     app.kubernetes.io/managed-by: ssp-operator
     flavor.template.kubevirt.io/medium: 'true'
@@ -80,7 +80,7 @@ objects:
       labels:
         app: '${NAME}'
         kubevirt.io/dynamic-credentials-support: 'true'
-        vm.kubevirt.io/template: rhel9-haswellv4
+        vm.kubevirt.io/template: custom-rhel9-haswell
         vm.kubevirt.io/template.revision: '1'
         vm.kubevirt.io/template.namespace: openshift
         template.kubevirt.io/default-os-variant: 'true'
