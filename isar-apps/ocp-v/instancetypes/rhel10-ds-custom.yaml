@@ -2,7 +2,7 @@ apiVersion: cdi.kubevirt.io/v1beta1
 kind: DataSource
 metadata:
   name: custom-rhel10-haswell
-  namespace: openshift-virtualization-os-images
+  namespace: custom-os-images
   annotations:
     virt.kubevirt.io/os-display-name: "RHEL 10 Custom (Haswell)"
   labels:
@@ -15,4 +15,4 @@ spec:
   source:
     pvc:
       name: rhel10-clean-base
-      namespace: openshift-virtualization-os-images
+      namespace: custom-os-images
