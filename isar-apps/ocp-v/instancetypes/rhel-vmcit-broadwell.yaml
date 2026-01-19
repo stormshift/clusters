@@ -1,0 +1,12 @@
+apiVersion: instancetype.kubevirt.io/v1beta1
+kind: VirtualMachineClusterInstancetype
+metadata:
+  name: rhel-broadwell-instancetype
+spec:
+  cpu:
+    guest: 2
+    model: "Broadwell-v4"
+  memory:
+    guest: "4Gi"
+  nodeSelector:
+    usage: "rhel9-broadwell"
