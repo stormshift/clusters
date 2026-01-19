@@ -4,7 +4,7 @@ metadata:
   name: rhel9-haswell
   namespace: openshift-virtualization-os-images
   annotations:
-    virt.kubevirt.io/os-display-name: "RHEL 9 Custom (Haswell/Ivy)"
+    virt.kubevirt.io/os-display-name: "RHEL 9 Custom (Haswell)"
   labels:
     app.kubernetes.io/component: storage
     kubevirt.io/dynamic-credentials-support: "true"
