@@ -7,7 +7,7 @@ metadata:
     template.kubevirt.io/architecture: amd64
     os.template.kubevirt.io/rhel10.0: 'true'
     template.kubevirt.io/type: vm
-    vm.kubevirt.io/template: rhel10-ivy-manual
+    vm.kubevirt.io/template: custom-rhel10-haswell
     flavor.template.kubevirt.io/medium: 'true'
     template.kubevirt.io/default-os-variant: 'true'
     app.kubernetes.io/name: custom-templates
