@@ -1,7 +1,7 @@
 apiVersion: instancetype.kubevirt.io/v1beta1
 kind: VirtualMachineClusterInstancetype
 metadata:
-  name: rhel-haswell-instancetype
+  name: custom-rhel-haswell-instancetype
 spec:
   cpu:
     guest: 2
