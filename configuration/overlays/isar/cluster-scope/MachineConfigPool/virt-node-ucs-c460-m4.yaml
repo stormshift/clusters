@@ -2,6 +2,9 @@ apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfigPool
 metadata:
   name: virt-node-ucs-c460-m4
+  labels:
+    coe.redhat.com/kubeletconfig-set-max-pods: "true"
+    coe.redhat.com/kubeletconfig-auto-sizing-reserved: "true"
 spec:
   machineConfigSelector:
     matchExpressions:

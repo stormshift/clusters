@@ -6,4 +6,4 @@ spec:
   autoSizingReserved: true 
   machineConfigPoolSelector:
     matchLabels:
-      pools.operator.machineconfiguration.openshift.io/worker: "" 
+      coe.redhat.com/kubeletconfig-auto-sizing-reserved: "true"
