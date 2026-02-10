@@ -5,7 +5,7 @@ metadata:
 spec:
   machineConfigPoolSelector:
     matchLabels:
-      pools.operator.machineconfiguration.openshift.io/worker: "" 
+      coe.redhat.com/kubeletconfig-set-max-pods: true
   kubeletConfig:
     podsPerCore: 10 
     maxPods: 2000
