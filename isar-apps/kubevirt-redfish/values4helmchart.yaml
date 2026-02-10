@@ -111,7 +111,7 @@ route:
   # This should be a valid hostname that resolves to your OpenShift cluster (you will need to change this setting to match your OpenShift environment )
 
 #dfroehli: disable to rely on platform default?
-  host: "kubevirt-redfish.apps.isar.stormshift.coe.muc.redhat.com"
+  host: "stormshift-kubevirt-redfish-stormshift-kubevirt-redfish.apps.isar.coe.muc.redhat.com"
   # Additional labels for the route (no need to change these settings unless you're testing or debugging)
   labels: {}
   # Additional annotations for the route (no need to change these settings unless you're testing or debugging)
