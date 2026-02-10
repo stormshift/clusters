@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stormshift-kubevirt-redfish
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    chart: kubevirt-redfish
+    repoURL: https://v1k0d3n.github.io/charts
+    targetRevision:  0.2.3
+    helm:
+      valueFiles:
+        - values4helmchart.yaml
+  destination:
+    name: "kubevirt-redfish"
+    namespace: stormshift-kubevirt-redfish
