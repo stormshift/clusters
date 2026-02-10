@@ -10,7 +10,6 @@ spec:
           - name: infra-external-dns
           - name: keycloak
           - name: descheduler
-          - name: kubevirt-redfish
   template:
     metadata:
       name: '{{ name }}'
