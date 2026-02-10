@@ -13,5 +13,4 @@ spec:
       valueFiles:
         - values4helmchart.yaml
   destination:
-    name: "kubevirt-redfish"
-    namespace: stormshift-kubevirt-redfish
+    server: https://kubernetes.default.svc
