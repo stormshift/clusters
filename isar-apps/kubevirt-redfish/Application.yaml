@@ -8,10 +8,10 @@ spec:
   sources:
     - chart: kubevirt-redfish
       repoURL: https://v1k0d3n.github.io/charts
-      targetRevision:  0.2.3
+      targetRevision: 0.2.3
       helm:
         valueFiles:
-          - $config-repo/values4helmchart.yaml
+          - $config-repo/isar-apps/kubevirt-redfish/values4helmchart.yaml
 
 # Need this source for the values file:
     - repoURL: https://github.com/stormshift/clusters.git
