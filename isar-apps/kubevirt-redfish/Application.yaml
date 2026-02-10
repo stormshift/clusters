@@ -21,6 +21,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
+    namespace: stormshift-kubevirt-redfish
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
