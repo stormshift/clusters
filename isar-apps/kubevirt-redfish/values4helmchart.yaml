@@ -60,7 +60,7 @@ deployment:
         port: 8443
         scheme: "HTTP"
       initialDelaySeconds: 30
-      periodSeconds: 10
+      periodSeconds: 60
       timeoutSeconds: 5
       failureThreshold: 3
     # Health checks for Kubernetes readiness probe (do not change these settings unless you're testing or debugging)
@@ -70,7 +70,7 @@ deployment:
         port: 8443
         scheme: "HTTP"
       initialDelaySeconds: 5
-      periodSeconds: 5
+      periodSeconds: 60
       timeoutSeconds: 3
       failureThreshold: 3
     # Volume mounts for configuration and temporary storage (do not change these settings unless you're testing or debugging)
@@ -180,10 +180,15 @@ server:
 # Chassis configuration defines the virtual "chassis" that the Redfish API will expose
 # Each chassis represents a logical grouping of VMs, typically corresponding to a namespace
 chassis:
-  - name: "default"
-    namespace: "default"
+  - name: "ocp2"
+    namespace: "stormshift-ocp2-infra"
     service_account: "kubevirt-redfish"
-    description: "Default KubeVirt chassis with virtual machines"
+    description: "All VMS of OCP2"
+
+  - name: "microshift"
+    namespace: "stormshift-microshift"
+    service_account: "kubevirt-redfish"
+    description: "All microshift VMs with redfish label"
     vm_selector:
       labels:
         redfish-enabled: "true"
@@ -198,10 +203,10 @@ authentication:
   users:
     - username: "admin"
       password: "admin123"
-      chassis: ["default"]
+      chassis: ["ocp2", "microshift"]
     - username: "operator"
       password: "operator123"
-      chassis: ["default"]
+      chassis: ["ocp2", "microshift"]
 # =============================================================================
 # KUBEVIRT CONFIGURATION
 # =============================================================================
