@@ -15,7 +15,7 @@ spec:
 
 # Need this source for the values file:
     - repoURL: https://github.com/stormshift/clusters.git
-      path: 'isar-apps/kubevirt-redfish/'
+      path: 'isar-apps/kubevirt-redfish'
       targetRevision: main
       ref: config-repo
 
