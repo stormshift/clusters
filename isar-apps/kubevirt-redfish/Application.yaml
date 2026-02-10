@@ -11,6 +11,6 @@ spec:
     targetRevision:  0.2.3
     helm:
       valueFiles:
-        - values4helmchart.yaml
+        - isar-apps/kubevirt-redfish/values4helmchart.yaml
   destination:
     server: https://kubernetes.default.svc
