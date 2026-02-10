@@ -26,4 +26,4 @@ spec:
     syncOptions:
       - CreateNamespace=true
     automated:
-      enabled: true
+      enabled: false
