@@ -11,12 +11,13 @@ spec:
       targetRevision:  0.2.3
       helm:
         valueFiles:
-          - ./values4helmchart.yaml
-          
+          - $config-repo/values4helmchart.yaml
+
 # Need this source for the values file:
     - repoURL: https://github.com/stormshift/clusters.git
       path: 'isar-apps/kubevirt-redfish/'
       targetRevision: main
+      ref: config-repo
 
   destination:
     server: https://kubernetes.default.svc
