@@ -6,7 +6,7 @@ metadata:
   namespace: openshift-cnv
   annotations:
     argocd.argoproj.io/sync-wave: "100"
-    kubevirt.kubevirt.io/jsonpatch: '[ {"op": "add", "path": "/spec/configuration/developerConfiguration/featureGates/-","value": "VolumesUpdateStrategy"}, {"op": "add", "path": "/spec/configuration/developerConfiguration/featureGates/-","value": "VolumeMigration"} ]'
+    kubevirt.kubevirt.io/jsonpatch: '[ {"op": "add", "path": "/spec/configuration/developerConfiguration/featureGates/-","value": "VolumesUpdateStrategy"}, {"op": "add", "path": "/spec/configuration/developerConfiguration/featureGates/-","value": "VolumeMigration"}, {"op": "add", "path": "/spec/configuration/developerConfiguration/featureGates/-","value": "Sidecar"} ]'
 spec:
   defaultCPUModel: IvyBridge-v2
   # https://github.com/stormshift/support/issues/248
