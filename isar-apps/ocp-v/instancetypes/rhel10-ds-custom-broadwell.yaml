@@ -1,0 +1,19 @@
+
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataSource
+metadata:
+  name: custom-rhel10-broadwell
+  namespace: custom-os-images
+  annotations:
+    virt.kubevirt.io/os-display-name: "RHEL 10 Custom (Broadwell)"
+  labels:
+    app.kubernetes.io/component: storage
+    kubevirt.io/dynamic-credentials-support: "true"
+    os.template.kubevirt.io/rhel10: "true"
+    instancetype.kubevirt.io/default-instancetype: rhel-broadwell-instancetype
+    instancetype.kubevirt.io/default-instancetype-kind: VirtualMachineClusterInstancetype
+spec:
+  source:
+    pvc:
+      name: rhel10-clean-base
+      namespace: custom-os-images

@@ -1,0 +1,18 @@
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataSource
+metadata:
+  name: custom-rhel9-haswell
+  namespace: custom-os-images
+  annotations:
+    virt.kubevirt.io/os-display-name: "RHEL 9 Custom (Haswell)"
+  labels:
+    app.kubernetes.io/component: storage
+    kubevirt.io/dynamic-credentials-support: "true"
+    os.template.kubevirt.io/rhel9: "true"
+    instancetype.kubevirt.io/default-instancetype: "rhel-haswell-instancetype"
+    instancetype.kubevirt.io/default-instancetype-kind: "VirtualMachineClusterInstancetype"
+spec:
+  source:
+    pvc:
+      name: rhel9-clean-base
+      namespace: custom-os-images
