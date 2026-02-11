@@ -54,6 +54,18 @@ data:
             key: service-ca.crt
             name: hub-alertmanager-router-ca-isar
           insecureSkipVerify: false
+      - apiVersion: v2	
+        bearerToken:	
+          key: token	
+          name: observability-alertmanager-accessor-2997ae23563149ad8f0	
+        scheme: https	
+        staticConfigs:	
+        - alertmanager-open-cluster-management-observability.apps.isar.coe.muc.redhat.com	
+        tlsConfig:	
+          ca:	
+            key: service-ca.crt	
+            name: hub-alertmanager-router-ca-2997ae23563149ad8f0	
+          insecureSkipVerify: false
       externalLabels:
         managed_cluster: 2997ae23-5631-49ad-8f0b-1dcf4e528e00
       retention: 12d
