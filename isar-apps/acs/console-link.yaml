@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   applicationMenu:
-    section: Red Hat applications
+    section: Red Hat Applications
     imageURL: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/OpenShift-LogoType.svg'
   href: https://rhacs.coe.muc.redhat.com
   location: ApplicationMenu
