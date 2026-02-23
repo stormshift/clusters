@@ -12,3 +12,20 @@ spec:
     listenOnCreates: true
     listenOnEvents: true
     listenOnUpdates: true
+  overlays:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: sensor
+      patches:
+        - path: spec.template.spec.containers[name:sensor].env[-1]
+          value: |
+            name: ROX_VIRTUAL_MACHINES
+            value: "true"
+    - apiVersion: apps/v1
+      kind: DaemonSet
+      name: collector
+      patches:
+        - path: spec.template.spec.containers[name:compliance].env[-1]
+          value: |
+            name: ROX_VIRTUAL_MACHINES
+            value: "true"
