@@ -1,0 +1,13 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: aap
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  applicationMenu:
+    section: Red Hat Applications
+    imageURL: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Ansible_logo.svg'
+  href: https://aap.coe.muc.redhat.com
+  location: ApplicationMenu
+  text: 'Ansible Automation Platform'
