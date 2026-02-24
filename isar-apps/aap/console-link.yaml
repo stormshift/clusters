@@ -7,7 +7,7 @@ metadata:
 spec:
   applicationMenu:
     section: Red Hat Applications
-    imageURL: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Ansible_logo.svg'
+    imageURL: 'https://raw.githubusercontent.com/stormshift/clusters/refs/heads/main/assets/Technology_icon-Red_Hat-Ansible_Automation_Platform-Standard-RGB.svg'
   href: https://aap.coe.muc.redhat.com
   location: ApplicationMenu
   text: 'Ansible Automation Platform'
