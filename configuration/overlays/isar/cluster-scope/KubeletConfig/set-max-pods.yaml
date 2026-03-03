@@ -1,11 +1,11 @@
 apiVersion: machineconfiguration.openshift.io/v1
 kind: KubeletConfig
 metadata:
-  name: set-max-pods 
+  name: set-max-pods
 spec:
   machineConfigPoolSelector:
     matchLabels:
-      coe.redhat.com/kubeletconfig-set-max-pods: true
+      coe.redhat.com/kubeletconfig-set-max-pods: "true"
   kubeletConfig:
-    podsPerCore: 10 
+    podsPerCore: 10
     maxPods: 2000
