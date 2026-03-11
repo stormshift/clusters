@@ -104,13 +104,7 @@ spec:
         replicas: 3
     scannerComponent: Enabled
   scanner:
-    analyzer:
-      scaling:
-        autoScaling: Enabled
-        maxReplicas: 5
-        minReplicas: 2
-        replicas: 3
-    scannerComponent: Enabled
+    scannerComponent: Disabled
   overlays:
     - apiVersion: apps/v1
       kind: Deployment
