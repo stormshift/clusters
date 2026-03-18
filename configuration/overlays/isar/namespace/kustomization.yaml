@@ -8,4 +8,4 @@ resources:
   - openshift-image-registry/
   - openshift-gitops/
   - openshift-ingress/
-  - openshift-monitoring/
+#  - openshift-monitoring/
