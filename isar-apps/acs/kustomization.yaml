@@ -4,7 +4,6 @@ resources:
 - ExternalSecret/
 - cluster-init.yaml
 - console-link.yaml
-- declarative-oauth.yaml
 - operator.yaml
 - rbac.yaml
 - secured-cluster.yaml
