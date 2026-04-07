@@ -48,9 +48,9 @@ spec:
       - configOverrides: {}
         enabled: false
         name: siteconfig
-      - configOverrides: {}
-        enabled: false
-        name: fine-grained-rbac-preview
-      - configOverrides: {}
-        enabled: false
-        name: cnv-mtv-integrations-preview
+#      - configOverrides: {}
+#        enabled: false
+#        name: fine-grained-rbac-preview
+#      - configOverrides: {}
+#        enabled: false
+#        name: cnv-mtv-integrations-preview
