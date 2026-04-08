@@ -81,8 +81,8 @@ spec:
       persistentVolumeClaim:
         claimName: rhacs-db
     declarativeConfiguration:
-      configMaps:
-        - name: declarative-oauth
+      secrets:
+        - name: rhacs-declarative-oidc-auth
   egress:
     connectivityPolicy: Online
   scannerV4:
