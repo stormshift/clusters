@@ -99,6 +99,10 @@ objects:
           domain:
             cpu:
               cores: 1
+              features:
+              - name: vmx-rdseed-exit
+                policy: disable
+              model: Haswell-v4
               sockets: 1
               threads: 1
             devices:
