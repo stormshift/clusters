@@ -14,6 +14,13 @@ spec:
       managed: true
     - kind: clair
       managed: true
+      overrides:
+        resources:
+# Fix stormshift/support#388 - add ephemeral-storage:
+          requests:
+            ephemeral-storage: "25Gi"
+          limits:
+            ephemeral-storage: "50Gi"
     - kind: redis
       managed: true
     - kind: horizontalpodautoscaler
