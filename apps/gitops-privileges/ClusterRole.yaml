@@ -273,3 +273,17 @@ rules:
   - addontemplates
   verbs:
   - patch
+- apiGroups:
+  - fence-agents-remediation.medik8s.io
+  resources:
+  - fenceagentsremediationtemplates
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - remediation.medik8s.io
+  resources:
+  - nodehealthchecks
+  verbs:
+  - patch
+  - create
