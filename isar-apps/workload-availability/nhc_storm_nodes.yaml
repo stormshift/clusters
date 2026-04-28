@@ -1,0 +1,24 @@
+apiVersion: remediation.medik8s.io/v1alpha1
+kind: NodeHealthCheck
+metadata:
+  name: storm-nodes
+spec:
+  minHealthy: 0%
+  remediationTemplate:
+    kind: FenceAgentsRemediationTemplate
+    apiVersion: fence-agents-remediation.medik8s.io/v1alpha1
+    name: storm-nodes
+    namespace: openshift-workload-availability
+  selector:
+    matchExpressions:
+      - key: kubernetes.io/hostname
+        operator: In
+        values:
+          - storm2
+  unhealthyConditions:
+    - duration: 300s
+      status: 'False'
+      type: Ready
+    - duration: 300s
+      status: Unknown
+      type: Ready
