@@ -1,0 +1,104 @@
+kind: Template
+apiVersion: template.openshift.io/v1
+metadata:
+  name: custom-rhel10-broadwell
+  namespace: openshift
+  labels:
+    app.kubernetes.io/name: custom-templates
+    flavor.template.kubevirt.io/medium: 'true'
+    os.template.kubevirt.io/rhel10.0: 'true'
+    template.kubevirt.io/architecture: amd64
+    template.kubevirt.io/type: vm
+    vm.kubevirt.io/template: custom-rhel10-broadwell
+    vm.kubevirt.io/template.namespace: openshift
+    workload.template.kubevirt.io/server: 'true'
+  annotations:
+    description: RHEL 10 Template using the existing rhel10 VolumeSnapshot DataSource.
+    iconClass: icon-rhel
+    openshift.io/display-name: Red Hat Enterprise Linux 10 (Broadwell-v4)
+    openshift.io/provider-display-name: ''
+    tags: 'kubevirt,virtualmachine,rhel,rhel10'
+    template.kubevirt.io/provider: ''
+objects:
+  - apiVersion: kubevirt.io/v1
+    kind: VirtualMachine
+    metadata:
+      labels:
+        app: '${NAME}'
+        vm.kubevirt.io/template: custom-rhel10-broadwell
+        vm.kubevirt.io/template.namespace: openshift
+      name: '${NAME}'
+    spec:
+      dataVolumeTemplates:
+        - apiVersion: cdi.kubevirt.io/v1beta1
+          kind: DataVolume
+          metadata:
+            name: '${NAME}'
+          spec:
+            sourceRef:
+              kind: DataSource
+              name: rhel10
+              namespace: openshift-virtualization-os-images
+            storage:
+              resources:
+                requests:
+                  storage: 30Gi
+      runStrategy: Halted
+      template:
+        metadata:
+          labels:
+            kubevirt.io/domain: '${NAME}'
+        spec:
+          affinity:
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
+                      - key: kubernetes.io/hostname
+                        operator: In
+                        values:
+                          - storm5
+                          - storm6
+                    matchFields: []
+          domain:
+            cpu:
+              cores: 1
+              sockets: 1
+              threads: 1
+              model: Broadwell-v4
+            devices:
+              disks:
+                - disk:
+                    bus: virtio
+                  name: rootdisk
+                - disk:
+                    bus: virtio
+                  name: cloudinitdisk
+              interfaces:
+                - masquerade: {}
+                  model: virtio
+                  name: default
+            memory:
+              guest: 4Gi
+          networks:
+            - name: default
+              pod: {}
+          volumes:
+            - dataVolume:
+                name: '${NAME}'
+              name: rootdisk
+            - cloudInitNoCloud:
+                userData: |-
+                  #cloud-config
+                  user: cloud-user
+                  password: ${CLOUD_USER_PASSWORD}
+              name: cloudinitdisk
+parameters:
+  - name: NAME
+    description: Name for the new VM
+    generate: expression
+    from: 'rhel10-[a-z0-9]{6}'
+  - name: CLOUD_USER_PASSWORD
+    description: Password for cloud-user
+    generate: expression
+    from: '[a-z0-9]{8}'
