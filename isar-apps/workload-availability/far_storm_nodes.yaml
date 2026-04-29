@@ -1,0 +1,30 @@
+kind: FenceAgentsRemediationTemplate
+apiVersion: fence-agents-remediation.medik8s.io/v1alpha1
+metadata:
+  annotations:
+    remediation.medik8s.io/multiple-templates-support: 'true'
+  name: storm-nodes
+  namespace: openshift-workload-availability
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+spec:
+  statusValidationSample: "100%"
+  template:
+    spec:
+      agent: fence_redfish
+      remediationStrategy: OutOfServiceTaint
+      retrycount: 5
+      retryinterval: 5s
+      timeout: 1m30s
+
+      nodeparameters:
+        '--ssl-insecure':
+          storm2: ""
+
+      nodeSecretNames:
+        storm2: "bm-mgmt-storm2"
+
+      sharedparameters:
+        '--action': reboot
+        '--ipport': "443"
+        '--redfish-uri': "/redfish/v1/"

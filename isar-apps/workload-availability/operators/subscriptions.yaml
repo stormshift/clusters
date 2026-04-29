@@ -1,0 +1,38 @@
+---
+kind: Subscription
+apiVersion: operators.coreos.com/v1alpha1
+metadata:
+  name: node-health-check-operator
+  namespace: openshift-workload-availability
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  channel: stable
+  name: node-healthcheck-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  installPlanApproval: Manual
+---
+kind: Subscription
+apiVersion: operators.coreos.com/v1alpha1
+metadata:
+  name: fence-agents-remediation
+  namespace: openshift-workload-availability
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  channel: stable
+  name: fence-agents-remediation
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  installPlanApproval: Manual
+  config:
+    nodeSelector:
+      node-role.kubernetes.io/control-plane: ""
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
