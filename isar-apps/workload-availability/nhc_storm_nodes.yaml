@@ -2,6 +2,8 @@ apiVersion: remediation.medik8s.io/v1alpha1
 kind: NodeHealthCheck
 metadata:
   name: storm-nodes
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
 spec:
   minHealthy: 0%
   remediationTemplate:
