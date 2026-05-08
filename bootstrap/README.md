@@ -2,7 +2,7 @@
 
 ## Install following Operators
 
- * External Secrets Operator
+ * [External Secrets Operator](https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html/security_and_compliance/external-secrets-operator-for-red-hat-openshift)
  * OpenShift GitOps
 
 ## Configure gitops
@@ -12,7 +12,7 @@ Note: Auto-sync disabled by default!
 ```bash
 export CLUSTER_NAME=stormshift-ocpX
 
-oc apply -k ../apps/gitops-privileges/
+oc apply -k apps/gitops-privileges/
 
 oc apply -f - <<EOF
 apiVersion: argoproj.io/v1alpha1
@@ -43,6 +43,25 @@ and add `g, idp-coe-sso-admin, role:admin` to rbac.policy
 
 ## Configure External Secrets Operator
 
+```shell
+oc apply -f - <<EOF
+apiVersion: operator.openshift.io/v1alpha1
+kind: ExternalSecretsConfig
+metadata:
+  labels:
+    app: external-secrets-operator
+    app.kubernetes.io/name: cluster
+  name: cluster
+spec:
+  controllerConfig:
+    networkPolicies:
+    - componentName: ExternalSecretsCoreController
+      egress:
+      - {}
+      name: allow-external-secrets-egress
+EOF
+```
+
 ```bash
 export CLUSTER_NAME=stormshift-ocpX
 # Stored in Red Hat Bitwarden, Coe Lab Mgmt collection
@@ -50,14 +69,12 @@ export VAULT=....
 export APP_ROLE=....
 export APP_PW=....
 
-oc apply -k external-secrets-operator/
-
 oc create secret generic redhat-vault \
-    -n infra-external-secrets-operator \
+    -n external-secrets-operator \
     --from-literal=token=$APP_PW
 
 oc apply -f - <<EOF
-apiVersion: external-secrets.io/v1beta1
+apiVersion: external-secrets.io/v1
 kind: ClusterSecretStore
 metadata:
   name: redhat-vault
@@ -71,7 +88,7 @@ spec:
           secretRef:
             key: token
             name: redhat-vault
-            namespace: infra-external-secrets-operator
+            namespace: external-secrets-operator
       caProvider:
         key: ca.crt
         name: redhat-current-it-root-cas
