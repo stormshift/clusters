@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
 #  - Console/cluster.yaml
 #  - ConsoleNotification/
-  - OAuth/cluster.yaml
+#  - OAuth/cluster.yaml
 #  - MachineConfig/
 #  - MachineConfigPool/
 #  - StorageClass/
