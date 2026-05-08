@@ -1,0 +1,54 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
+  name: cluster
+spec:
+  templates:
+    error:
+        name: errors-template
+    login:
+        name: login-template
+    providerSelection:
+        name: providers-template
+  identityProviders:
+  - mappingMethod: add
+    name: COE-SSO
+    openID:
+      ca:
+        name: redhat-current-it-root-cas
+      claims:
+        email:
+        - email
+        groups:
+        - groups
+        name:
+        - name
+        preferredUsername:
+        - preferred_username
+      clientID: oauth-openshift.apps.elbe.coe.muc.redhat.com
+      clientSecret:
+        name: openid-client-secret-coe-sso
+      issuer: https://sso.coe.muc.redhat.com/realms/coe-sso
+    type: OpenID
+  - mappingMethod: add
+    name: COE-SSO-Admin
+    openID:
+      ca:
+        name: redhat-current-it-root-cas
+      claims:
+        email:
+        - email
+        groups:
+        - groups
+        name:
+        - name
+        preferredUsername:
+        - preferred_username
+      clientID: oauth-openshift.apps.elbe.coe.muc.redhat.com
+      clientSecret:
+        name: openid-client-secret-coe-sso
+      issuer: https://sso.coe.muc.redhat.com/realms/coe-sso-admin
+    type: OpenID
+
