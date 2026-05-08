@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: elbe
+spec:
+  text: Munich COE Lab - Elbe Cluster -
+  location: BannerTop
+  link:
+    href: 'https://source.redhat.com/groups/public/coe-lab-munich/stormshift'
+    text: Details
+  color: '#fff'
+  backgroundColor: '#0f62fe'

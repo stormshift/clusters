@@ -1,0 +1,24 @@
+apiVersion: operator.openshift.io/v1
+kind: Console
+metadata:
+  name: cluster
+  annotations:
+    argocd.argoproj.io/sync-options: "ServerSideApply=true,Validate=false"
+spec:
+  customization:
+    logos:
+      - themes:
+          - mode: Light
+            source:
+              configMap:
+                key: logo-dark.png
+                name: console-custom-logo
+              from: ConfigMap
+          - mode: Dark
+            source:
+              configMap:
+                key: logo-light.png
+                name: console-custom-logo
+              from: ConfigMap
+        type: Masthead
+    customProductName: COE Muc Elbe Cluster

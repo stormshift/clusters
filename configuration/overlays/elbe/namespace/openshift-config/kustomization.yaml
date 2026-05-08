@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: openshift-config
 
 resources:
-  # - ConfigMap/
-  # - Secret/
+  - ConfigMap/
+  - Secret/
   - ExternalSecret/ 
-  # - Template/
+  #- Template/

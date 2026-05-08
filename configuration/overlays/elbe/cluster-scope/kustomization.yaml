@@ -2,8 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-#  - Console/cluster.yaml
-#  - ConsoleNotification/
+  - Console/cluster.yaml
+  - ConsoleNotification/
 #  - OAuth/cluster.yaml
 #  - MachineConfig/
 #  - MachineConfigPool/
