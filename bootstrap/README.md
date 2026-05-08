@@ -38,7 +38,8 @@ EOF
 oc edit argocds.argoproj.io  -n openshift-gitops   openshift-gitops
 ```
 
-and add `g, idp-coe-sso-admin, role:admin` to rbac.policy
+and add `g, global-cluster-admins, role:admin` to rbac.policy
+and add `g, local-cluster-admins, role:admin` to rbac.policy
 
 
 ## Configure External Secrets Operator
