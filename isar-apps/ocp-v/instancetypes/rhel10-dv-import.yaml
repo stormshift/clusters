@@ -1,0 +1,17 @@
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: rhel10-clean-base
+  namespace: custom-os-images
+spec:
+  source:
+    registry:
+      url: "docker://registry.redhat.io/rhel10/rhel-guest-image:latest"
+      secretRef: redhat-registry-credentials
+  storage:
+    storageClassName: coe-netapp-san 
+    accessModes:
+      - ReadWriteMany
+    resources:
+      requests:
+        storage: 30Gi
