@@ -7,15 +7,13 @@ metadata:
     app.kubernetes.io/part-of: hyperconverged-cluster
     template.kubevirt.io/architecture: amd64
     flavor.template.kubevirt.io/small: 'true'
-    template.kubevirt.io/version: v0.34.1
     app.kubernetes.io/version: 4.20.3
-    template.kubevirt.io/type: vm
-    vm.kubevirt.io/template: rhel10-server-small
     app.kubernetes.io/component: templating
-    app.kubernetes.io/managed-by: ssp-operator
-    os.template.kubevirt.io/rhel10.0: 'true'
     app.kubernetes.io/name: custom-templates
+    template.kubevirt.io/type: vm
+    vm.kubevirt.io/template: rhel10-server-small-vuln-scan
     vm.kubevirt.io/template.namespace: openshift
+    os.template.kubevirt.io/rhel10.0: 'true'
     workload.template.kubevirt.io/server: 'true'
   annotations:
     template.kubevirt.io/provider: Red Hat GmbH - TechSales
@@ -23,11 +21,10 @@ metadata:
     template.kubevirt.io/containerdisks: |
       registry.redhat.io/rhel10/rhel-guest-image
     template.kubevirt.io/version: v1alpha1
-    openshift.io/display-name: Red Hat Enterprise Linux 10 VM - VulnScanEnabled (roxagent via cloud-init)
+    openshift.io/display-name: Red Hat Enterprise Linux 10 VM - VulnScanEnabled (roxagent via Ansible)
     openshift.io/documentation-url: 'https://github.com/kubevirt/common-templates'
     template.kubevirt.io/images: |
       https://access.redhat.com/downloads/content/rhel10
-    operator-sdk/primary-resource-type: SSP.ssp.kubevirt.io
     defaults.template.kubevirt.io/disk: rootdisk
     name.os.template.kubevirt.io/rhel10.0: Red Hat Enterprise Linux 10.0 or higher
     template.kubevirt.io/editable: |
@@ -40,10 +37,9 @@ metadata:
       /objects[0].spec.template.spec.networks
     template.openshift.io/bindable: 'false'
     openshift.kubevirt.io/pronounceable-suffix-for-name-expression: 'true'
-    operator-sdk/primary-resource: openshift-cnv/ssp-kubevirt-hyperconverged
-    tags: 'hidden,kubevirt,virtualmachine,linux,rhel'
+    tags: 'kubevirt,virtualmachine,linux,rhel,vuln-scan'
     template.kubevirt.io/provider-support-level: Full
-    description: Template for Red Hat Enterprise Linux 10 VM or newer with RHACS vulnerability scanning. Roxagent and a 4-hour cron are installed via cloud-init on first boot. A DataSource with the RHEL disk image must be available.
+    description: Template for Red Hat Enterprise Linux 10 VM or newer with RHACS vulnerability scanning. Roxagent is installed via Ansible (isar roxagent-trigger watcher on VMI Ready). A DataSource with the RHEL disk image must be available.
     openshift.io/support-url: 'https://github.com/kubevirt/common-templates/issues'
     iconClass: icon-rhel
     openshift.io/provider-display-name: Red Hat GmbH - TechSales
@@ -65,6 +61,7 @@ objects:
       labels:
         app: '${NAME}'
         kubevirt.io/dynamic-credentials-support: 'true'
+        stormshift.coe.muc.redhat.com/roxagent: 'true'
         vm.kubevirt.io/template: rhel10-server-small-vuln-scan
         vm.kubevirt.io/template.revision: '1'
         vm.kubevirt.io/template.namespace: openshift
@@ -94,6 +91,7 @@ objects:
           labels:
             kubevirt.io/domain: '${NAME}'
             kubevirt.io/size: small
+            stormshift.coe.muc.redhat.com/roxagent: 'true'
         spec:
           architecture: amd64
           domain:
@@ -142,16 +140,21 @@ objects:
                   password: ${CLOUD_USER_PASSWORD}
                   chpasswd: { expire: False }
                   runcmd:
-                    - curl -sLo /usr/local/bin/roxagent https://mirror.openshift.com/pub/rhacs/assets/4.9.0/bin/linux/roxagent
-                    - chmod +x /usr/local/bin/roxagent
-                    - echo '0 */4 * * * root /usr/local/bin/roxagent' > /etc/cron.d/roxagent
-                    - chmod 644 /etc/cron.d/roxagent
+                    - |
+                      install -d -m 700 -o cloud-user -g cloud-user /home/cloud-user/.ssh
+                      AK=/home/cloud-user/.ssh/authorized_keys
+                      grep -qxF '${ANSIBLE_SSH_PUBLIC_KEY}' "$AK" 2>/dev/null || echo '${ANSIBLE_SSH_PUBLIC_KEY}' >> "$AK"
+                      chmod 600 "$AK"
+                      chown cloud-user:cloud-user "$AK"
               name: cloudinitdisk
 parameters:
   - name: NAME
     description: VM name
     generate: expression
     from: 'rhel10-[a-z0-9]{16}'
+  - name: VM_NAMESPACE
+    description: OpenShift namespace (project) where the VM is deployed
+    value: sluetzen-vm-vuln-demo
   - name: DATA_SOURCE_NAME
     description: Name of the DataSource to clone
     value: rhel10
@@ -162,3 +165,9 @@ parameters:
     description: Randomized password for the cloud-init user cloud-user
     generate: expression
     from: '[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}'
+  - name: ANSIBLE_SSH_PUBLIC_KEY
+    description: >-
+      SSH public key for Ansible/AAP access, appended to cloud-user authorized_keys
+      on first boot (in addition to any user-provided SSH keys).
+      Default is set in kustomization.yaml.
+    value: 'REPLACE_ME'

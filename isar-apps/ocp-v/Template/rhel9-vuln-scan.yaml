@@ -7,19 +7,17 @@ metadata:
     app.kubernetes.io/part-of: hyperconverged-cluster
     template.kubevirt.io/architecture: amd64
     flavor.template.kubevirt.io/small: 'true'
-    template.kubevirt.io/version: v0.34.1
     app.kubernetes.io/version: 4.20.3
-    template.kubevirt.io/type: vm
-    vm.kubevirt.io/template: rhel9-server-small
     app.kubernetes.io/component: templating
-    app.kubernetes.io/managed-by: ssp-operator
+    app.kubernetes.io/name: custom-templates
+    template.kubevirt.io/type: vm
+    vm.kubevirt.io/template: rhel9-server-small-vuln-scan
+    vm.kubevirt.io/template.namespace: openshift
     os.template.kubevirt.io/rhel9.0: 'true'
     os.template.kubevirt.io/rhel9.1: 'true'
-    app.kubernetes.io/name: custom-templates
     os.template.kubevirt.io/rhel9.2: 'true'
     os.template.kubevirt.io/rhel9.3: 'true'
     os.template.kubevirt.io/rhel9.4: 'true'
-    vm.kubevirt.io/template.namespace: openshift
     os.template.kubevirt.io/rhel9.5: 'true'
     os.template.kubevirt.io/rhel9.6: 'true'
     workload.template.kubevirt.io/server: 'true'
@@ -30,11 +28,10 @@ metadata:
     template.kubevirt.io/containerdisks: |
       registry.redhat.io/rhel9/rhel-guest-image
     template.kubevirt.io/version: v1alpha1
-    openshift.io/display-name: Red Hat Enterprise Linux 9 VM - VulnScanEnabled (roxagent via cloud-init)
+    openshift.io/display-name: Red Hat Enterprise Linux 9 VM - VulnScanEnabled (roxagent via Ansible)
     openshift.io/documentation-url: 'https://github.com/kubevirt/common-templates'
     template.kubevirt.io/images: |
       https://access.redhat.com/downloads/content/479/ver=/rhel---9/9.0/x86_64/product-software
-    operator-sdk/primary-resource-type: SSP.ssp.kubevirt.io
     defaults.template.kubevirt.io/disk: rootdisk
     name.os.template.kubevirt.io/rhel9.0: Red Hat Enterprise Linux 9.0 or higher
     name.os.template.kubevirt.io/rhel9.1: Red Hat Enterprise Linux 9.0 or higher
@@ -49,15 +46,14 @@ metadata:
     name.os.template.kubevirt.io/rhel9.2: Red Hat Enterprise Linux 9.0 or higher
     template.openshift.io/bindable: 'false'
     openshift.kubevirt.io/pronounceable-suffix-for-name-expression: 'true'
-    operator-sdk/primary-resource: openshift-cnv/ssp-kubevirt-hyperconverged
     name.os.template.kubevirt.io/rhel9.3: Red Hat Enterprise Linux 9.0 or higher
     name.os.template.kubevirt.io/rhel9.4: Red Hat Enterprise Linux 9.0 or higher
-    tags: 'hidden,kubevirt,virtualmachine,linux,rhel'
+    tags: 'kubevirt,virtualmachine,linux,rhel,vuln-scan'
     name.os.template.kubevirt.io/rhel9.5: Red Hat Enterprise Linux 9.0 or higher
     name.os.template.kubevirt.io/rhel9.6: Red Hat Enterprise Linux 9.0 or higher
     template.kubevirt.io/provider-support-level: Full
     name.os.template.kubevirt.io/rhel9.7: Red Hat Enterprise Linux 9.0 or higher
-    description: Template for Red Hat Enterprise Linux 9 VM or newer with RHACS vulnerability scanning. Roxagent and a 4-hour cron are installed via cloud-init on first boot. A DataSource with the RHEL disk image must be available.
+    description: Template for Red Hat Enterprise Linux 9 VM or newer with RHACS vulnerability scanning. Roxagent is installed via Ansible (isar roxagent-trigger watcher on VMI Ready). A DataSource with the RHEL disk image must be available.
     openshift.io/support-url: 'https://github.com/kubevirt/common-templates/issues'
     iconClass: icon-rhel
     openshift.io/provider-display-name: Red Hat GmbH - TechSales
@@ -79,9 +75,10 @@ objects:
       labels:
         app: '${NAME}'
         kubevirt.io/dynamic-credentials-support: 'true'
+        stormshift.coe.muc.redhat.com/roxagent: 'true'
         vm.kubevirt.io/template: rhel9-server-small-vuln-scan
         vm.kubevirt.io/template.revision: '1'
-        vm.kubevirt.io/template.namespace: sluetzen-vm-vuln-demo
+        vm.kubevirt.io/template.namespace: openshift
       name: '${NAME}'
     spec:
       dataVolumeTemplates:
@@ -108,6 +105,7 @@ objects:
           labels:
             kubevirt.io/domain: '${NAME}'
             kubevirt.io/size: small
+            stormshift.coe.muc.redhat.com/roxagent: 'true'
         spec:
           architecture: amd64
           domain:
@@ -152,16 +150,21 @@ objects:
                   password: ${CLOUD_USER_PASSWORD}
                   chpasswd: { expire: False }
                   runcmd:
-                    - curl -sLo /usr/local/bin/roxagent https://mirror.openshift.com/pub/rhacs/assets/4.9.0/bin/linux/roxagent
-                    - chmod +x /usr/local/bin/roxagent
-                    - echo '0 */4 * * * root /usr/local/bin/roxagent' > /etc/cron.d/roxagent
-                    - chmod 644 /etc/cron.d/roxagent
+                    - |
+                      install -d -m 700 -o cloud-user -g cloud-user /home/cloud-user/.ssh
+                      AK=/home/cloud-user/.ssh/authorized_keys
+                      grep -qxF '${ANSIBLE_SSH_PUBLIC_KEY}' "$AK" 2>/dev/null || echo '${ANSIBLE_SSH_PUBLIC_KEY}' >> "$AK"
+                      chmod 600 "$AK"
+                      chown cloud-user:cloud-user "$AK"
               name: cloudinitdisk
 parameters:
   - name: NAME
     description: VM name
     generate: expression
     from: 'rhel9-[a-z0-9]{16}'
+  - name: VM_NAMESPACE
+    description: OpenShift namespace (project) where the VM is deployed
+    value: sluetzen-vm-vuln-demo
   - name: DATA_SOURCE_NAME
     description: Name of the DataSource to clone
     value: rhel9
@@ -172,3 +175,9 @@ parameters:
     description: Randomized password for the cloud-init user cloud-user
     generate: expression
     from: '[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}'
+  - name: ANSIBLE_SSH_PUBLIC_KEY
+    description: >-
+      SSH public key for Ansible/AAP access, appended to cloud-user authorized_keys
+      on first boot (in addition to any user-provided SSH keys).
+      Default is set in kustomization.yaml.
+    value: 'REPLACE_ME'
