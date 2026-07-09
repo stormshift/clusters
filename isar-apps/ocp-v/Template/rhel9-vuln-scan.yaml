@@ -156,9 +156,6 @@ parameters:
     description: VM name
     generate: expression
     from: 'rhel9-[a-z0-9]{16}'
-  - name: VM_NAMESPACE
-    description: OpenShift namespace (project) where the VM is deployed
-    value: sluetzen-vm-vuln-demo
   - name: DATA_SOURCE_NAME
     description: Name of the DataSource to clone
     value: rhel9
