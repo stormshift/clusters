@@ -8,3 +8,4 @@ resources:
 #- OperatorGroup.yaml
 #- Subscription.yaml
 - MigrationPolicy/
+- Template/
