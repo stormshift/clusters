@@ -53,7 +53,11 @@ metadata:
     name.os.template.kubevirt.io/rhel9.6: Red Hat Enterprise Linux 9.0 or higher
     template.kubevirt.io/provider-support-level: Full
     name.os.template.kubevirt.io/rhel9.7: Red Hat Enterprise Linux 9.0 or higher
-    description: Template for Red Hat Enterprise Linux 9 VM or newer with RHACS vulnerability scanning. Roxagent is installed via Ansible (isar roxagent-trigger watcher on VMI Ready). A DataSource with the RHEL disk image must be available.
+    description: >-
+      Template for Red Hat Enterprise Linux 9 VM or newer with RHACS vulnerability scanning.
+      Requires a namespace Secret (default rhsm-cloud-init) with cloud-init userdata including
+      rh_subscription and a ansible ssh key before the VM is started. Roxagent is installed via Ansible, via AAP (manually)
+      A DataSource with the RHEL disk image must be available.
     openshift.io/support-url: 'https://github.com/kubevirt/common-templates/issues'
     iconClass: icon-rhel
     openshift.io/provider-display-name: Red Hat GmbH - TechSales
@@ -144,18 +148,8 @@ objects:
                 name: '${NAME}'
               name: rootdisk
             - cloudInitNoCloud:
-                userData: |-
-                  #cloud-config
-                  user: cloud-user
-                  password: ${CLOUD_USER_PASSWORD}
-                  chpasswd: { expire: False }
-                  runcmd:
-                    - |
-                      install -d -m 700 -o cloud-user -g cloud-user /home/cloud-user/.ssh
-                      AK=/home/cloud-user/.ssh/authorized_keys
-                      grep -qxF '${ANSIBLE_SSH_PUBLIC_KEY}' "$AK" 2>/dev/null || echo '${ANSIBLE_SSH_PUBLIC_KEY}' >> "$AK"
-                      chmod 600 "$AK"
-                      chown cloud-user:cloud-user "$AK"
+                secretRef:
+                  name: '${RHSM_CLOUD_INIT_SECRET}'
               name: cloudinitdisk
 parameters:
   - name: NAME
@@ -171,13 +165,8 @@ parameters:
   - name: DATA_SOURCE_NAMESPACE
     description: Namespace of the DataSource
     value: openshift-virtualization-os-images
-  - name: CLOUD_USER_PASSWORD
-    description: Randomized password for the cloud-init user cloud-user
-    generate: expression
-    from: '[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}'
-  - name: ANSIBLE_SSH_PUBLIC_KEY
+  - name: RHSM_CLOUD_INIT_SECRET
     description: >-
-      SSH public key for Ansible/AAP access, appended to cloud-user authorized_keys
-      on first boot (in addition to any user-provided SSH keys).
-      Default is set in kustomization.yaml.
-    value: 'REPLACE_ME'
+      Name of the namespace Secret containing cloud-init userdata (key userdata) with
+      rh_subscription credentials. Create once per project; see rhsm-cloud-init-secret.yaml.example.
+    value: rhsm-cloud-init
