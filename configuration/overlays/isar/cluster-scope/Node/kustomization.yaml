@@ -10,7 +10,7 @@ resources:
 # Node temp. gone
 #  - inf44.yaml
 #  - ucs55.yaml
-  - ucs56.yaml
+#  - ucs56.yaml
 # Temp disabled
 #- ucs57.yaml
 #  - ucs-blade-server-1.yaml
