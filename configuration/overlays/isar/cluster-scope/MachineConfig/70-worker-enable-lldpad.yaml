@@ -3,7 +3,7 @@ kind: MachineConfig
 metadata:
   labels:
     machineconfiguration.openshift.io/role: worker
-  name: 70-worker-enable-lldapd
+  name: 70-worker-enable-lldpad
 spec:
   config:
     ignition:
