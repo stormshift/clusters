@@ -10,6 +10,6 @@ spec:
       version: 3.2.0
     systemd:
       units:
-        - name: lldapd.service
+        - name: lldpad.service
           enabled: true
           state: started
