@@ -13,23 +13,3 @@ spec:
         - name: lldpad.service
           enabled: true
           state: started
-        - name: lldpad-config.service
-          enabled: true
-          contents: |
-            [Unit]
-            Description=Configure lldpad TLVs on physical interfaces
-            After=lldpad.service
-            Requires=lldpad.service
-            [Service]
-            Type=oneshot
-            ExecStart=/usr/local/bin/lldpad-config.sh
-            RemainAfterExit=yes
-            [Install]
-            WantedBy=multi-user.target
-    storage:
-      files:
-        - path: /usr/local/bin/lldpad-config.sh
-          mode: 0755
-          overwrite: true
-          contents:
-            source: data:text/plain;charset=utf-8;base64,IyEvYmluL2Jhc2gKZm9yIGlmYWNlIGluIC9zeXMvY2xhc3MvbmV0LyovZGV2aWNlOyBkbwogIGlmYWNlPSQoYmFzZW5hbWUgIiR7aWZhY2UlL2RldmljZX0iKQogIGxsZHB0b29sIC1UIC1pICIkaWZhY2UiIC1WIHN5c05hbWUgZW5hYmxlVHg9eWVzCiAgbGxkcHRvb2wgLVQgLWkgIiRpZmFjZSIgLVYgcG9ydElEIHN1YnR5cGU9NQpkb25lCg==
