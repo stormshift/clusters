@@ -14,7 +14,7 @@ resources:
   - storm3.yaml
   - storm5.yaml
   - storm6.yaml
-  - ucs55.yaml
-  - ucs56.yaml
 # Temp disabled
+#  - ucs55.yaml
+#  - ucs56.yaml
 #  - ucs57.yaml
