@@ -11,3 +11,5 @@ resources:
 - 99-workers-core-password.yaml
 - 99-masters-core-password.yaml
 - 100-virt-node-pci-passthrough.yaml
+- 70-master-enable-lldpad.yaml
+- 70-worker-enable-lldpad.yaml
