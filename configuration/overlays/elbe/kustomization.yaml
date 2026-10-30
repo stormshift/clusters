@@ -6,3 +6,4 @@ resources:
 #  - ../common/
   - cluster-scope/
   - namespace/
+  - ../../../apps/disable-self-provisioners
