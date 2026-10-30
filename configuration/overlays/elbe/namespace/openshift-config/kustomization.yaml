@@ -6,5 +6,5 @@ namespace: openshift-config
 resources:
   - ConfigMap/
   - Secret/
-  - ExternalSecret/ 
-  #- Template/
+#  - ExternalSecret/ 
+#  #- Template/

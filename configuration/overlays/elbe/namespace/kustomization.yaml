@@ -3,8 +3,9 @@ kind: Kustomization
 
 resources:
   - openshift-config/
-  - openshift-ingress-operator/
-  - openshift-ingress/
+#  - openshift-ingress-operator/
+#  - openshift-ingress/
+
 #  - netapp-trident/
 #  - openshift-image-registry/
 #  - openshift-gitops/
