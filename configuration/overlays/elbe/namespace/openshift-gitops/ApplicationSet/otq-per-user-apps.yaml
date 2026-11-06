@@ -1,0 +1,84 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: otq-per-user-apps
+spec:
+  generators:
+    - list:
+        elements:
+          - user: otq-1
+          - user: otq-2
+          - user: otq-3
+          - user: otq-4
+          - user: otq-5
+          - user: otq-6
+          - user: otq-7
+          - user: otq-8
+          - user: otq-9
+          - user: otq-10
+          - user: otq-11
+          - user: otq-12
+          - user: otq-13
+          - user: otq-14
+          - user: otq-15
+          - user: otq-16
+          - user: otq-17
+          - user: otq-18
+          - user: otq-19
+          - user: otq-20
+          - user: otq-21
+          - user: otq-22
+          - user: otq-23
+          - user: otq-24
+          - user: otq-25
+          - user: otq-26
+          - user: otq-27
+          - user: otq-28
+          - user: otq-29
+          - user: otq-30
+          - user: otq-31
+          - user: otq-32
+          - user: otq-33
+          - user: otq-34
+          - user: otq-35
+          - user: otq-36
+          - user: otq-37
+          - user: otq-38
+          - user: otq-39
+          - user: otq-40
+          - user: otq-41
+          - user: otq-42
+          - user: otq-43
+          - user: otq-44
+          - user: otq-45
+          - user: otq-46
+          - user: otq-47
+          - user: otq-48
+          - user: otq-49
+          - user: otq-50
+  template:
+    metadata:
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+      name: '{{ user }}-apps'
+      namespace: openshift-gitops
+    spec:
+      destination:
+        namespace: '{{ user }}-apps'
+        server: 'https://kubernetes.default.svc'
+      project: default
+      source:
+        helm:
+          values: |
+            namespacePermissions:
+              user: "{{ user }}"
+              role: admin
+        path: challenges/openshift/per-user/apps
+        repoURL: 'https://github.com/open-tech-quest/challenge-provisioning.git'
+        targetRevision: development
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: false
+        syncOptions:
+          - CreateNamespace=true

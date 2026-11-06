@@ -3,10 +3,10 @@ kind: Kustomization
 
 resources:
   - openshift-config/
+  - openshift-gitops/
 #  - openshift-ingress-operator/
 #  - openshift-ingress/
 
 #  - netapp-trident/
 #  - openshift-image-registry/
-#  - openshift-gitops/
 #  - openshift-monitoring/
