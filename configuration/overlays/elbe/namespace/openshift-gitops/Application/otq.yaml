@@ -1,0 +1,84 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: otq
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    helm:
+      values: |
+
+        gitops:
+            path: challenges/openshift
+            repoURL: https://github.com/open-tech-quest/challenge-provisioning.git
+            revision: development
+
+        multi_user:
+            num_users: 50
+            users:
+          - username: otq-1
+          - username: otq-2
+          - username: otq-3
+          - username: otq-4
+          - username: otq-5
+          - username: otq-6
+          - username: otq-7
+          - username: otq-8
+          - username: otq-9
+          - username: otq-10
+          - username: otq-11
+          - username: otq-12
+          - username: otq-13
+          - username: otq-14
+          - username: otq-15
+          - username: otq-16
+          - username: otq-17
+          - username: otq-18
+          - username: otq-19
+          - username: otq-20
+          - username: otq-21
+          - username: otq-22
+          - username: otq-23
+          - username: otq-24
+          - username: otq-25
+          - username: otq-26
+          - username: otq-27
+          - username: otq-28
+          - username: otq-29
+          - username: otq-30
+          - username: otq-31
+          - username: otq-32
+          - username: otq-33
+          - username: otq-34
+          - username: otq-35
+          - username: otq-36
+          - username: otq-37
+          - username: otq-38
+          - username: otq-39
+          - username: otq-40
+          - username: otq-41
+          - username: otq-42
+          - username: otq-43
+          - username: otq-44
+          - username: otq-45
+          - username: otq-46
+          - username: otq-47
+          - username: otq-48
+          - username: otq-49
+          - username: otq-50
+
+        user:
+            count: 50
+    path: challenges/openshift
+    repoURL: 'https://github.com/open-tech-quest/challenge-provisioning.git'
+    targetRevision: development
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
