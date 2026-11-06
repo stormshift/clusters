@@ -6,4 +6,5 @@ resources:
 #  - ../common/
   - cluster-scope/
   - namespace/
-  - ../../../apps/disable-self-provisioners
+  - ../../../apps/disable-self-provisioners/
+  - ../../../apps/gitops-privileges/

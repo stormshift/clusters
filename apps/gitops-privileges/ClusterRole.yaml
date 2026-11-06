@@ -287,3 +287,10 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - ''
+  resources:
+  - resourcequotas 
+  verbs:
+  - patch
+  - create
