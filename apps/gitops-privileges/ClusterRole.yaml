@@ -312,6 +312,8 @@ rules:
   - data-protection.isf.ibm.com
   resources:
   - backups
+  - backuppolicies
+  - policyassignments
   verbs:
   - patch
   - create
