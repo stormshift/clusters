@@ -294,3 +294,11 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - 'networking.k8s.io'
+  resources:
+  - networkpolicies
+  verbs:
+  - patch
+  - create
+
