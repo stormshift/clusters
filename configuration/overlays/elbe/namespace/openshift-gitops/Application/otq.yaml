@@ -15,7 +15,7 @@ spec:
         gitops:
             path: challenges/openshift
             repoURL: https://github.com/open-tech-quest/challenge-provisioning.git
-            revision: development
+            revision: main
 
         multi_user:
             num_users: 50
@@ -75,7 +75,7 @@ spec:
             count: 50
     path: challenges/openshift
     repoURL: 'https://github.com/open-tech-quest/challenge-provisioning.git'
-    targetRevision: development
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false
