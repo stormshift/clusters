@@ -308,4 +308,10 @@ rules:
   verbs:
   - patch
   - create
-
+- apiGroups:
+  - data-protection.isf.ibm.com
+  resources:
+  - backups
+  verbs:
+  - patch
+  - create
