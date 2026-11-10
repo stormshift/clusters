@@ -301,4 +301,11 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - 'helm.openshift.io'
+  resources:
+  - helmchartrepositories
+  verbs:
+  - patch
+  - create
 
