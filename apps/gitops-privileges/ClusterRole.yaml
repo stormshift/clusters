@@ -317,3 +317,17 @@ rules:
   verbs:
   - patch
   - create
+- apiGroups:
+  - pfe.rhpds.com
+  resources:
+  - gitea
+  verbs:
+  - patch
+  - create
+- apiGroups:
+  - ""
+  resources:
+  - groups
+  verbs:
+  - patch
+  - create
