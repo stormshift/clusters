@@ -9,6 +9,7 @@ rules:
   - nodes
   verbs:
   - patch
+  - create
 - apiGroups:
   - metallb.io
   resources:
